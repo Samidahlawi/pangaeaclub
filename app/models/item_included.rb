@@ -1,0 +1,2 @@
+class ItemIncluded < ApplicationRecord
+end
