@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PangaeaClub</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <% unless flash.empty? %>
+          <script type="text/javascript">
+          <% flash.each do |f| %>
+          <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+          toastr['<%= type %>']('<%= f[1] %>');
+          <% end %>
+          </script>
+      <% end %>
+      
+      <nav>
+          <% if current_user.nil? %>
+            <%= link_to "الرئسية", root_path, :class => "" %>
+            <%= link_to "تسجيل الدخول", new_user_session_path, :class => "" %>
+            <%= link_to "تسجيل", new_user_registration_path, :class => "" %>
+          <% else %>
+            <%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "" %> 
+            <%= link_to "خروج", destroy_user_session_path, :class => "" , method: :delete%>
+            
+            <%# when the admin sign_in %>
+            <% if current_user.admin %>
+               <%= link_to "Dashboard", '/admin' %>
+            <% end%>
+
+          <% end %>
+      </nav>
+    <%= yield %>
+  </body>
+</html>

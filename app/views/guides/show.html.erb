@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @guide.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @guide.last_name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @guide.country %>
+</p>
+
+<p>
+  <strong>Hobby:</strong>
+  <%= @guide.hobby %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @guide.instagram %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @guide.description %>
+</p>
+
+<p>
+  <strong>Profile image:</strong>
+  <%= @guide.profile_image %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @guide.position %>
+</p>
+
+<%= link_to 'Edit', edit_guide_path(@guide) %> |
+<%= link_to 'Back', guides_path %>
