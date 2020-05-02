@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trips
   resources :guides
   root 'home#index'
   # routes for rails_admin

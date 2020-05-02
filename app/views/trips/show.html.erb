@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @trip.title %>
+</p>
+
+<p>
+  <strong>Sub title:</strong>
+  <%= @trip.sub_title %>
+</p>
+
+<p>
+  <strong>Trip type:</strong>
+  <%= @trip.trip_type %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @trip.country %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @trip.destination %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @trip.deadline %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @trip.level %>
+</p>
+
+<p>
+  <strong>Bg image:</strong>
+  <%= @trip.bg_image %>
+</p>
+
+<p>
+  <strong>Group size start:</strong>
+  <%= @trip.group_size_start %>
+</p>
+
+<p>
+  <strong>Group size end:</strong>
+  <%= @trip.group_size_end %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @trip.duration %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @trip.image %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @trip.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @trip.end_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @trip.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @trip.price %>
+</p>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>
