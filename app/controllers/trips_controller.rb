@@ -1,6 +1,12 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_user_admin!, only: [:new,:edit,:update,:destroy,:create]
+  def ensure_user_admin!
+    unless current_user and current_user.admin == true
+      flash[:error] = "(: لا يُمكنك الوصول إلى هذه الصّفحة"
+      redirect_to root_path
+    end
+  end
   # GET /trips
   # GET /trips.json
   def index
