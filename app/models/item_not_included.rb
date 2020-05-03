@@ -1,2 +1,0 @@
-class ItemNotIncluded < ApplicationRecord
-end

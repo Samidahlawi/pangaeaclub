@@ -1,12 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_user_admin!, only: [:new,:edit,:update,:destroy,:create]
-  def ensure_user_admin!
-    unless current_user and current_user.admin == true
-      flash[:error] = "(: لا يُمكنك الوصول إلى هذه الصّفحة"
-      redirect_to root_path
-    end
-  end
+
   # GET /trips
   # GET /trips.json
   def index
@@ -75,6 +69,6 @@ class TripsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trip_params
-      params.require(:trip).permit(:title, :sub_title, :trip_type, :country, :destination, :deadline, :level, :bg_image, :group_size_start, :group_size_end, :duration, :image, :start_date, :end_date, :description, :price)
+      params.require(:trip).permit(:title, :sub_title, :trip_type, :country, :destination, :deadline, :level, :bg_image, :group_size_start, :group_size_end, :duration, :image, :start_date, :end_date, :description, :price, :guide_id, :region_id)
     end
 end

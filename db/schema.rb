@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_053037) do
+ActiveRecord::Schema.define(version: 2020_05_03_074545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,25 +28,8 @@ ActiveRecord::Schema.define(version: 2020_05_02_053037) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "item_includeds", force: :cascade do |t|
-    t.string "title"
-    t.text "description", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "item_not_includeds", force: :cascade do |t|
-    t.string "item"
-    t.text "description", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "itineraries", force: :cascade do |t|
-    t.string "title"
-    t.string "name", null: false
-    t.text "description", null: false
-    t.string "image"
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -68,8 +51,12 @@ ActiveRecord::Schema.define(version: 2020_05_02_053037) do
     t.date "end_date", null: false
     t.text "description", null: false
     t.float "price", null: false
+    t.bigint "guide_id", null: false
+    t.bigint "region_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["guide_id"], name: "index_trips_on_guide_id"
+    t.index ["region_id"], name: "index_trips_on_region_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,4 +76,6 @@ ActiveRecord::Schema.define(version: 2020_05_02_053037) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "trips", "guides"
+  add_foreign_key "trips", "regions"
 end

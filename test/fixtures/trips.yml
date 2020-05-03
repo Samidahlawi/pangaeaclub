@@ -6,17 +6,19 @@ one:
   trip_type: MyString
   country: MyString
   destination: MyString
-  deadline: 2020-05-02
+  deadline: 2020-05-03
   level: MyString
   bg_image: MyString
   group_size_start: 1
   group_size_end: 1
   duration: 1
   image: MyString
-  start_date: 2020-05-02
-  end_date: 2020-05-02
+  start_date: 2020-05-03
+  end_date: 2020-05-03
   description: MyText
   price: 1.5
+  guide: one
+  region: one
 
 two:
   title: MyString
@@ -24,14 +26,16 @@ two:
   trip_type: MyString
   country: MyString
   destination: MyString
-  deadline: 2020-05-02
+  deadline: 2020-05-03
   level: MyString
   bg_image: MyString
   group_size_start: 1
   group_size_end: 1
   duration: 1
   image: MyString
-  start_date: 2020-05-02
-  end_date: 2020-05-02
+  start_date: 2020-05-03
+  end_date: 2020-05-03
   description: MyText
   price: 1.5
+  guide: two
+  region: two
