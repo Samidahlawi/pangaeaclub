@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_074545) do
+ActiveRecord::Schema.define(version: 2020_05_03_081223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,24 @@ ActiveRecord::Schema.define(version: 2020_05_03_074545) do
     t.string "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "item_includeds", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_item_includeds_on_trip_id"
+  end
+
+  create_table "item_not_includeds", force: :cascade do |t|
+    t.string "item", null: false
+    t.text "description", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_item_not_includeds_on_trip_id"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -76,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_05_03_074545) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "item_includeds", "trips"
+  add_foreign_key "item_not_includeds", "trips"
   add_foreign_key "trips", "guides"
   add_foreign_key "trips", "regions"
 end
