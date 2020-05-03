@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_081223) do
+ActiveRecord::Schema.define(version: 2020_05_03_084543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,28 @@ ActiveRecord::Schema.define(version: 2020_05_03_081223) do
     t.index ["trip_id"], name: "index_item_not_includeds_on_trip_id"
   end
 
+  create_table "itineraries", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "image"
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_itineraries_on_trip_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "gender", null: false
+    t.bigint "user_trip_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_trip_id"], name: "index_participants_on_user_trip_id"
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -77,6 +99,16 @@ ActiveRecord::Schema.define(version: 2020_05_03_081223) do
     t.index ["region_id"], name: "index_trips_on_region_id"
   end
 
+  create_table "user_trips", force: :cascade do |t|
+    t.float "total", null: false
+    t.bigint "user_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_user_trips_on_trip_id"
+    t.index ["user_id"], name: "index_user_trips_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,6 +128,10 @@ ActiveRecord::Schema.define(version: 2020_05_03_081223) do
 
   add_foreign_key "item_includeds", "trips"
   add_foreign_key "item_not_includeds", "trips"
+  add_foreign_key "itineraries", "trips"
+  add_foreign_key "participants", "user_trips"
   add_foreign_key "trips", "guides"
   add_foreign_key "trips", "regions"
+  add_foreign_key "user_trips", "trips"
+  add_foreign_key "user_trips", "users"
 end
