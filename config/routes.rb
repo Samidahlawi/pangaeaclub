@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :participants
+  resources :user_trips
+  resources :itineraries
   resources :item_not_includeds
   resources :item_includeds
   resources :trips
