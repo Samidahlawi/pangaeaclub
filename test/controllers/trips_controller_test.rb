@@ -17,7 +17,7 @@ class TripsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create trip" do
     assert_difference('Trip.count') do
-      post trips_url, params: { trip: { bg_image: @trip.bg_image, country: @trip.country, deadline: @trip.deadline, description: @trip.description, destination: @trip.destination, duration: @trip.duration, end_date: @trip.end_date, group_size_end: @trip.group_size_end, group_size_start: @trip.group_size_start, image: @trip.image, level: @trip.level, price: @trip.price, start_date: @trip.start_date, sub_title: @trip.sub_title, title: @trip.title, trip_type: @trip.trip_type } }
+      post trips_url, params: { trip: { bg_image: @trip.bg_image, country: @trip.country, deadline: @trip.deadline, description: @trip.description, destination: @trip.destination, duration: @trip.duration, end_date: @trip.end_date, group_size_end: @trip.group_size_end, group_size_start: @trip.group_size_start, guide_id: @trip.guide_id, image: @trip.image, level: @trip.level, price: @trip.price, region_id: @trip.region_id, start_date: @trip.start_date, sub_title: @trip.sub_title, title: @trip.title, trip_type: @trip.trip_type } }
     end
 
     assert_redirected_to trip_url(Trip.last)
@@ -34,7 +34,7 @@ class TripsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update trip" do
-    patch trip_url(@trip), params: { trip: { bg_image: @trip.bg_image, country: @trip.country, deadline: @trip.deadline, description: @trip.description, destination: @trip.destination, duration: @trip.duration, end_date: @trip.end_date, group_size_end: @trip.group_size_end, group_size_start: @trip.group_size_start, image: @trip.image, level: @trip.level, price: @trip.price, start_date: @trip.start_date, sub_title: @trip.sub_title, title: @trip.title, trip_type: @trip.trip_type } }
+    patch trip_url(@trip), params: { trip: { bg_image: @trip.bg_image, country: @trip.country, deadline: @trip.deadline, description: @trip.description, destination: @trip.destination, duration: @trip.duration, end_date: @trip.end_date, group_size_end: @trip.group_size_end, group_size_start: @trip.group_size_start, guide_id: @trip.guide_id, image: @trip.image, level: @trip.level, price: @trip.price, region_id: @trip.region_id, start_date: @trip.start_date, sub_title: @trip.sub_title, title: @trip.title, trip_type: @trip.trip_type } }
     assert_redirected_to trip_url(@trip)
   end
 

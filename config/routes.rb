@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :itineraries
-  resources :item_not_includeds
-  resources :item_includeds
   resources :trips
   resources :guides
   root 'home#index'

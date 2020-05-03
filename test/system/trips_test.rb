@@ -23,9 +23,11 @@ class TripsTest < ApplicationSystemTestCase
     fill_in "End date", with: @trip.end_date
     fill_in "Group size end", with: @trip.group_size_end
     fill_in "Group size start", with: @trip.group_size_start
+    fill_in "Guide", with: @trip.guide_id
     fill_in "Image", with: @trip.image
     fill_in "Level", with: @trip.level
     fill_in "Price", with: @trip.price
+    fill_in "Region", with: @trip.region_id
     fill_in "Start date", with: @trip.start_date
     fill_in "Sub title", with: @trip.sub_title
     fill_in "Title", with: @trip.title
@@ -49,9 +51,11 @@ class TripsTest < ApplicationSystemTestCase
     fill_in "End date", with: @trip.end_date
     fill_in "Group size end", with: @trip.group_size_end
     fill_in "Group size start", with: @trip.group_size_start
+    fill_in "Guide", with: @trip.guide_id
     fill_in "Image", with: @trip.image
     fill_in "Level", with: @trip.level
     fill_in "Price", with: @trip.price
+    fill_in "Region", with: @trip.region_id
     fill_in "Start date", with: @trip.start_date
     fill_in "Sub title", with: @trip.sub_title
     fill_in "Title", with: @trip.title
