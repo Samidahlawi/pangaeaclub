@@ -1,4 +1,4 @@
 class Region < ApplicationRecord
-has_GImany :trips
+has_many :trips
 
 end
