@@ -13,7 +13,7 @@ end
 
 
 
-##### USER  #####
+##### START USER  #####
 config.model User do
   list do
     field :id
@@ -30,6 +30,9 @@ config.model User do
 
   end
 end
+##### END USER  #####
+
+
 ###### Start_trip ######
 config.model Trip do 
   configure :guide, :belongs_to_association
@@ -148,6 +151,7 @@ end
 config.model Booking do 
   configure :user, :belongs_to_association
   configure :trip, :belongs_to_association
+  # configure :participants, :has_many
 
   list do 
     field :id
@@ -167,6 +171,11 @@ config.model Booking do
     field :trip
     field :created_at
     field :updated_at
+    field :participants
+    # field :guide_id, :enum do
+    #   enum do
+    #     Guide.all.collect {|p| [p.first_name + " " + p.last_name, p.id]}
+    # end
   end
 
   
@@ -180,6 +189,7 @@ config.model Booking do
       end
     end
     field :trip
+    field :participants
   end
 
   #update
@@ -191,6 +201,7 @@ config.model Booking do
       end
     end
     field :trip
+    field :participants
   end
 
   #show
@@ -206,11 +217,45 @@ config.model Booking do
     field :trip
     field :created_at
     field :updated_at
+    field :participants
   end
 
 end
 
 ###### End Booking ######
+
+###### START Participant ######
+config.model Participant do 
+  configure :booking, :belongs_to_association
+
+  #create
+  create do 
+    field :first_name
+    field :last_name
+    field :email
+    field :gender
+    field :booking_id, :enum do
+      enum do
+        Booking.all.collect {|p| ["Booking No: " + p.id.to_s + " - Trip: " + p.trip.title + " - User: " + p.user.email  , p.id]}
+      end
+    end
+  end
+
+  #update
+  update do 
+    field :first_name
+    field :last_name
+    field :email
+    field :gender
+    field :booking_id, :enum do
+      enum do
+        Booking.all.collect {|p| ["Booking No: " + p.id.to_s + " - Trip: " + p.trip.title + " - User: " + p.user.email  , p.id]}
+      end
+    end
+  end
+
+end
+###### END Participant ######
 
 ##########################
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_071743) do
+ActiveRecord::Schema.define(version: 2020_05_04_080444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2020_05_04_071743) do
     t.index ["trip_id"], name: "index_itineraries_on_trip_id"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.string "gender", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_participants_on_booking_id"
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -132,6 +143,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_071743) do
   add_foreign_key "item_not_includeds_trips", "item_not_includeds"
   add_foreign_key "item_not_includeds_trips", "trips"
   add_foreign_key "itineraries", "trips"
+  add_foreign_key "participants", "bookings"
   add_foreign_key "trips", "guides"
   add_foreign_key "trips", "regions"
 end
