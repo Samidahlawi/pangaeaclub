@@ -12,5 +12,7 @@ class User < ApplicationRecord
   validates_presence_of :country, :message =>"أرجو أختيار الدولة"
 
   # validates :last_name,:phone,:country, presence: true
-has_many :user_trips
+
+  #many_to_many with booking
+  has_many :bookings
 end

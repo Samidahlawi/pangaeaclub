@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bookings
   resources :itineraries
   resources :trips
   resources :item_not_includeds

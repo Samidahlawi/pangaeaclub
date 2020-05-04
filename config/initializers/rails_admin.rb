@@ -109,9 +109,108 @@ config.model Trip do
     field :itineraries
     # field :user_trips
   end
- end
+
+  #show
+  show do 
+    field :title
+    field :sub_title
+    field :description
+    field :trip_type
+    field :region
+    field :start_date
+    field :end_date
+    field :country 
+    field :destination
+    field :deadline
+    field :level
+    field :bg_image
+    field :group_size_start
+    field :group_size_end
+    field :duration
+    field :image
+    field :price
+    field :guide do 
+      pretty_value do
+        guide = Guide.find(bindings[:object].guide_id.to_s)
+        guide.first_name + " " +guide.last_name
+      end
+    end
+    field :item_includeds
+    field :item_not_includeds
+    field :itineraries
+    field :bookings
+  end
+ 
+end
 ###### End_trip ######
 
+###### Start Booking ######
+config.model Booking do 
+  configure :user, :belongs_to_association
+  configure :trip, :belongs_to_association
+
+  list do 
+    field :id
+    field :total
+    field :user do 
+      pretty_value do
+        user = User.find(bindings[:object].user_id.to_s)
+        user.first_name + " " + user.last_name
+      end
+    end
+    field :email do 
+      pretty_value do
+        user = User.find(bindings[:object].user_id.to_s)
+        user.email
+      end
+    end
+    field :trip
+    field :created_at
+    field :updated_at
+  end
+
+  
+
+  #create
+  create do 
+    field :total
+    field :user_id, :enum do
+      enum do
+        User.all.collect {|p| [p.email + ", " + p.first_name + " " + p.last_name, p.id]}
+      end
+    end
+    field :trip
+  end
+
+  #update
+  update do 
+    field :total
+    field :user_id, :enum do
+      enum do
+        User.all.collect {|p| [p.email + ", " + p.first_name + " " + p.last_name, p.id]}
+      end
+    end
+    field :trip
+  end
+
+  #show
+  show do 
+    field :id
+    field :user do 
+      pretty_value do
+        user = User.find(bindings[:object].user_id.to_s)
+        "Email: " + user.email + " || Name: " + user.first_name + " " + user.last_name
+      end
+    end
+    field :total
+    field :trip
+    field :created_at
+    field :updated_at
+  end
+
+end
+
+###### End Booking ######
 
 ##########################
 
