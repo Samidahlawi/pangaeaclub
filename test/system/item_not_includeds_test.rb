@@ -15,8 +15,7 @@ class ItemNotIncludedsTest < ApplicationSystemTestCase
     click_on "New Item Not Included"
 
     fill_in "Description", with: @item_not_included.description
-    fill_in "Item", with: @item_not_included.item
-    fill_in "Trip", with: @item_not_included.trip_id
+    fill_in "Title", with: @item_not_included.title
     click_on "Create Item not included"
 
     assert_text "Item not included was successfully created"
@@ -28,8 +27,7 @@ class ItemNotIncludedsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Description", with: @item_not_included.description
-    fill_in "Item", with: @item_not_included.item
-    fill_in "Trip", with: @item_not_included.trip_id
+    fill_in "Title", with: @item_not_included.title
     click_on "Update Item not included"
 
     assert_text "Item not included was successfully updated"

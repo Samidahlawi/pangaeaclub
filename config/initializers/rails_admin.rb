@@ -30,7 +30,7 @@ config.model User do
 
   end
 end
-###### trip ######
+###### Start_trip ######
 config.model Trip do 
   configure :guide, :belongs_to_association
 
@@ -75,11 +75,12 @@ config.model Trip do
 
     field :item_includeds
     field :item_not_includeds
-    field :itineraries
-    field :user_trips
+    # field :itineraries
+    # field :user_trips
   end
 
  end
+###### End_trip ######
 
 
 ##########################

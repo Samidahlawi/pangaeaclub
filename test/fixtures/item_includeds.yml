@@ -3,9 +3,7 @@
 one:
   title: MyString
   description: MyText
-  trip: one
 
 two:
   title: MyString
   description: MyText
-  trip: two

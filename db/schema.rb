@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_084543) do
+ActiveRecord::Schema.define(version: 2020_05_04_064952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,45 +31,33 @@ ActiveRecord::Schema.define(version: 2020_05_03_084543) do
   create_table "item_includeds", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["trip_id"], name: "index_item_includeds_on_trip_id"
+  end
+
+  create_table "item_includeds_trips", force: :cascade do |t|
+    t.bigint "item_included_id", null: false
+    t.bigint "trip_id", null: false
+    t.index ["item_included_id"], name: "index_item_includeds_trips_on_item_included_id"
+    t.index ["trip_id"], name: "index_item_includeds_trips_on_trip_id"
   end
 
   create_table "item_not_includeds", force: :cascade do |t|
-    t.string "item", null: false
-    t.text "description", null: false
-    t.bigint "trip_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["trip_id"], name: "index_item_not_includeds_on_trip_id"
-  end
-
-  create_table "itineraries", force: :cascade do |t|
     t.string "title", null: false
-    t.string "name", null: false
     t.text "description", null: false
-    t.string "image"
-    t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["trip_id"], name: "index_itineraries_on_trip_id"
   end
 
-  create_table "participants", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
-    t.string "gender", null: false
-    t.bigint "user_trip_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_trip_id"], name: "index_participants_on_user_trip_id"
+  create_table "item_not_includeds_trips", force: :cascade do |t|
+    t.bigint "item_not_included_id", null: false
+    t.bigint "trip_id", null: false
+    t.index ["item_not_included_id"], name: "index_item_not_includeds_trips_on_item_not_included_id"
+    t.index ["trip_id"], name: "index_item_not_includeds_trips_on_trip_id"
   end
 
   create_table "regions", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -83,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_084543) do
     t.date "deadline", null: false
     t.string "level", null: false
     t.string "bg_image", null: false
-    t.integer "group_size_start", null: false
+    t.integer "group_size_start"
     t.integer "group_size_end", null: false
     t.integer "duration", null: false
     t.string "image"
@@ -97,16 +85,6 @@ ActiveRecord::Schema.define(version: 2020_05_03_084543) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["guide_id"], name: "index_trips_on_guide_id"
     t.index ["region_id"], name: "index_trips_on_region_id"
-  end
-
-  create_table "user_trips", force: :cascade do |t|
-    t.float "total", null: false
-    t.bigint "user_id", null: false
-    t.bigint "trip_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["trip_id"], name: "index_user_trips_on_trip_id"
-    t.index ["user_id"], name: "index_user_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,12 +104,10 @@ ActiveRecord::Schema.define(version: 2020_05_03_084543) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "item_includeds", "trips"
-  add_foreign_key "item_not_includeds", "trips"
-  add_foreign_key "itineraries", "trips"
-  add_foreign_key "participants", "user_trips"
+  add_foreign_key "item_includeds_trips", "item_includeds"
+  add_foreign_key "item_includeds_trips", "trips"
+  add_foreign_key "item_not_includeds_trips", "item_not_includeds"
+  add_foreign_key "item_not_includeds_trips", "trips"
   add_foreign_key "trips", "guides"
   add_foreign_key "trips", "regions"
-  add_foreign_key "user_trips", "trips"
-  add_foreign_key "user_trips", "users"
 end

@@ -16,7 +16,6 @@ class ItemIncludedsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @item_included.description
     fill_in "Title", with: @item_included.title
-    fill_in "Trip", with: @item_included.trip_id
     click_on "Create Item included"
 
     assert_text "Item included was successfully created"
@@ -29,7 +28,6 @@ class ItemIncludedsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @item_included.description
     fill_in "Title", with: @item_included.title
-    fill_in "Trip", with: @item_included.trip_id
     click_on "Update Item included"
 
     assert_text "Item included was successfully updated"

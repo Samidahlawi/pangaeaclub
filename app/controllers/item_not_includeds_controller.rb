@@ -69,6 +69,6 @@ class ItemNotIncludedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_not_included_params
-      params.require(:item_not_included).permit(:item, :description, :trip_id)
+      params.require(:item_not_included).permit(:title, :description)
     end
 end

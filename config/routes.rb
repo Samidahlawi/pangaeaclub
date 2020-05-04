@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  resources :participants
-  resources :user_trips
-  resources :itineraries
+  resources :trips
   resources :item_not_includeds
   resources :item_includeds
-  resources :trips
   resources :guides
   root 'home#index'
   # routes for rails_admin

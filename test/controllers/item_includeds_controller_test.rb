@@ -17,7 +17,7 @@ class ItemIncludedsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create item_included" do
     assert_difference('ItemIncluded.count') do
-      post item_includeds_url, params: { item_included: { description: @item_included.description, title: @item_included.title, trip_id: @item_included.trip_id } }
+      post item_includeds_url, params: { item_included: { description: @item_included.description, title: @item_included.title } }
     end
 
     assert_redirected_to item_included_url(ItemIncluded.last)
@@ -34,7 +34,7 @@ class ItemIncludedsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item_included" do
-    patch item_included_url(@item_included), params: { item_included: { description: @item_included.description, title: @item_included.title, trip_id: @item_included.trip_id } }
+    patch item_included_url(@item_included), params: { item_included: { description: @item_included.description, title: @item_included.title } }
     assert_redirected_to item_included_url(@item_included)
   end
 

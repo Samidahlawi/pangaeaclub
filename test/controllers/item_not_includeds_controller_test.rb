@@ -17,7 +17,7 @@ class ItemNotIncludedsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create item_not_included" do
     assert_difference('ItemNotIncluded.count') do
-      post item_not_includeds_url, params: { item_not_included: { description: @item_not_included.description, item: @item_not_included.item, trip_id: @item_not_included.trip_id } }
+      post item_not_includeds_url, params: { item_not_included: { description: @item_not_included.description, title: @item_not_included.title } }
     end
 
     assert_redirected_to item_not_included_url(ItemNotIncluded.last)
@@ -34,7 +34,7 @@ class ItemNotIncludedsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update item_not_included" do
-    patch item_not_included_url(@item_not_included), params: { item_not_included: { description: @item_not_included.description, item: @item_not_included.item, trip_id: @item_not_included.trip_id } }
+    patch item_not_included_url(@item_not_included), params: { item_not_included: { description: @item_not_included.description, title: @item_not_included.title } }
     assert_redirected_to item_not_included_url(@item_not_included)
   end
 

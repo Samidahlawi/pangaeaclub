@@ -1,3 +1,3 @@
 class ItemNotIncluded < ApplicationRecord
-  belongs_to :trip
+    has_and_belongs_to_many :trips
 end
