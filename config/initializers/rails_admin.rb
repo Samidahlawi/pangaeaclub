@@ -30,6 +30,33 @@ config.model User do
 
   end
 end
+### trip ###
+config.model Trip do 
+  # list do
+  #   field :title
+  #   field :number 
+  #   field :date
+  #   field :user do 
+  #     pretty_value do 
+  #       user = User.find(bindings[:object].user_id.to_s)
+  #       user.email
+  #     end
+  #   end 
+  # end
+  list do 
+    field :id
+    field :title
+    field :country
+    field :destination
+    field :deadline
+    field :guide do 
+      pretty_value do
+        guide = Guide.find(bindings[:object].guide_id.to_s)
+        guide.first_name + " " +guide.last_name
+      end
+    end
+  end
+ end
 
 
 ##########################
