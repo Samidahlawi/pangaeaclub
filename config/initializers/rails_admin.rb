@@ -30,19 +30,10 @@ config.model User do
 
   end
 end
-### trip ###
+###### trip ######
 config.model Trip do 
-  # list do
-  #   field :title
-  #   field :number 
-  #   field :date
-  #   field :user do 
-  #     pretty_value do 
-  #       user = User.find(bindings[:object].user_id.to_s)
-  #       user.email
-  #     end
-  #   end 
-  # end
+  configure :guide, :belongs_to_association
+
   list do 
     field :id
     field :title
@@ -56,6 +47,38 @@ config.model Trip do
       end
     end
   end
+
+  #Create 
+  create do 
+    field :title
+    field :sub_title
+    field :description
+    field :trip_type
+    field :region
+    field :start_date
+    field :end_date
+    field :country 
+    field :destination
+    field :deadline
+    field :level
+    field :bg_image
+    field :group_size_start
+    field :group_size_end
+    field :duration
+    field :image
+    field :price
+    field :guide_id, :enum do
+      enum do
+        Guide.all.collect {|p| [p.first_name + " " + p.last_name, p.id]}
+    end
+  end
+
+    field :item_includeds
+    field :item_not_includeds
+    field :itineraries
+    field :user_trips
+  end
+
  end
 
 
