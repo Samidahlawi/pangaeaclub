@@ -5,5 +5,5 @@ class Trip < ApplicationRecord
   # many_to_many 
   has_and_belongs_to_many :item_includeds
   has_and_belongs_to_many :item_not_includeds
-
+  has_many :itineraries, dependent: :destroy
 end
