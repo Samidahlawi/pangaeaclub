@@ -32,9 +32,25 @@ config.model User do
 
 end
 ##### END USER  #####
-
+###### Start_Itinerary ######
 
 ###### Start_trip ######
+# config.model Itinerary do 
+
+#   ##create
+#   create do 
+#     field :title,
+#     field :name
+#     field :description
+#     field :image
+#     field :trip
+#   end
+
+# end
+
+###### End_trip ######
+
+
 config.model Trip do 
   configure :guide, :belongs_to_association
 
@@ -64,7 +80,11 @@ config.model Trip do
     field :country 
     field :destination
     field :deadline
-    field :level 
+    field :level, :enum do
+      enum do
+        ['متقدم','مبتدئ','متوسط']
+      end
+    end
     field :bg_image
     field :group_size_start
     field :group_size_end
@@ -95,7 +115,11 @@ config.model Trip do
     field :country 
     field :destination
     field :deadline
-    field :level
+    field :level, :enum do
+      enum do
+        ['متقدم','مبتدئ','متوسط']
+      end
+    end
     field :bg_image
     field :group_size_start
     field :group_size_end
@@ -233,7 +257,11 @@ config.model Participant do
     field :first_name
     field :last_name
     field :email
-    field :gender
+    field :gender, :enum do
+      enum do
+        ['أنثى','ذكر']
+      end
+    end
     field :booking_id, :enum do
       enum do
         Booking.all.collect {|p| ["Booking No: " + p.id.to_s + " - Trip: " + p.trip.title + " - User: " + p.user.email  , p.id]}
@@ -246,7 +274,11 @@ config.model Participant do
     field :first_name
     field :last_name
     field :email
-    field :gender
+    field :gender, :enum do
+      enum do
+        ['أنثى','ذكر']
+      end
+    end
     field :booking_id, :enum do
       enum do
         Booking.all.collect {|p| ["Booking No: " + p.id.to_s + " - Trip: " + p.trip.title + " - User: " + p.user.email  , p.id]}
