@@ -27,5 +27,7 @@ class Trip < ApplicationRecord
   validates :duration, presence: true
   # validates :image, presence: true
   validates :guide_id, presence: true
+  validates :price, presence: true
+
 
 end
