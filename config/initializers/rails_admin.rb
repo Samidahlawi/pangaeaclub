@@ -45,12 +45,51 @@ end
 #     field :image
 #     field :trip
 #   end
-
 # end
 
+# ///
+# config.model Team do
+#   visible false
+# end
+# ///
+
+###### Start_Guide ######
+config.model Guide do 
+  show do
+    field :id
+    field :first_name
+    field :last_name
+    field :profile_image  do
+      formatted_value do
+        bindings[:view].tag(:img, { :src => bindings[:object].profile_image }) 
+      end
+    end
+    field :country
+    field :trips
+    field :hobby
+    field :description
+    field :created_at
+    field :updated_at
+  end
+  
+  create do 
+    field :first_name
+    field :last_name
+    field :country
+    field :hobby
+    field :instagram
+    field :description
+    field :profile_image do 
+      partial "my_image_partial"
+    end
+    field :position
+    field :trips
+  end
+end
+###### End_Guide ######
+
+
 ###### End_trip ######
-
-
 config.model Trip do 
   configure :guide, :belongs_to_association
 
@@ -324,7 +363,9 @@ end
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do 
+    
+    end
     export
     bulk_delete
     show

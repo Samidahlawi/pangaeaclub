@@ -32,7 +32,7 @@ class GuidesController < ApplicationController
   # POST /guides
   # POST /guides.json
   def create
-  
+    
     
     @guide = Guide.new(guide_params)
     file = params[:guide][:profile_image]
