@@ -15,6 +15,7 @@ end
 
 ##### START USER  #####
 config.model User do
+
   list do
     field :id
     field :Full_name do
@@ -27,8 +28,8 @@ config.model User do
     field :phone 
     field :email
     field :admin
-
   end
+
 end
 ##### END USER  #####
 
@@ -63,7 +64,7 @@ config.model Trip do
     field :country 
     field :destination
     field :deadline
-    field :level
+    field :level 
     field :bg_image
     field :group_size_start
     field :group_size_end
@@ -221,7 +222,6 @@ config.model Booking do
   end
 
 end
-
 ###### End Booking ######
 
 ###### START Participant ######
@@ -257,7 +257,12 @@ config.model Participant do
 end
 ###### END Participant ######
 
+
+
+
 ##########################
+
+
 
   ### Popular gems integration
 
