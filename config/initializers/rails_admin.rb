@@ -105,7 +105,9 @@ config.model Trip do
 
   #update 
   update do 
-    field :title
+    field :title do
+      help 'Required'
+    end
     field :sub_title
     field :description
     field :trip_type
