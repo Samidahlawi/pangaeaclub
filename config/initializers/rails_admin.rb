@@ -55,14 +55,14 @@ end
 
 ###### Start_Guide ######
 config.model Guide do 
-  show do
+  list do
     field :id
     field :first_name
     field :last_name
     field :profile_image  do
-      formatted_value do
-        bindings[:view].tag(:img, { :src => bindings[:object].profile_image }) 
-      end
+      # formatted_value do
+      #   bindings[:view].tag(:img, { :src => bindings[:object].profile_image }) 
+      # end
     end
     field :country
     field :trips
