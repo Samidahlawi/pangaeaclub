@@ -4,5 +4,6 @@ class Booking < ApplicationRecord
 
   #many_to_many
   has_many :participants, dependent: :destroy
-
+#validation
+validates :total, presence: true
 end
