@@ -15,4 +15,13 @@ class User < ApplicationRecord
 
   #many_to_many with booking
   has_many :bookings
+
+  #validation
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true
+  validates :phone, presence: true
+  validates :password, presence: true
+  validates :PW_confirmation, presence: true
+  validates :country, presence: true
 end
