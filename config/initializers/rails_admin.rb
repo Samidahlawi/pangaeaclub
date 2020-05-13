@@ -14,7 +14,7 @@ end
 
 
 ##### START USER  #####
-config.model User do
+config.model 'User' do
 
   list do
     field :id
@@ -54,7 +54,7 @@ end
 # ///
 
 ###### Start_Guide ######
-config.model Guide do 
+config.model 'Guide' do 
   list do
     field :id
     field :first_name
@@ -79,9 +79,11 @@ config.model Guide do
     field :hobby
     field :instagram
     field :description
-    field :profile_image do 
-      partial "my_image_partial"
-    end
+    field :profile_image
+    # field :asset, :active_storage
+    # do 
+    #   partial "my_image_partial"
+    # end
     field :position
     field :trips
   end
@@ -90,7 +92,7 @@ end
 
 
 ###### End_trip ######
-config.model Trip do 
+config.model 'Trip' do 
   configure :guide, :belongs_to_association
 
   list do 
@@ -214,7 +216,7 @@ end
 ###### End_trip ######
 
 ###### Start Booking ######
-config.model Booking do 
+config.model 'Booking' do 
   configure :user, :belongs_to_association
   configure :trip, :belongs_to_association
   # configure :participants, :has_many
@@ -290,7 +292,7 @@ end
 ###### End Booking ######
 
 ###### START Participant ######
-config.model Participant do 
+config.model 'Participant' do 
   configure :booking, :belongs_to_association
 
   #create
