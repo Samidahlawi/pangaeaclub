@@ -12,11 +12,7 @@ class Trip < ApplicationRecord
   #validations
   validates :title, presence: true
   validates :sub_title, presence: true
-  validates :description, presence: true
   validates :trip_type, presence: true
-  validates :region_id, presence: true
-  validates :start_date, presence: true
-  validates :end_date, presence: true
   validates :country, presence: true
   validates :destination, presence: true
   validates :deadline, presence: true
@@ -26,8 +22,10 @@ class Trip < ApplicationRecord
   validates :group_size_end, presence: true
   validates :duration, presence: true
   # validates :image, presence: true
-  validates :guide_id, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :description, presence: true
   validates :price, presence: true
-
-
+  # validates :guide_id, presence: true  #remove comment
+  # validates :region_id, presence: true #remove comment
 end
