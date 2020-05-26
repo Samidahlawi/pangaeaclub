@@ -35,10 +35,15 @@
   <%= @trip.level %>
 </p>
 
-<p>
-  <strong>Bg image:</strong>
-  <%= @trip.bg_image %>
-</p>
+
+<%#show the background image of guide%>
+<% if @trip.asset.attached?%>
+  <p>
+    <strong>Background image:</strong>
+    <%= image_tag url_for(@trip.asset) %>
+  </p>
+<% end%>
+
 
 <p>
   <strong>Group size start:</strong>
@@ -55,10 +60,18 @@
   <%= @trip.duration %>
 </p>
 
+<hr>
+<% if @trip.asset.attached?%>
+  <strong>Images:</strong>
 <p>
-  <strong>Image:</strong>
-  <%= @trip.image %>
+  <%#show the images of trip%>
+  <% @trip.assets.each do |image| %>
+    <span>
+      <%= image_tag image %>
+    </span>
+  <% end%>
 </p>
+<% end%>
 
 <p>
   <strong>Start date:</strong>

@@ -17,15 +17,32 @@ class Trip < ApplicationRecord
   validates :destination, presence: true
   validates :deadline, presence: true
   validates :level, presence: true
-  validates :bg_image, presence: true
+  validates :assets, presence: true
   validates :group_size_start, presence: true
   validates :group_size_end, presence: true
   validates :duration, presence: true
-  # validates :image, presence: true
+  validates :asset, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :description, presence: true
   validates :price, presence: true
   # validates :guide_id, presence: true  #remove comment
   # validates :region_id, presence: true #remove comment
+
+
+  ###
+
+   # background_image of trip
+   has_one_attached :asset 
+   attr_accessor :remove_asset
+   after_save { asset.purge if remove_asset == '1' }
+
+
+   ## images of trip
+   has_many_attached :assets
+   attr_accessor :remove_assets
+   after_save do
+     Array(remove_assets).each { |id| assets.find_by_id(id).try(:purge) }
+   end
+
 end
