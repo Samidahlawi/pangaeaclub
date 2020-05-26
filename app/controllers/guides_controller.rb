@@ -34,7 +34,7 @@ class GuidesController < ApplicationController
   def create
     
     
-    @guide = Guide.new(guide_params)
+    @@guide = Guide.new(guide_params)
     file = params[:guide][:profile_image]
     req = Cloudinary::Uploader.upload(file)
     @guide.profile_image = req["url"]

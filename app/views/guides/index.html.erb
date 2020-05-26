@@ -26,7 +26,9 @@
         <td><%= guide.hobby %></td>
         <td><%= guide.instagram %></td>
         <td><%= guide.description %></td></td>
-        <td><%=  cl_image_tag(guide.profile_image, :width => 100, :height => 150, :crop => :fill)%>
+        <% if guide.asset.attached?%>
+        <td><%= image_tag url_for(guide.asset.variant(resize_to_limit: [100, 100]))%>
+        <% end%>
         <td><%= guide.position %></td>
         <td><%= link_to 'Show', guide %></td>
 </td>

@@ -13,7 +13,8 @@ gem 'devise-i18n'
 gem 'rails_admin', '~> 2.0'
 # Cloudinary 
 gem 'cloudinary'
-
+# Transforming Images
+gem 'image_processing', '~> 1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

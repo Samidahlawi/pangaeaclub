@@ -30,10 +30,28 @@
   <%= @guide.description %>
 </p>
 
-<p>
-  <strong>Profile image:</strong>
-  <%= @guide.profile_image %>
-</p>
+
+<%#show the profile image of guide%>
+<% if @guide.asset.attached?%>
+  <p>
+    <strong>Profile image:</strong>
+    <%= image_tag url_for(@guide.asset.variant(resize_to_limit: [100, 100])) %>
+  </p>
+<% end%>
+
+<hr>
+  <strong>Images:</strong>
+<% if @guide.assets.attached?%>
+  <%#show the images of guide%>
+  <% @guide.assets.each do |image| %>
+    <span>
+      <%= image_tag image %>
+    </span>
+  <% end%>
+<% end%>
+
+
+
 
 <p>
   <strong>Position:</strong>

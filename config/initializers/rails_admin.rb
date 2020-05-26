@@ -66,6 +66,15 @@ config.model 'Guide' do
     end
     field :country
     field :trips
+    field :asset, :active_storage do
+      # delete_method :remove_asset
+      pretty_value do
+        if value
+          path = Rails.application.routes.url_helpers.rails_blob_path(value, only_path: true)
+          bindings[:view].content_tag(:a, value.filename, href: path)
+        end
+      end
+    end
     field :hobby
     field :description
     field :created_at
@@ -79,15 +88,24 @@ config.model 'Guide' do
     field :hobby
     field :instagram
     field :description
+    field :asset, :active_storage do
+      delete_method :remove_asset
+    end
     field :profile_image
-    # field :asset, :active_storage
     # do 
     #   partial "my_image_partial"
     # end
     field :position
+    field :assets, :multiple_active_storage do
+      delete_method :remove_assets
+    end
     field :trips
   end
+
+ 
+
 end
+
 ###### End_Guide ######
 
 
