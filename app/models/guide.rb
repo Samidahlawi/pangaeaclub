@@ -7,6 +7,10 @@ class Guide < ApplicationRecord
     attr_accessor :remove_asset
     after_save { asset.purge if remove_asset == '1' }
 
+    #background_image
+    has_one_attached :bg_image
+    attr_accessor :remove_asset
+    after_save { bg_image.purge if remove_asset == '1' }
 
     ## images of guide
     has_many_attached :assets
@@ -32,7 +36,9 @@ class Guide < ApplicationRecord
     # validates :profile_image, presence: true
     validates :asset, presence: true
     validates :assets, presence: true
+    validates :bg_image, presence: true
 
+    
 
 
 end

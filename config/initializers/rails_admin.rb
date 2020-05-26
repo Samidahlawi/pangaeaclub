@@ -85,17 +85,17 @@ config.model 'Guide' do
     field :first_name
     field :last_name
     field :country
-    field :hobby
-    field :instagram
-    field :description
     field :asset, :active_storage do
       label 'Profile Image'
       delete_method :remove_asset
     end
-    # field :profile_image
-    # do 
-    #   partial "my_image_partial"
-    # end
+    field :hobby
+    field :instagram
+    field :description
+    field :bg_image, :active_storage do
+      label 'Background Image'
+      delete_method :remove_asset
+    end
     field :position
     field :assets, :multiple_active_storage do
       label 'Guide Images'
@@ -108,17 +108,17 @@ config.model 'Guide' do
       field :first_name
       field :last_name
       field :country
-      field :hobby
-      field :instagram
-      field :description
       field :asset, :active_storage do
         label 'Profile Image'
         delete_method :remove_asset
       end
-      # field :profile_image
-      # do 
-      #   partial "my_image_partial"
-      # end
+      field :hobby
+      field :instagram
+      field :description
+      field :bg_image, :active_storage do
+        label 'Background Image'
+        delete_method :remove_asset
+      end
       field :position
       field :assets, :multiple_active_storage do
         label 'Guide Images'
