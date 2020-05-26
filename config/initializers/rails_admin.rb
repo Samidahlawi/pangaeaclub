@@ -59,11 +59,11 @@ config.model 'Guide' do
     field :id
     field :first_name
     field :last_name
-    field :profile_image  do
-      # formatted_value do
-      #   bindings[:view].tag(:img, { :src => bindings[:object].profile_image }) 
-      # end
-    end
+    # field :profile_image  do
+    #   # formatted_value do
+    #   #   bindings[:view].tag(:img, { :src => bindings[:object].profile_image }) 
+    #   # end
+    # end
     field :country
     field :trips
     field :asset, :active_storage do
@@ -89,20 +89,42 @@ config.model 'Guide' do
     field :instagram
     field :description
     field :asset, :active_storage do
+      label 'Profile Image'
       delete_method :remove_asset
     end
-    field :profile_image
+    # field :profile_image
     # do 
     #   partial "my_image_partial"
     # end
     field :position
     field :assets, :multiple_active_storage do
+      label 'Guide Images'
       delete_method :remove_assets
     end
     field :trips
   end
 
- 
+  update do 
+      field :first_name
+      field :last_name
+      field :country
+      field :hobby
+      field :instagram
+      field :description
+      field :asset, :active_storage do
+        label 'Profile Image'
+        delete_method :remove_asset
+      end
+      # field :profile_image
+      # do 
+      #   partial "my_image_partial"
+      # end
+      field :position
+      field :assets, :multiple_active_storage do
+        label 'Guide Images'
+        delete_method :remove_assets
+      end
+  end
 
 end
 

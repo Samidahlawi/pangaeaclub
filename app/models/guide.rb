@@ -29,7 +29,7 @@ class Guide < ApplicationRecord
     validates :hobby, presence: true
     validates :instagram, presence: true
     validates :description, presence: true
-    validates :profile_image, presence: true
+    # validates :profile_image, presence: true
     validates :asset, presence: true
     validates :assets, presence: true
 
