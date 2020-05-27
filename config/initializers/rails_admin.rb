@@ -139,7 +139,7 @@ config.model 'Guide' do
     field :country
     field :trips
     field :asset do 
-      label 'profile image'
+      label 'Profile Image'
     end
     # field :asset, :active_storage do
     #   # delete_method :remove_asset
@@ -152,6 +152,9 @@ config.model 'Guide' do
     # end
     field :hobby
     field :description
+    field :assets do 
+      label 'Guide Images'
+    end
     field :created_at
     field :updated_at
   end
@@ -482,8 +485,22 @@ config.model 'Participant' do
     end
   end
 
+
 end
 ###### END Participant ######
+
+###### START Attachments ######
+config.model 'Attachment' do 
+  visible false
+end
+###### END Attachments ######
+
+
+###### START Blobs ######
+config.model 'Blob' do
+  hide_from_navigation
+end
+###### END Blobs ######
 
 
 
@@ -532,4 +549,7 @@ end
     # history_index
     # history_show
   end
+  # If you want customize the navigation of dashboard admin on rails_admin
+  # config.included_models = [ 'User', 'Guide', 'Trip', 'item_includeds','item_not_includeds', 'Itinerary','Booking','Participant','Region' ]
+
 end
