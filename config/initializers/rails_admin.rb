@@ -69,17 +69,55 @@ end
 ###### Start_Itinerary ######
 
 ###### Start_trip ######
-# config.model Itinerary do 
+config.model 'Itinerary' do 
+  ##list
+  list do 
+    field :title
+    field :name
+    field :description
+    field :asset do 
+      label 'Image'
+    end
+    field :trip
+    field :created_at
+    field :updated_at
+  end
 
-#   ##create
-#   create do 
-#     field :title,
-#     field :name
-#     field :description
-#     field :image
-#     field :trip
-#   end
-# end
+  #create
+  create do 
+    field :title
+    field :name
+    field :description
+    field :asset do 
+      label 'Image'
+    end
+    field :trip
+  end
+
+  ##update
+  update do 
+    field :title
+    field :name
+    field :description
+    field :asset do 
+      label 'Image'
+    end
+    field :trip
+  end
+
+  ##show
+  show do 
+    field :title
+    field :name
+    field :description
+    field :asset do 
+      label 'Image'
+    end
+    field :trip
+  end
+
+  
+end
 
 # ///
 # config.model Team do
@@ -100,15 +138,18 @@ config.model 'Guide' do
     # end
     field :country
     field :trips
-    field :asset, :active_storage do
-      # delete_method :remove_asset
-      pretty_value do
-        if value
-          path = Rails.application.routes.url_helpers.rails_blob_path(value, only_path: true)
-          bindings[:view].content_tag(:a, value.filename, href: path)
-        end
-      end
+    field :asset do 
+      label 'profile image'
     end
+    # field :asset, :active_storage do
+    #   # delete_method :remove_asset
+    #   pretty_value do
+    #     if value
+    #       path = Rails.application.routes.url_helpers.rails_blob_path(value, only_path: true)
+    #       bindings[:view].content_tag(:a, value.filename, href: path)
+    #     end
+    #   end
+    # end
     field :hobby
     field :description
     field :created_at
@@ -188,6 +229,12 @@ config.model 'Trip' do
         guide = Guide.find(bindings[:object].guide_id.to_s)
         guide.first_name + " " +guide.last_name
       end
+    end
+    field :asset do 
+      label 'Background Image'
+    end
+    field :assets do 
+      label 'Trip Images'
     end
   end
 
