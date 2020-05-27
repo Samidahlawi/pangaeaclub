@@ -119,11 +119,6 @@ config.model 'Itinerary' do
   
 end
 
-# ///
-# config.model Team do
-#   visible false
-# end
-# ///
 
 ###### Start_Guide ######
 config.model 'Guide' do 
@@ -217,22 +212,23 @@ end
 ###### End_Guide ######
 
 
-###### End_trip ######
+###### START_trip ######
 config.model 'Trip' do 
   configure :guide, :belongs_to_association
 
   list do 
     field :id
     field :title
-    field :country
     field :destination
-    field :deadline
     field :guide do 
       pretty_value do
         guide = Guide.find(bindings[:object].guide_id.to_s)
         guide.first_name + " " +guide.last_name
       end
     end
+    field :deadline
+    field :status
+    field :country
     field :asset do 
       label 'Background Image'
     end
@@ -277,13 +273,14 @@ config.model 'Trip' do
     field :guide_id, :enum do
       enum do
         Guide.all.collect {|p| [p.first_name + " " + p.last_name, p.id]}
+      end
     end
-  end
 
     field :item_includeds
     field :item_not_includeds
     # field :itineraries
     # field :user_trips
+    field :status
   end
 
   #update 
@@ -324,17 +321,19 @@ config.model 'Trip' do
     field :guide_id, :enum do
       enum do
         Guide.all.collect {|p| [p.first_name + " " + p.last_name, p.id]}
+      end
     end
-  end
 
     field :item_includeds
     field :item_not_includeds
     field :itineraries
     # field :user_trips
+    field :status
   end
 
   #show
   show do 
+    field :status
     field :title
     field :sub_title
     field :description
