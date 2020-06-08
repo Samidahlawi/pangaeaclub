@@ -29,6 +29,187 @@
     background-size: 15px;
   }
  /* ==== */
-
+* {
+  direction: rtl;
+}
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *********** START HOME PAGE *************
+//START NAV
+.flex-grow-zero{
+  flex-grow: 0 !important;
+}
+.flex-grow-zero a {
+  border-bottom-style: solid;
+  border-bottom-color: #fff;
+  margin-right: 10px;
+}
+
+.navbar {
+  position: absolute;
+  width: 100%;
+}
+.full-ul {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+
+.navbar a {
+  color:#fff !important;
+}
+//END NAV
+// -----
+//START Header
+.home-index header.masthead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%), image-url("about-bg.jpg");
+  // background-image: image-url("about-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  height: 100vh;
+}
+
+.home-index .header-bg {
+  background: linear-gradient(0deg,rgba(44,44,44,.2),rgba(224,23,3,.6));
+}
+
+.home-index .txt-rotate{
+  color: #31ff7a;
+}
+//END Header
+// -----
+
+
+
+// START Section-1
+
+
+//END  Section-1
+
+
+
+//START FOOTER
+ .site-footer {
+  padding: 5em 0;
+  background: #262626;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+ .site-footer a {
+  color: #e74208;
+  border-bottom: 1px solid transparent;
+}
+
+ .site-footer {
+  direction: ltr !important;
+}
+
+ .site-footer .footer-link li {
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+ .footer-social a {
+  line-height: 0;
+  border-radius: 50%;
+  margin: 0 5px 5px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+}
+ .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ .fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ .p-2 {
+  padding: 0.5rem !important;
+}
+
+ .d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+ .fa-twitter:before {
+  content: "\f099";
+}
+
+///
+@media (max-width: 576px){
+     .container {
+      max-width: 540px;
+  }
+   .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+}
+
+
+//END FOOTER
+// -----
+// *********** END HOME PAGE *************
+
+
+
+
+
 
