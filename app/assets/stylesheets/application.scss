@@ -37,43 +37,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// *********** START HOME PAGE *************
 //START NAV
 .flex-grow-zero{
   flex-grow: 0 !important;
 }
+
 .flex-grow-zero a {
   border-bottom-style: solid;
   border-bottom-color: #fff;
@@ -84,6 +52,7 @@
   position: absolute;
   width: 100%;
 }
+
 .full-ul {
   width: 100%;
   padding: 0;
@@ -95,6 +64,9 @@
   color:#fff !important;
 }
 //END NAV
+
+// *********** START HOME PAGE *************
+
 // -----
 //START Header
 .home-index header.masthead {
@@ -116,6 +88,7 @@
 .home-index .txt-rotate{
   color: #31ff7a;
 }
+
 //END Header
 // -----
 
@@ -127,6 +100,88 @@
 //END  Section-1
 
 
+
+// START Journeys
+
+* {
+  box-sizing: border-box;
+}
+
+/* journey slider */
+.page-wrapper{
+  margin: 50px auto;
+}
+
+.journey-slider {
+  // border: 1px solid red;
+  margin: 10px;
+  position: relative;
+}
+
+.next {
+  position: absolute;
+  top:50%;
+  right:30px;
+  font-size: 2em;
+  color: #000000;
+  cursor: pointer;
+}
+
+.prev {
+  position: absolute;
+  top:50%;
+  left:30px;
+  font-size: 2em;
+  color: #000000;
+  cursor: pointer;
+}
+
+.slider-title{
+  text-align: right;
+  margin: 30px auto;
+}
+
+
+.journey-wrapper {
+  // border: 1px dashed red;
+  width:85%;
+  // height: 350px;
+  margin: 0px auto;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.journey {
+  display: inline-block;
+  // width: 300px !important;
+  margin-right: 20px;
+  border-radius: 5px 5px 0px 0px !important;
+  background-color: #F7F7F7;
+  direction: none !important;
+
+}
+.float-right, .float-left{
+  direction: ltr;
+}
+
+.slick-list, .draggable{
+  direction: ltr;
+}
+
+.ltr > div{
+  direction: ltr;
+}
+//END  Journeys
+
+
+
+
+
+
+// Start TEAM
+
+
+// END TEAM
 
 //START FOOTER
  .site-footer {
@@ -190,18 +245,18 @@
 }
 
 ///
-@media (max-width: 576px){
-     .container {
-      max-width: 540px;
-  }
-   .container {
-      width: 100%;
-      padding-right: 15px;
-      padding-left: 15px;
-      margin-right: auto;
-      margin-left: auto;
-  }
-}
+// @media (max-width: 576px){
+//      .container {
+//       max-width: 540px;
+//   }
+//    .container {
+//       width: 100%;
+//       padding-right: 15px;
+//       padding-left: 15px;
+//       margin-right: auto;
+//       margin-left: auto;
+//   }
+// }
 
 
 //END FOOTER
@@ -213,3 +268,18 @@
 
 
 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+  
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {  }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+  .journey {
+   
+  }
+ }
