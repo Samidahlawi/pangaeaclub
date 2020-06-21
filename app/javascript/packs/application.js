@@ -92,7 +92,7 @@ var TxtRotate = function(el, toRotate, period) {
     prevArrow:$('.prev'),
     responsive: [
       {
-        breakpoint: 1251,
+        breakpoint: 1201,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -101,7 +101,7 @@ var TxtRotate = function(el, toRotate, period) {
         }
       },
       {
-        breakpoint: 992,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1

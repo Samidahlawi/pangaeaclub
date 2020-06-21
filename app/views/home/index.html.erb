@@ -43,19 +43,24 @@
             <i class="fas fa-chevron-right  next"></i>
             <i class="fas fa-chevron-left prev"></i>
             <div class="journey-wrapper ">
+            <% @trips.each do |trip| %>
                 <div class="journey">
                     
                        <div style="background-color: #F7F7F7; border-radius: 5px 5px 0px 0px !important; position: relative;">  
-                                <a href="https://with.travel/journey/colours-of-japanese-spring/" class="box-stander">
+                                <a href="trips/<%= trip.id %>" class="box-stander">
                                     <div class="hold-img" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
+                                     <% if trip.asset.attached?%>
+                                        <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="<%= asset_path url_for(trip.asset) %>" class="img-fluid ls-is-cached lazyloaded" src="<%= asset_path url_for(trip.asset) %>"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="<%= asset_path url_for(trip.asset) %>" alt="" class="img-fluid"></noscript>
+                                     <% else %>
                                         <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
+                                     <% end %>
                                     </div>
                                 </a>
                               
                                 
                                 <div class="ltr" style="position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
-                                    <a href="https://with.travel/journey/colours-of-japanese-spring/"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;">Colours of Japanese Spring</h4></a>
-                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;">Japan</span></div>
+                                    <a href="trips/<%= trip.id %>"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;"><%= trip.title %></h4></a>
+                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;"><%= trip.country %></span></div>
                                 </div>
                         
                                 
@@ -63,15 +68,18 @@
                                 <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
                                     <div class="clearfix" style="margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
                                         <div style="width: 15%; float: left;">
-                                            <a href="http://with.travel/?post_type=with_nomads&amp;p=1580"><div class="nomad_round_thumbnail" style="background-image: url('https://d3hfzvc6owi2ym.cloudfront.net/2020/01/Wpk3pu61-small.jpg'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
-                                            </div></a>
+                                              <% if trip.guide.asset.attached?%>
+                                                <a href="guides/<%= trip.guide.id %>"><div class="nomad_round_thumbnail" style="background-image: url('<%= asset_path url_for(trip.guide.asset) %>'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
+                                                    </div>
+                                                </a>
+                                              <% end %>
                                         </div>    
                                         <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-left: 20px; width: 85%; float: right;">
-                                            <span style="color: #777777;">with </span><a style="text-decoration: none;" href="http://with.travel/?post_type=with_nomads&amp;p=1580">SaraLi Forouzanfar</a></div> 
+                                            <span style="color: #777777;">الـقائـد  </span><a style="text-decoration: none;" href="guides/<%= trip.guide.id %>"><%= trip.guide.first_name + " " + trip.guide.last_name %></a></div> 
                                     </div>   
                                     <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 22px; height: 67px;">
-                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;">Coming Soon</span></div>
-                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;">$3,485</span></div>
+                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;"><%= trip.start_date %></span></div>
+                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;"><%= trip.price %> SR</span></div>
                                     </div>    
 
                                 </div>
@@ -79,149 +87,8 @@
                   
                 </div>
 
-                <div class="journey">
-                    
-                       <div style="background-color: #F7F7F7; border-radius: 5px 5px 0px 0px !important; position: relative;">  
-                                <a href="https://with.travel/journey/colours-of-japanese-spring/" class="box-stander">
-                                    <div class="hold-img" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
-                                        <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
-                                    </div>
-                                </a>
-                              
-                                
-                                <div class="ltr" style="position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
-                                    <a href="https://with.travel/journey/colours-of-japanese-spring/"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;">Colours of Japanese Spring</h4></a>
-                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;">Japan</span></div>
-                                </div>
-                        
-                                
-
-                                <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
-                                    <div class="clearfix" style="margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
-                                        <div style="width: 15%; float: left;">
-                                            <a href="http://with.travel/?post_type=with_nomads&amp;p=1580"><div class="nomad_round_thumbnail" style="background-image: url('https://d3hfzvc6owi2ym.cloudfront.net/2020/01/Wpk3pu61-small.jpg'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
-                                            </div></a>
-                                        </div>    
-                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-left: 20px; width: 85%; float: right;">
-                                            <span style="color: #777777;">with </span><a style="text-decoration: none;" href="http://with.travel/?post_type=with_nomads&amp;p=1580">SaraLi Forouzanfar</a></div> 
-                                    </div>   
-                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 22px; height: 67px;">
-                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;">Coming Soon</span></div>
-                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;">$3,485</span></div>
-                                    </div>    
-
-                                </div>
-                        </div>
-                  
-                </div>
-
-                 <div class="journey">
-                    
-                       <div style="background-color: #F7F7F7; border-radius: 5px 5px 0px 0px !important; position: relative;">  
-                                <a href="https://with.travel/journey/colours-of-japanese-spring/" class="box-stander">
-                                    <div class="hold-img" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
-                                        <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
-                                    </div>
-                                </a>
-                              
-                                
-                                <div class="ltr" style="position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
-                                    <a href="https://with.travel/journey/colours-of-japanese-spring/"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;">Colours of Japanese Spring</h4></a>
-                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;">Japan</span></div>
-                                </div>
-                        
-                                
-
-                                <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
-                                    <div class="clearfix" style="margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
-                                        <div style="width: 15%; float: left;">
-                                            <a href="http://with.travel/?post_type=with_nomads&amp;p=1580"><div class="nomad_round_thumbnail" style="background-image: url('https://d3hfzvc6owi2ym.cloudfront.net/2020/01/Wpk3pu61-small.jpg'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
-                                            </div></a>
-                                        </div>    
-                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-left: 20px; width: 85%; float: right;">
-                                            <span style="color: #777777;">with </span><a style="text-decoration: none;" href="http://with.travel/?post_type=with_nomads&amp;p=1580">SaraLi Forouzanfar</a></div> 
-                                    </div>   
-                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 22px; height: 67px;">
-                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;">Coming Soon</span></div>
-                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;">$3,485</span></div>
-                                    </div>    
-
-                                </div>
-                        </div>
-                  
-                </div>
-
-                 <div class="journey">
-                    
-                       <div style="background-color: #F7F7F7; border-radius: 5px 5px 0px 0px !important; position: relative;">  
-                                <a href="https://with.travel/journey/colours-of-japanese-spring/" class="box-stander">
-                                    <div class="hold-img" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
-                                        <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
-                                    </div>
-                                </a>
-                              
-                                
-                                <div class="ltr" style="position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
-                                    <a href="https://with.travel/journey/colours-of-japanese-spring/"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;">Colours of Japanese Spring</h4></a>
-                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;">Japan</span></div>
-                                </div>
-                        
-                                
-
-                                <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
-                                    <div class="clearfix" style="margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
-                                        <div style="width: 15%; float: left;">
-                                            <a href="http://with.travel/?post_type=with_nomads&amp;p=1580"><div class="nomad_round_thumbnail" style="background-image: url('https://d3hfzvc6owi2ym.cloudfront.net/2020/01/Wpk3pu61-small.jpg'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
-                                            </div></a>
-                                        </div>    
-                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-left: 20px; width: 85%; float: right;">
-                                            <span style="color: #777777;">with </span><a style="text-decoration: none;" href="http://with.travel/?post_type=with_nomads&amp;p=1580">SaraLi Forouzanfar</a></div> 
-                                    </div>   
-                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 22px; height: 67px;">
-                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;">Coming Soon</span></div>
-                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;">$3,485</span></div>
-                                    </div>    
-
-                                </div>
-                        </div>
-                  
-                </div>
-
-                 <div class="journey">
-                    
-                       <div style="background-color: #F7F7F7; border-radius: 5px 5px 0px 0px !important; position: relative;">  
-                                <a href="https://with.travel/journey/colours-of-japanese-spring/" class="box-stander">
-                                    <div class="hold-img" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
-                                        <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
-                                    </div>
-                                </a>
-                              
-                                
-                                <div class="ltr" style="position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
-                                    <a href="https://with.travel/journey/colours-of-japanese-spring/"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;">Colours of Japanese Spring</h4></a>
-                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;">Japan</span></div>
-                                </div>
-                        
-                                
-
-                                <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
-                                    <div class="clearfix" style="margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
-                                        <div style="width: 15%; float: left;">
-                                            <a href="http://with.travel/?post_type=with_nomads&amp;p=1580"><div class="nomad_round_thumbnail" style="background-image: url('https://d3hfzvc6owi2ym.cloudfront.net/2020/01/Wpk3pu61-small.jpg'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
-                                            </div></a>
-                                        </div>    
-                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-left: 20px; width: 85%; float: right;">
-                                            <span style="color: #777777;">with </span><a style="text-decoration: none;" href="http://with.travel/?post_type=with_nomads&amp;p=1580">SaraLi Forouzanfar</a></div> 
-                                    </div>   
-                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 22px; height: 67px;">
-                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;">Coming Soon</span></div>
-                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;">$3,485</span></div>
-                                    </div>    
-
-                                </div>
-                        </div>
-                  
-                </div>
+            <%  end %>
+              <!-- --> 
             </div>
             <div> <button >عرض مزيد من الرحلات</button></div>
         </div>

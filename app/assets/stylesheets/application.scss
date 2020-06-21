@@ -158,7 +158,12 @@
   border-radius: 5px 5px 0px 0px !important;
   background-color: #F7F7F7;
   direction: none !important;
+  // max-width:  289px !important ;
+}
 
+.hold-img > img {
+  height: 300px !important;
+  width: 100%;
 }
 .float-right, .float-left{
   direction: ltr;
