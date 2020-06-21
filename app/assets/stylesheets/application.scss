@@ -31,9 +31,9 @@
  /* ==== */
 * {
   direction: rtl;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box
 }
- 
-
 
 
 
@@ -88,7 +88,99 @@
 .home-index .txt-rotate{
   color: #31ff7a;
 }
+// The Mouse on the end of header 
+.mouse {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  z-index: 2;
+}
 
+.mouse-icon {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #e86ed0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background: #e86ed0;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+
+}
+
+.arrow {
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: 99;
+  animation-iteration-count: 99;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  color: #e86ed0;
+  outline: none !important;
+}
+.mouse-wheel {
+  height: 80px;
+  margin: 2px auto 0;
+  display: block;
+  width: 30px;
+  background: transparent;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-animation: 1.6s ease infinite wheel-up-down;
+  -moz-animation: 1.6s ease infinite wheel-up-down;
+  animation: 1.6s ease infinite wheel-up-down;
+  color: #fff;
+  font-size: 20px;
+  // overflow: hidden;
+  margin-top: 30px;
+}
+.ion-ios-arrow-round-down:before {
+    content: "\f118";
+}
+
+
+.ftco-degree-bg:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  overflow: visible;
+  width: 50%;
+  height: 70px;
+  z-index: 1;
+  -webkit-transform: skewY(4deg);
+  -moz-transform: skewY(4deg);
+  -ms-transform: skewY(4deg);
+  -o-transform: skewY(4deg);
+  transform: skewY(4deg);
+  background-color: #fff;
+}
+
+.ftco-degree-bg:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  overflow: visible;
+  width: 50%;
+  height: 70px;
+  z-index: 1;
+  -webkit-transform: skewY(-4deg);
+  -moz-transform: skewY(-4deg);
+  -ms-transform: skewY(-4deg);
+  -o-transform: skewY(-4deg);
+  transform: skewY(-4deg);
+  background-color: #fff;
+}
 //END Header
 // -----
 
@@ -103,9 +195,7 @@
 
 // START Journeys
 
-* {
-  box-sizing: border-box;
-}
+
 
 /* journey slider */
 .page-wrapper{
@@ -284,7 +374,7 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
 
-  .journey {
+  // .journey {
    
-  }
+  // }
  }

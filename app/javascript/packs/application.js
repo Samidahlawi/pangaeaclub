@@ -121,3 +121,10 @@ var TxtRotate = function(el, toRotate, period) {
   });
 });
   /////////////////////////////////////////// import owl-carousel file js //////////////////////
+// The script to use scrolldown with anchor
+$(document).ready(function(){
+  $( "a.scrollLink" ).click(function( event ) {
+      event.preventDefault();
+      $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+  });
+});
