@@ -13,5 +13,10 @@ class HomeController < ApplicationController
     # ---
     # *trip.guide.first_name + trip.guide.last_name
     # *trip.asset => profile_photo 
+    #######
+    @guides = Guide.all
+    #Country
+    #guide.asset => profile_photo
   end
 end
+

@@ -4,8 +4,8 @@
 <!-- HEADER-->
 <!-- <div class="header-bg"> </div> -->
 <header class="masthead ftco-degree-bg" >
-
             <div class="container h-100">
+            
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
     <h1 class="text-uppercase text-white font-weight-bold">Travel With Us  <br>
@@ -119,8 +119,8 @@
                    
             </div>
             <!-- fas fa-chevron-right-->
-            <i class="fas fa-arrow-circle-right  next"></i>
-            <i class="fas fa-arrow-circle-left prev"></i>
+            <i class="fas fa-angle-right   next"></i>
+            <i class="fas fa-angle-left prev"></i>
             <div class="journey-wrapper ">
             <% @trips.each do |trip| %>
                 <div class="journey">
@@ -186,6 +186,66 @@
 <!-- START GUIDEs -->
 
 
+<section id="sec-2">
+
+    <!--Carousel Wrapper-->
+    <div class="page-wrapper">
+        <!-- Post Slider-->
+        <div class="journey-slider">
+            <div class="title-card mb-5">
+                    <div class="col-md-8">
+                    <p class="subtitle text-primary">تعرف على  </p>
+                    <h2>أروع المـرشدين</h2>
+                    </div>
+                   
+            </div>
+            <!-- fas fa-chevron-right-->
+            <i class="fas fa-angle-right  next-guide"></i>
+            <i class="fas fa-angle-left prev-guide"></i>
+            <div class="guide-wrapper ">
+            <% @guides.each do |guide| %>
+                <div class="guide single-destination">
+                            <div class="owl-item ">
+                                <div class="single-destination ">
+                                        <a href="guides/<%= guide.id %>" class="box-stander">
+                                            <div class="hold-img destination-image" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
+                                            <% if guide.asset.attached?%>
+                                                <img style="border-radius: 5px 5px 0px 0px !important;" alt="" src="<%= asset_path url_for(guide.asset) %>" class="img-fluid ls-is-cached lazyloaded" src="<%= asset_path url_for(guide.asset) %>">
+                                                
+                                            <% else %>
+                                                <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
+                                            <% end %>
+                                                <div class="destination-title">
+                                                    <h3><%= guide.country %></h3>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- 
+                                <a href="destination-single.html">
+                                <div class="destination-image">
+                                <img src="https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/photo/paris.jpg" alt="destination">
+                                <div class="destination-title">
+                                <h3><%= guide.country %></h3>
+                                </div>
+                                </div>
+                                </a> -->
+                                </div>
+                            </div>         
+                </div>
+            <% end  %>
+
+              <!-- --> 
+            </div>
+            <div class="btn-footer">
+             <a href="/trips"> 
+                <button type="button" class="btn btn-color" >عرض مزيد من الرحلات</button>
+             </a>
+            </div>
+        </div>
+        <!-- Post Slider-->
+    </div>
+    <!--Carousel Wrapper-->
+</section>
 <!-- END GUIDEs -->
 
 <!-- START TEAM-->

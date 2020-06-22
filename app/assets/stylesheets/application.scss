@@ -1,7 +1,7 @@
 // MAIN Colorssssss
 // pangaeaclub color -> light-blue = #75ccdc
 // Arrow,TEXT, others -> the other color is closed to red = #fe5a59
-
+// #FE5A59
 @import "bootstrap/scss/bootstrap";
 
  .simple-form {
@@ -110,7 +110,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   background: linear-gradient(0deg,rgba(44,44,44,.2),rgba(224,23,3,.6));
 }
 .home-index {
-  background-color: #f8f9fa;
+  // background-color: #f8f9fa;
+  background-color: #FFF;;
 }
 .home-index .txt-rotate{
   color: #fe5a59;
@@ -287,21 +288,44 @@ svg-icon {
 .next {
   position: absolute;
   top:50%;
-  right:30px;
+  right:-15px;
   font-size: 2em;
-  color: #fe5a59;
+  color: #FFF;
   cursor: pointer;
+  z-index: 99;
+  background: white;
+  border-radius: 33px;
+  background: #fe5a59;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid white;
 }
 
 .prev {
   position: absolute;
   top:50%;
-  left:30px;
+  left:-15px;
   font-size: 2em;
-  color: #fe5a59;
+  color: #FFF;
   cursor: pointer;
+  z-index: 99;
+  background: white;
+  border-radius: 33px;
+  background: #fe5a59;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid white;
 }
-
+.prev:hover{
+  font-size: 2.1em;
+  box-shadow: 3px 3px 3px black;
+}
+.next:hover{
+  font-size: 2.1em;
+  box-shadow: 3px 3px 3px black;
+}
 .slider-title{
   text-align: right;
   margin: 30px auto;
@@ -310,7 +334,7 @@ svg-icon {
 
 .journey-wrapper {
   // border: 1px dashed red;
-  width:85%;
+  width:100%;
   // height: 350px;
   margin: 0px auto;
   overflow: hidden;
@@ -320,7 +344,8 @@ svg-icon {
 .journey {
   display: inline-block;
   // width: 300px !important;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 5px 5px 0px 0px !important;
   background-color: #F7F7F7;
   direction: none !important;
@@ -360,6 +385,61 @@ svg-icon {
 
 
 // START GUIDES
+.guide-wrapper {
+  // border: 1px dashed red;
+  width:100%;
+  // height: 350px;
+  margin: 0px auto;
+  overflow: hidden;
+  padding: 10px 0;
+}
+.journey-slider {
+  // border: 1px solid red;
+  margin: 10px;
+  position: relative;
+}
+
+.next-guide {
+  position: absolute;
+  top:50%;
+  right:-15px;
+  font-size: 2em;
+  color: #FFF;
+  cursor: pointer;
+  z-index: 99;
+  background: white;
+  border-radius: 33px;
+  background: #fe5a59;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid white;
+}
+
+.prev-guide {
+  position: absolute;
+  top:50%;
+  left:-15px;
+  font-size: 2em;
+  color: #FFFF;
+  cursor: pointer;
+  z-index: 99;
+  background: white;
+  border-radius: 33px;
+  background: #fe5a59;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid white;
+}
+.prev-guide:hover{
+  font-size: 2.1em;
+  box-shadow: 3px 3px 3px black;
+}
+.next-guide:hover{
+  font-size: 2.1em;
+  box-shadow: 3px 3px 3px black;
+}
 .mb-5, .my-5 {
   margin-bottom: 1rem !important;
 }
@@ -375,7 +455,8 @@ svg-icon {
 .subtitle {
   margin-bottom: 0;
   letter-spacing: 0.1em;
-  color: #868e96;
+  // color: #868e96;
+  color: #75ccdc !important;
   font-weight: bold;
 }
 .text-primary {
@@ -386,14 +467,76 @@ svg-icon {
   align-items: center !important;
 }
 
-
+.slick-dots{
+  display: none !important;
+}
 
 // END GUIDE
+.guide {
+  display: inline-block;
+  // width: 300px !important;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px 5px 0px 0px !important;
+  // background-color: #F7F7F7;
+  // direction: none !important;
+  // max-width:  255px !important;
+  max-width: 255px !important;
+  max-height: 360px !important;
+  // max-width:  350px !important;
+  margin-top: 0;
+  // margin-right: 30px;
+}
 
 
+.single-destination {
+  // margin-top: 10px
+  // background-color: rgba(0,0,0,0.8);
+}
 
+.destination-image {
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px;
+  z-index: 1;
 
-// Start TEAM
+}
+
+.destination-image img {
+  width: 100%;
+  // background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.4) 50%);
+ background-color: rgba(0,0,0,0.8);
+}
+.destination-image:after {
+	background: -webkit-linear-gradient(bottom, rgba(4, 4, 4, 0.9), rgba(1, 1, 1, 0));
+	background: linear-gradient(to top, rgba(4, 4, 4, 0.9), rgba(1, 1, 1, 0));
+	opacity: 0.8;
+	// -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	// content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 65%;
+	border-radius: 5px;
+}
+.destination-title {
+  position: absolute;
+  bottom: 20px;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+.destination-title h3 {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0px;
+  display: block;
+  text-align: center;
+}
 
 
 // END TEAM
@@ -444,7 +587,16 @@ svg-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.fa-angle-left:before {
+  position: absolute;
+  top: 4px;
+  left: 9px;
+}
+.fa-angle-right:before {
+  position: absolute;
+  top: 4px;
+  right: 9px;
+}
  .p-2 {
   padding: 0.5rem !important;
 }
