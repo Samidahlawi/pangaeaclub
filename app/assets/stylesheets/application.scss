@@ -81,7 +81,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .home-index header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%), image-url("about-bg.jpg");
+  // topography_bg.jpg
+  background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(194, 51, 51, 0.8) 100%), image-url("topography_bg.jpg");
   // background-image: image-url("about-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -489,10 +490,10 @@ svg-icon {
 }
 
 
-.single-destination {
-  // margin-top: 10px
-  // background-color: rgba(0,0,0,0.8);
-}
+// .single-destination {
+//   // margin-top: 10px
+//   // background-color: rgba(0,0,0,0.8);
+// }
 
 .destination-image {
 	position: relative;
