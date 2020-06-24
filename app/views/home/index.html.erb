@@ -134,6 +134,11 @@
                                         <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
                                      <% end %>
                                     </div>
+                                     <% if trip.status == false %>
+                                        <div class="trip-status">
+                                            <span>Sold out</span>
+                                        </div>
+                                    <% end %>
                                 </a>
                               
                                 

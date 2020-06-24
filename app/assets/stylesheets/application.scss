@@ -82,7 +82,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
   // topography_bg.jpg
-  background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(194, 51, 51, 0.8) 100%), image-url("topography_bg.jpg");
+  // background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%), image-url("about-bg.jpg");
+  // background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(194, 51, 51, 0.8) 100%), image-url("topography_bg.jpg");
+  background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(254,90,89,0.4) 100%), image-url("topography_bg.jpg");
   // background-image: image-url("about-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -192,7 +194,7 @@ a:hover, a:focus {
   -ms-transform: skewY(4deg);
   -o-transform: skewY(4deg);
   transform: skewY(4deg);
-  background-color: #f8f9fa;
+  background-color: #fff;
 }
 
 .ftco-degree-bg:after {
@@ -209,7 +211,7 @@ a:hover, a:focus {
   -ms-transform: skewY(-4deg);
   -o-transform: skewY(-4deg);
   transform: skewY(-4deg);
-  background-color: #f8f9fa;
+  background-color: #fff;
 }
 //END Header
 // -----
@@ -351,6 +353,30 @@ svg-icon {
   background-color: #F7F7F7;
   direction: none !important;
   // max-width:  289px !important ;
+}
+.trip-status{
+  position: absolute;
+  left: -10px;
+  top: 130px;
+  /* text-align: center; */
+  background-color: #fe5a59;
+  color: white;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 3px black;
+}
+
+.trip-status span:after {
+  border-left: 10px solid transparent;
+  border-right: 0 solid transparent;
+  border-top: 7px solid #fe5a59;
+  bottom: -7px;
+  content: "";
+  left: 0;
+  position: absolute;
 }
 
 .hold-img > img {
