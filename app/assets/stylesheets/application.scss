@@ -566,7 +566,86 @@ svg-icon {
 }
 
 
+// START REVIEWS
+#travel-review-area .slick-slide {
+  padding: 0 15px;
+}
+.travel-review__avatar img {
+  margin: -50% 0 18px;
+}
+.travel-review__avatar > img {
+  width: 270px;
+  height: 180px;  
+}
+.travel-review {
+  margin: 60px 0;
+  padding: 0 50px 40px;
+  display: inline-flex !important;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  -ms-box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.15);
+}
+.travel-review__name {
+  text-transform: uppercase;
+  text-shadow: 0px 1px #a3a3a3;
+  font-family: Lato-regular;
+  font-size: 17px;
+  color: black;
+  font-weight: normal;
+}
+
+.travel-review__career {
+  margin: 5px 0;
+  text-shadow: 1px 1px #e8e8e8;
+  font-family: Lato-regular;
+  font-size: 15px;
+  color: #999999;
+  font-weight: normal;
+}
+.travel-review__rating--4-star::before {
+  content: "\f005 \f005 \f005 \f005 \f006 \f000";
+  font-family: FontAwesome;
+  color: #ffc600;
+}
+.fa-star {
+  color:#ffc600;
+  display: right;
+}
+
+.travel-review__content {
+  margin: 20px 0 0;
+  font-family: Lato-regular;
+  font-size: 18px;
+  color: #666666;
+  font-weight: normal;
+}
+
+.review{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  // align-content: space-around;
+}
+.title-reviews{
+  height: 183px;
+}
+// END REVIEWS
+
+
+
+
+
+// START TEAM
+
 // END TEAM
+
+
+
 
 //START FOOTER
  .site-footer {
@@ -674,18 +753,33 @@ svg-icon {
 
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-  
+@media (min-width: 300px) { 
+  .review{
+    justify-content: center;
+  }
+
+  .review > div{
+    margin-bottom: 40px !important;
+  }
+  .review > div:nth-child(3){
+    display: none;
+  }
+
  }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
-    //   .col-md-8 {
-    //     -ms-flex: 0 0 66.66667%;
-    //     flex: 0 0 66.66667%;
-    //     max-width: 66.66667%;
-    // }
-
+    .review{
+      justify-content: center;
+    }
+    .review > div{
+      margin-bottom: 40px !important;
+      margin-right: 10px !important;
+    }
+    .review > div:nth-child(3){
+      display: inline-block;
+    }
+      
  }
 
 // Large devices (desktops, 992px and up)
