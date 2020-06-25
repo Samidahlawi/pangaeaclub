@@ -498,7 +498,6 @@ svg-icon {
   display: none !important;
 }
 
-// END GUIDE
 .guide {
   display: inline-block;
   // width: 300px !important;
@@ -565,6 +564,7 @@ svg-icon {
   text-align: center;
 }
 
+// END GUIDE
 
 // START REVIEWS
 #travel-review-area .slick-slide {
@@ -634,6 +634,16 @@ svg-icon {
 .title-reviews{
   height: 183px;
 }
+
+.text-blue{
+  color:#75ccdc;
+}
+.team-white{
+  color:#FFF;
+}
+#sec-3{
+  padding: 50px 0;  
+}
 // END REVIEWS
 
 
@@ -641,7 +651,86 @@ svg-icon {
 
 
 // START TEAM
+.team-title{
+  padding-top: 50px;
+}
+.pangaclub-bg{
+  background: linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(254,90,89,0.4) 100%), image-url("topography_bg.jpg");
 
+}
+
+.py-6 {
+  padding-bottom: 6rem !important;
+}
+
+
+.hover-animate {
+  transition: all 0.2s ease-in-out;
+}
+bg-transparent {
+  background-color: transparent !important;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,0.125);
+  border-radius: .4rem;
+}
+.team-img {
+  position: relative;
+  z-index: 20;
+  max-width: 100%;
+}
+.card-img, .card-img-top {
+  border-top-left-radius: calc(.4rem - 1px);
+  border-top-right-radius: calc(.4rem - 1px);
+}
+
+.card-img, .card-img-top, .card-img-bottom {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+}
+.bg-secondary-light {
+  background-color: #eaedfe;
+}
+.team-circle {
+  display: inline-block;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  // background-color: #fdeaf0;
+  // background-color: #fe5a59;
+  background-color: #75ccdc;
+  z-index: 0;
+}
+
+.team-body {
+  position: relative;
+  border-radius: .4rem;
+  background: #fff;
+  box-shadow: 0 0 1rem rgba(0,0,0,0.15);
+}
+
+.team-row{
+  align-items: flex-end;
+}
+.team-row > div {
+  overflow: hidden;
+}
+// 
 // END TEAM
 
 
@@ -765,27 +854,44 @@ svg-icon {
     display: none;
   }
 
- }
+
+  // TEAM 
+  .team-row > div {
+    overflow: hidden;
+  }
+
+  // TEAM
+}
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
     .review{
       justify-content: center;
+      // justify-content: space-between;
+      // justify-content: space-between;
     }
     .review > div{
       margin-bottom: 40px !important;
-      margin-right: 10px !important;
+      margin-right: 2% !important;
     }
     .review > div:nth-child(3){
       display: inline-block;
     }
+
+
+    //s-TEAM
+    .team-row > div {
+      overflow: visible;
+    }
+    //e-TEAM
       
  }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) { 
 
-  // .journey {
-   
-  // }
+  
+
+
+
  }
