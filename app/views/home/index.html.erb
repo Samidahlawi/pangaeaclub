@@ -1,3 +1,28 @@
+<!-- START NAV -->
+<nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
+                        <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
+                    <% if current_user.nil? %>
+                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
+                        <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
+                    <% else %>
+                        <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                        <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
+                    <%# when the admin sign_in %>
+                            <% if current_user.admin %>
+                                <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link js-scroll-trigger" %></li>
+                            <% end%>
+                    <% end %>
+                    </ul>
+                </div>
+            </div>
+</nav>
+
+
+<!-- END NAV -->
 <!-- START of HOME PAGE -->
 
 
@@ -405,3 +430,50 @@
 
 
 <!-- END of HOME PAGE -->
+ <footer class="site-footer" role="contentinfo">
+      <div class="container">
+      <div class="row mb-5">
+      <div class="col-md-4 mb-5">
+      <h3>About The Hexa Template</h3>
+      <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et dolor blanditiis consequuntur ex voluptates perspiciatis omnis unde minima expedita.</p>
+      <ul class="list-unstyled footer-link d-flex footer-social">
+      <li><a href="#" class="p-2"><span class="fab fa-twitter"></span></a></li>
+      <li><a href="#" class="p-2"><span class="fab fa-facebook"></span></a></li>
+      <li><a href="#" class="p-2"><span class="fab fa-linkedin"></span></a></li>
+      <li><a href="https://www.instagram.com/pangaeaclub/?hl=en" class="p-2"><span class="fab fa-instagram"></span></a></li>
+      </ul>
+      </div>
+      <div class="col-md-5 mb-5 pl-md-5">
+      <h3>Contact Info</h3>
+      <ul class="list-unstyled footer-link">
+      <li class="d-block">
+      <span class="b-block">Address:</span>
+      <span class="text-white">34 Street, Riyadh, Saudi Arabia</span></li>
+      <li class="d-block"><span class="b-block">Telephone:</span><span class="text-white">00966552713769</span></li>
+      <li class="d-block"><span class="b-block">Email:</span><span class="text-white">info@pangaeaclub.com</span></li>
+      </ul>
+      </div>
+      <div class="col-md-3 mb-5">
+      <h3>Quick Links</h3>
+      <ul class="list-unstyled footer-link">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Terms of Use</a></li>
+      <li><a href="#">Disclaimers</a></li>
+      <li><a href="#">Contact</a></li>
+      </ul>
+      </div>
+      <div class="col-md-3">
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-12 text-md-center text-left">
+      <p>
+      Copyright ©
+      <!-- <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>-->
+      
+                 All rights reserved |  made with <i class="fas fa-heart" aria-hidden="true"></i> by <a href="https://flexmethods.com/" target="_blank">FlexMethods</a>
+      </p>
+      </div>
+      </div>
+      </div>
+     </footer>
