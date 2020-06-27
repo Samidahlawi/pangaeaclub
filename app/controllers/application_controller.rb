@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
 
     # before_action :authenticate_user!
 
+    ## after the user sign-up to website will take the user to root_path
+    def after_sign_in_path_for(resource_or_scope)
+        if resource_or_scope.is_a?(User)
+            root_path
+        else
+          super
+        end
+      end
     ## after the user login to website will take the user to root_path
     def after_sign_in_path_for(resource)
         root_path

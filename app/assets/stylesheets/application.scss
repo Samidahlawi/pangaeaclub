@@ -837,11 +837,11 @@ bg-transparent {
 .form-control {
   text-align: left ;
 }
-.btn {
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  font-weight: bold;
-}
+// .btn {
+//   letter-spacing: .3em;
+//   text-transform: uppercase;
+//   font-weight: bold;
+// }
 .btn-block {
   display: block;
   width: 100%;
@@ -862,18 +862,38 @@ bg-transparent {
   direction: ltr;
 }
 
-.close-absolute {
-  position: absolute;
-  top: 0;
-  right: 0;
+// .close-absolute {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
   
-}
+// }
 
 .h-3rem {
   height: 3rem !important;
 }
 
-// *********** START LOGIN PAGE *************
+// *********** END LOGIN PAGE *****************
+
+// *********** START Sign-up PAGE *************
+.top-pad-zero{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+}
+
+.label-sign-up{
+  margin-bottom: 0rem;
+}
+.my-4 {
+ margin-top: 0 !important;  
+ margin-top: 0 !important; 
+}
+.bg-cover-sign-up {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+// *********** END Sign-up PAGE *************
 
 
 /////////////////////////////////////////////////////////////////////

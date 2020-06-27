@@ -1,52 +1,146 @@
-<h2><%= t('.sign_up') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "simple-form"}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <%# first_name %>
-  <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name , autofocus: true , required: true%>
-    </div>
-    
-  <%# last_name %>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true , required: true%>
-  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
-  </div>
+<!-- -->
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <%# phone %>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true , required: true %>
-  </div>
+<!-- -->
+<div class="container-fluid px-3">
+      <div class="row min-vh-100">
+        <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
+          <div class="w-100 py-5 px-md-5 px-xl-6 position-relative top-pad-zero">
+          
+            <div class="mb-5 text-rtl">
+            <div>
+               <a href="/" class="close-absolute mr-md-5 mr-xl-6 pt-5 "> 
+              <svg class="svg-icon w-3rem h-3rem">
+                <use xlink:href="#close-1"> 
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="close-1">
+                  <title>Close</title>
+                  <desc>A line styled icon from Orion Icon Library.</desc>
+                  <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M41.999 20.002l-22 22m22 0L20 20" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #ec4a7f)"></path>
+                  </svg>
+                </use>
+              </svg></a>
+            </div>
+            <div>
+              <%= image_tag("pangaeaclub.png", :alt => "pangaeaclub.png" ,:style => "max-width: 10rem;", :class => "img-fluid mb-3")  %>
+              <!-- <img src="https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/logo-square.svg" alt="..." style="max-width: 4rem;" class="img-fluid mb-3">
+              -->
+                <h2>الـتـسجـيل</h2>
+            </div>
+            </div>
+            <form class="form-validate">
+              <div class="form-group">
+                <%# first_name %>
+                <div class="field">
+                <%= f.label :first_name,:class => "form-label label-sign-up" %><br />
+                <%= f.text_field :first_name , autofocus: true , required: true ,:class => "form-control" %>
+                </div>
+              </div>
+               <div class="form-group">
+                <%# last_name %>
+                <div class="field">
+                <%= f.label :last_name,:class => "form-label label-sign-up"  %><br />
+                <%= f.text_field :last_name, autofocus: true , required: true,:class => "form-control"%>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="field">
+                <%= f.label :email ,:class => "form-label label-sign-up"%><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Please enter your email", required: true ,:class => "form-control"%>
+                </div>
+              </div>
+              <!-- password-->
+              <div class="form-group mb-4">
+                <div class="row">
+                 
+                      <div class="col">
+                            <%= f.label :password , class: "form-label label-sign-up" %>
+                      </div>
 
-  <%# country %>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autofocus: true , required: true %>
-  </div>
+                </div>
+                 <% if @minimum_password_length %>
+                      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length , class: "form-label label-sign-up") %></em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control ",  placeholder: "Password" %>
+              </div>
+              <!-- re-password-->
+              <div class="form-group mb-4">
+                <div class="row">
+                 
+                      <div class="col">
+                            <%= f.label :password_confirmation, class: "form-label label-sign-up" %><br />
+                      </div>
 
-  <div class="actions">
-    <%= f.submit t('.sign_up') %>
-  </div>
+                </div>
+                     <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control ",  placeholder: "Password"%>
+              </div>
+
+               <div class="form-group">
+                <%# phone %>
+                <div class="field">
+                <%= f.label :phone ,:class => "form-label label-sign-up"%><br />
+                <%= f.text_field :phone, autofocus: true , required: true , :placeholder => "",:class => "form-control"%>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <%# country %>
+                <div class="field">
+                <%= f.label :country ,:class => "form-label label-sign-up" %><br />
+                <%= f.text_field :country, autofocus: true , required: true , :placeholder => "",:class => "form-control"%>
+                </div>
+              </div>
+
+
+              
+              <!-- <div class="form-group mb-4">
+                <div class="custom-control custom-checkbox">
+                  <% if devise_mapping.rememberable? %>
+             
+                  <%= f.check_box :remember_me , :class => "custom-control-input"%>
+                  <%= f.label :remember_me , :class => "custom-control-label text-muted" %>
+                 
+                  <% end %>
+                
+                </div>
+              </div> -->
+              <!-- Submit-->
+              <div class="actions">
+              <%= f.submit t('.sign_up'), :class => "btn btn-lg btn-block btn-primary btn-primary-login "  %>
+              </div>
+              <hr data-content="OR" class="my-3 hr-text letter-spacing-2">
+             <!--   <button class="btn btn btn-outline-primary btn-block btn-social mb-3"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
+              <button class="btn btn btn-outline-muted btn-block btn-social mb-3"><i class="fa-2x fa-google fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Google</span></button>
+               -->
+              <hr class="my-4">
+              <p class="text-center dir-ltr"><small class="text-muted text-center">Do you have an account? 
+              <%= render "devise/shared/links" %>
+               <!-- <a href="signup.html">Sign Up                </a> -->
+              </small>
+              </p>
+            </form>
+           
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block" style="padding:0">
+          <!-- Image-->
+          <div style="background-image: url(https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/photo/photo-1497436072909-60f360e1d4b1.jpg);" class="bg-cover  h-100 mr-n3"></div>
+        </div>
+      </div>
+</div>
+
+
+
+
+<!-- END -->
 <% end %>
 
-<%= render "devise/shared/links" %>
+ 
+<% end %>
+
