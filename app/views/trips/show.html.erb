@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class='trips_show'>
 <header class="masthead" style="background:salmon; height:100vh">
-            <div class="container h-100">
+            <div class="container h-100 header-flex">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
                         <h1 class="text-uppercase text-white font-weight-bold"> <%= @trip.title %></h1>
@@ -15,28 +15,46 @@
                         <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
                     </div>
                 </div>
-                <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5">
+                <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
                         <svg class="svg-icon text-dark w-2rem h-2rem">
-                          <use xlink:href="#airplane-mode-1"> </use>
+                          <use xlink:href="#airplane-mode-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="airplane-mode-1">
+                          <title>Airplane Mode</title>
+                          <desc>A line styled icon from Orion Icon Library.</desc>
+                          <path data-name="layer1" d="M57.5 7.5a5 5 0 0 0-7.1 0L39.9 18.1l-25.6-3.3s-1.9-.3-2.7.5l-3 3a1.3 1.3 0 0 0-.4 1.4c.2.5 1.6 1.2 2 1.4L28 30l-7.2 7.2-.7.7-9.1-1.3a1.6 1.6 0 0 0-1.5.5l-2.2 2.2c-.3.3-.9 1 .4 1.6l11.6 4.8s4.2 10.3 4.8 11.6 1.3.7 1.6.4l2.2-2.2a1.6 1.6 0 0 0 .5-1.5l-1.3-9.1.7-.7 7.2-7.1 9 17.7c.2.5.9 1.9 1.4 2a1.3 1.3 0 0 0 1.4-.4l3-3c.8-.8.5-2.7.5-2.7l-3.4-25.6 10.6-10.6a5 5 0 0 0 0-7z" fill="none" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--layer1, #101010)"></path>
+                        </svg> </use>
                         </svg>
                       </div>
                       <div class="media-body">
                         <h5>Flights</h5>
                         <div class="badge badge-light">from $345</div>
-                      </div></a><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5">
+                      </div></a><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header ">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
                         <svg class="svg-icon text-dark w-2rem h-2rem">
-                          <use xlink:href="#suitcase-1"> </use>
+                          <use xlink:href="#suitcase-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="suitcase-1">
+                          <title>Suitcase</title>
+                          <desc>A line styled icon from Orion Icon Library.</desc>
+                          <path data-name="layer2" fill="none" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" d="M28 38h-8V26l4-4 4 4v12zm-4-16v-6M12 56v4m40-4v4" style="stroke:var(--layer1, #101010)"></path>
+                          <rect data-name="layer1" x="2" y="16" width="60" height="40" rx="3" ry="3" fill="none" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--layer1, #101010)"></rect>
+                          <path data-name="layer1" d="M24 16v-5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v5m-28 0v40m40-40v40" fill="none" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--layer1, #101010)"></path>
+                        </svg></use>
                         </svg>
                       </div>
                       <div class="media-body">
                         <h5>Holidays</h5>
                         <div class="badge badge-light">from $1,245</div>
-                      </div></a><a href="#" class="media text-reset text-decoration-none hover-animate">
+                      </div></a><a href="#" class="media text-reset text-decoration-none hover-animate icon-header">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
                         <svg class="svg-icon text-dark w-2rem h-2rem">
-                          <use xlink:href="#image-gallery-1"> </use>
+                          <use xlink:href="#image-gallery-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="image-gallery-1">
+                          <title>Image Gallery</title>
+                          <desc>A line styled icon from Orion Icon Library.</desc>
+                          <path data-name="layer3" fill="none" stroke="#101010" stroke-miterlimit="10" d="M10 54H2V2h52v8" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #101010)"></path>
+                          <path data-name="layer1" fill="none" stroke="#101010" stroke-miterlimit="10" d="M10 10h52v52H10z" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #101010)"></path>
+                          <circle data-name="layer2" cx="22" cy="22" r="4" fill="none" stroke="#101010" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #101010)"></circle>
+                          <path data-name="layer2" d="M16 50c0-2.8 2.6-16 9.3-16s6.1 6 8.7 6 2.6-16 10-16 12 23.8 12 26" fill="none" stroke="#101010" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #101010)"></path>
+                          <path data-name="layer1" fill="none" stroke="#101010" stroke-miterlimit="10" d="M10 50h52" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer2, #101010)"></path>
+                        </svg> </use>
                         </svg>
                       </div>
                       <div class="media-body">
