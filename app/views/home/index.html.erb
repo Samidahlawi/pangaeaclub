@@ -6,8 +6,8 @@
                     <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
                         <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
                     <% if current_user.nil? %>
-                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
                         <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
+                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
                     <% else %>
                         <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
                         <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
@@ -389,7 +389,10 @@
 
 
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a href="#" class="position-relative"><img src="https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/avatar/agent-1.png" alt="" class="card-img-top team-img">
+            <div class="card border-0 hover-animate bg-transparent">
+            <a href="#" class="position-relative">
+                        <%= image_tag("CEO_pangaclub.png", :alt => "rss feed" , :class => "card-img-top team-img") %>
+
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
                 <h6 class="card-title">مشاعل </h6>
@@ -398,7 +401,9 @@
             </div>
           </div>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a href="#" class="position-relative"><img src="https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/avatar/agent-2.png" alt="" class="card-img-top team-img">
+            <div class="card border-0 hover-animate bg-transparent">
+            <a href="#" class="position-relative">
+            <%= image_tag("CEO_pangaclub.png", :alt => "rss feed" , :class => "card-img-top team-img") %>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
                 <h6 class="card-title">عبدالله الفيصل</h6>
@@ -407,7 +412,9 @@
             </div>
           </div>
           <div class="mb-3 mb-lg-0 col-sm-6 col-lg-3">
-            <div class="card border-0 hover-animate bg-transparent"><a href="#" class="position-relative"><img src="https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/avatar/agent-3.png" alt="" class="card-img-top team-img">
+            <div class="card border-0 hover-animate bg-transparent">
+            <a href="#" class="position-relative">
+            <%= image_tag("CEO_pangaclub.png", :alt => "rss feed" , :class => "card-img-top team-img") %>
                 <div class="team-circle bg-secondary-light"></div></a>
               <div class="card-body team-body text-center">
                 <h6 class="card-title">ابراهـيم</h6>

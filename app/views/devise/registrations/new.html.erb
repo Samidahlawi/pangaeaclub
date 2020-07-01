@@ -1,11 +1,10 @@
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "simple-form"}) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: "simple-form form-sign-up" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
 <!-- -->
 
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 <!-- -->
 <div class="container-fluid px-3">
@@ -13,7 +12,7 @@
         <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
           <div class="w-100 py-5 px-md-5 px-xl-6 position-relative top-pad-zero">
           
-            <div class="mb-5 text-rtl">
+            <div class="text-rtl">
             <div>
                <a href="/" class="close-absolute mr-md-5 mr-xl-6 pt-5 "> 
               <svg class="svg-icon w-3rem h-3rem">
@@ -26,11 +25,11 @@
                 </use>
               </svg></a>
             </div>
-            <div>
-              <%= image_tag("pangaeaclub.png", :alt => "pangaeaclub.png" ,:style => "max-width: 10rem;margin-top: 45px;", :class => "img-fluid mb-3")  %>
+            <div style="position:relative;height:100px">
+              <%= image_tag("pangaeaclub.png", :alt => "pangaeaclub.png" ,:style => "max-width: 10rem;margin-top: 45px;position: absolute;left: 0;top: -50px;", :class => "img-fluid ")  %>
               <!-- <img src="https://d19m59y37dris4.cloudfront.net/directory/1-4-1/img/logo-square.svg" alt="..." style="max-width: 4rem;" class="img-fluid mb-3">
               -->
-                <h2>الـتـسجـيل</h2>
+                <h2 style="top: 65px;position: absolute;">الـتـسجـيل</h2>
             </div>
             </div>
             <form class="form-validate">
@@ -93,7 +92,11 @@
                 <%# country %>
                 <div class="field">
                 <%= f.label :country ,:class => "form-label label-sign-up" %><br />
-                <%= f.text_field :country, autofocus: true , required: true , :placeholder => "",:class => "form-control"%>
+                  <div class="select-form-control">
+                    <%= f.select :country,         ["Saudi Arabia","Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"]  %>
+                  </div>
+                <%# f.text_field :country, autofocus: true , required: true , :placeholder => "",:class => "form-control"%>
+               
                 </div>
               </div>
 
@@ -139,7 +142,7 @@
 
 
 <!-- END -->
-<% end %>
+
 
  
 <% end %>
