@@ -1,4 +1,5 @@
 // MAIN Colorssssss
+
 // pangaeaclub color -> light-blue = #75ccdc
 // Arrow,TEXT, others -> the other color is closed to red = #fe5a59
 // #FE5A59
@@ -32,6 +33,8 @@
     background: url("https://png.pngtree.com/svg/20170411/correct_1359045.png") no-repeat 95% 50%;
     background-size: 15px;
   }
+
+  
  /* ==== */
 * {
   direction: rtl;
@@ -824,6 +827,14 @@ bg-transparent {
 // *********** START TRIP SHOW PAGE *************
 
 
+.icon-header{
+  display: flex;
+  flex-direction: row-reverse;
+}
+// start sub header
+
+// end sub header
+
 // *********** END TRIP SHOW *************
 
 
@@ -855,8 +866,8 @@ bg-transparent {
 }
 .btn-primary-login {
   color: #fff;
-  background-color: #ef5285;
-  border-color: #ef5285;
+  // background-color: #ef5285;
+  // border-color: #ef5285;
 }
 
 .dir-ltr {
@@ -937,6 +948,14 @@ bg-transparent {
   }
 
   // TEAM
+  // start trip show
+  .header-flex {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  //end trip show
 }
 
 // Medium devices (tablets, 768px and up)
@@ -960,10 +979,18 @@ bg-transparent {
       overflow: visible;
     }
     //e-TEAM
-      
+  //start trip show page
+  .header-flex {
+    display:flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+  // end trip show page
  }
 
 // Large devices (desktops, 992px and up)
+
 @media (min-width: 992px) { 
 
   
@@ -971,3 +998,4 @@ bg-transparent {
 
 
  }
+
