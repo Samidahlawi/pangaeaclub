@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .flex-grow-zero a {
-  border-bottom-style: solid;
+  // border-bottom-style: solid;
   // border-bottom-color: #fff;
   margin-right: 10px;
 }
@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 // -----
 //START Header
+
 .home-index header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
@@ -111,6 +112,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .navbar .nav-link {
   font-size: 1rem !important ;
   font-weight: bold  !important;
+  color: #FFF;
+    padding: .5rem 20px;
+    font-family: 'Avenir-Book';
+    font-weight: 600 !important;
+    font-size: 16px;
+    text-transform: capitalize;
+    transition: .3s;
+    display: inline-block;
+    height: auto;
+    text-decoration: none;
+    padding-right: 0.5rem !important; 
+    padding-left: 0.5rem !important;
 }
 .home-index .header-bg {
   background: linear-gradient(0deg,rgba(44,44,44,.2),rgba(224,23,3,.6));
@@ -831,9 +844,42 @@ bg-transparent {
   display: flex;
   flex-direction: row-reverse;
 }
-// start sub header
 
-// end sub header
+
+// start sub nav
+.sub-nav {
+  background: #faf6fb;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-shadow: -5px -3px 8px #ccc;
+}
+
+
+.sub-nav > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sub-nav-icon {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+.detalis-trip{
+  display: flex;
+  flex-direction: column;
+  // border-right: 2px solid gray;
+  // padding: 5px;
+  margin: 10px;
+}
+
+// end sub nav
+
+
+
 
 // *********** END TRIP SHOW *************
 
@@ -955,7 +1001,19 @@ bg-transparent {
     align-items: center;
     justify-content: space-around;
   }
+
+
+
+  //sub-nav 
+  .detalis-trip {
+    width: 40%;
+  }
+
+
+  //end .sub-nav
+
   //end trip show
+
 }
 
 // Medium devices (tablets, 768px and up)
@@ -982,10 +1040,18 @@ bg-transparent {
   //start trip show page
   .header-flex {
     display:flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
   }
+
+  //sub-nav 
+  .detalis-trip {
+    width: 21%;
+  }
+
+
+  //end .sub-nav
   // end trip show page
  }
 
@@ -993,7 +1059,13 @@ bg-transparent {
 
 @media (min-width: 992px) { 
 
-  
+  //sub-nav 
+  .detalis-trip {
+    width: auto;
+  }
+
+
+  //end .sub-nav
 
 
 

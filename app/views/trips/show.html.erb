@@ -1,21 +1,51 @@
-<p id="notice"><%= notice %></p>
+<!-- 
+<p id="notice"><%# notice %></p>
+-->
+<!-- START NAV -->
+<nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
+                        <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link  js-scroll-trigger" %></li>
+                    <% if current_user.nil? %>
+                        <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link  js-scroll-trigger" %></li>
+                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link  js-scroll-trigger" %></li>
+                    <% else %>
+                        <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link  js-scroll-trigger" %> </li>
+                        <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link  js-scroll-trigger" , method: :delete%> </li>
+                    <%# when the admin sign_in %>
+                            <% if current_user.admin %>
+                                <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link  js-scroll-trigger" %></li>
+                            <% end%>
+                    <% end %>
+                    </ul>
+                </div>
+            </div>
+</nav>
+
+
+
+<!-- END NAV -->
+
+
+
 <div class='trips_show'>
-<header class="masthead" style="background:salmon; height:100vh">
+<header class="masthead" style="padding-top:20px;background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('<%= asset_path url_for(@trip.asset) %>');background-repeat: no-repeat; background-position: center; background-size: cover !important; height:80vh;box-shadow: 3px 4px 5px #ccc;">
             <div class="container h-100 header-flex">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-black font-weight-bold"> <%= @trip.title %></h1>
+                        <h1 class="text-uppercase text-black font-weight-bold" style="color:white"> <%= @trip.title %></h1>
                         <hr class="divider my-4">
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">
-  
+                        <h3 class="text-white-75 font-weight-light mb-5" style="color:white">
                         <%= @trip.sub_title %>
-                      </p>
+                      </h3>
                         
                     </div>
                 </div>
-                <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header">
+                <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0" style="color:white"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
                         <svg class="svg-icon text-dark w-2rem h-2rem">
                           <use xlink:href="#airplane-mode-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="airplane-mode-1">
@@ -65,113 +95,128 @@
             
             </div>
             
-        </header>
+</header>
 
-</div>
+
 
   
 
 
 <!-- start over view trip -->
-<div class='sub-header'> 
+
+  <nav class="sub-nav ">
+   <div class="container">
+        <div class="detalis-trip">
+            <i class="sub-nav-icon fas fa-plane-departure">  </i>
+            <strong>بداية الرحـلة</strong>
+            <span><%= @trip.start_date %></span>
+        </div>
+
+        <div class="detalis-trip"> 
+            <i class="sub-nav-icon fas fa-plane-arrival ">  </i>
+            <strong>نهاية الرحـلة</strong>
+            <span><%= @trip.end_date %></span>
+        </div>
 
 
-</div>
+        <div class="detalis-trip">
+            <i class="sub-nav-icon fas fa-globe-americas">  </i>
+            <strong>الدولة</strong>
+            <span><%= @trip.country %></span>
+        </div>
+
+        <div class="detalis-trip">
+            <i class="sub-nav-icon fas fa-map-marked">  </i>
+            <strong>المـكـان</strong>
+             <span><%= @trip.destination %> </span>
+        </div>
+
+       
+        <div class="detalis-trip">
+            <i class="sub-nav-icon  fas fa-dumbbell" >  </i>
+              <strong>المسـتوى</strong>
+               <span><%= @trip.level %> </span>
+        </div>
+
+        <div class="detalis-trip">
+            <i class="sub-nav-icon  fas fa-users ">  </i> 
+            <strong>المجموعة</strong>
+            <span> <%= @trip.group_size_start %>  - <%= @trip.group_size_end %> </span>
+        </div>
+
+          <div class="detalis-trip">
+            <i class="sub-nav-icon  fas fa-hourglass-end" >  </i>
+             <strong>انتـهاء الحجز</strong>
+              <span><%= @trip.deadline %>  </span>
+        </div>
+
+
+   </div>
+  </nav>
+
 <!-- end over view trip -->
-<p>
-  <strong>Trip type:</strong>
-  <%= @trip.trip_type %>
-</p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @trip.country %>
-</p>
-
-<p>
-  <strong>Destination:</strong>
-  <%= @trip.destination %>
-</p>
-
-<p>
-  <strong>Deadline:</strong>
-  <%= @trip.deadline %>
-</p>
-
-<p>
-  <strong>Level:</strong>
-  <%= @trip.level %>
-</p>
-
-
-<%#show the background image of guide%>
-<% if @trip.asset.attached?%>
-  <p>
-    
-    <%= image_tag url_for(@trip.asset) %>
-  </p>
-<% end%>
-
-
-<p>
-  <strong>Group size start:</strong>
-  <%= @trip.group_size_start %>
-</p>
-
-<p>
-  <strong>Group size end:</strong>
-  <%= @trip.group_size_end %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @trip.duration %>
-</p>
-
-<hr>
-<% if @trip.assets.attached?%>
+<!-- start the section-1 -->
+<div class="container">
   
-<p>
-  <%#show the images of trip%>
-  <% @trip.assets.each do |image| %>
-    <span>
-      <%= image_tag image %>
-    </span>
-  <% end%>
-</p>
-<% end%>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @trip.start_date %>
-</p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @trip.end_date %>
-</p>
+    <%#show the background image of guide%>
+    <% if @trip.asset.attached?%>
+      <p>
+        
+        <%# image_tag url_for(@trip.asset) %>
+      </p>
+    <% end%>
 
-<p>
-  <strong>Description:</strong>
-  <%= @trip.description %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @trip.price %>
-</p>
 
-<p>
-  <strong>Guide:</strong>
-  <%= @trip.guide_id %>
-</p>
 
-<p>
-  <strong>Region:</strong>
-  <%= @trip.region_id %>
-</p>
+    <hr>
+    <% if @trip.assets.attached?%>
+      
+    <p>
+      <%#show the images of trip%>
+      <% @trip.assets.each do |image| %>
+        <span>
+          <%# image_tag image %>
+        </span>
+      <% end%>
+    </p>
+    <% end%>
 
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
-<%= link_to 'Back', trips_path %>
 
-<h1 class="sami">sdfasd</h1>
+  
+
+    <p>
+      <strong>Description:</strong>
+      <%= @trip.description %>
+    </p>
+
+    <p>
+      <strong>Guide:</strong>
+      <%= @trip.guide.first_name %>
+    </p>
+
+    <p>
+      <strong>Region:</strong>
+      <%= @trip.region_id %>
+    </p>
+
+    <%= link_to 'Edit', edit_trip_path(@trip) %> |
+    <%= link_to 'Back', trips_path %>
+
+    <h1 class="sami">sdfasd</h1>
+</div>
+<!-- END the section-1 -->
+
+
+
+
+
+
+
+
+
+<!-- END SHOW TRIP -->
+</div>
