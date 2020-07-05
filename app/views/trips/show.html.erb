@@ -1,6 +1,13 @@
 <!-- 
 <p id="notice"><%# notice %></p>
 -->
+
+
+
+<div class='trips_show'>
+
+<!-- START HEADER -->
+<div class="header-1" style="background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('<%= asset_path url_for(@trip.asset) %>');background-repeat: no-repeat; background-position: center; background-size: cover !important; height:80vh;box-shadow: 3px 4px 5px #ccc;overflow: hidden;">
 <!-- START NAV -->
 <nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
             <div class="container">
@@ -29,9 +36,7 @@
 <!-- END NAV -->
 
 
-
-<div class='trips_show'>
-<header class="masthead" style="padding-top:20px;background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('<%= asset_path url_for(@trip.asset) %>');background-repeat: no-repeat; background-position: center; background-size: cover !important; height:80vh;box-shadow: 3px 4px 5px #ccc;">
+<header class="masthead" style="padding-top:20px;">
             <div class="container h-100 header-flex">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
@@ -45,7 +50,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0" style="color:white"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header">
+                <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0 info-trip-header " style="color:white"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
                         <svg class="svg-icon text-dark w-2rem h-2rem">
                           <use xlink:href="#airplane-mode-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="airplane-mode-1">
@@ -98,6 +103,8 @@
 </header>
 
 
+<!-- END the HEADER -->
+</div>
 
   
 
