@@ -168,7 +168,7 @@
                                 </a>
                               
                                 
-                                <div class="ltr" style="position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
+                                <div class="ltr" style="text-align: center;position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
                                     <a href="trips/<%= trip.id %>"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;"><%= trip.title %></h4></a>
                                     <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;"><%= trip.country %></span></div>
                                 </div>
@@ -176,20 +176,35 @@
                                 
 
                                 <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
-                                    <div class="clearfix" style="margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
-                                        <div style="width: 15%; float: left;">
+                                    <div class="clearfix" style="text-align: right;margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
+                                        <div style="width: 15%; float: right;">
                                               <% if trip.guide.asset.attached?%>
                                                 <a href="guides/<%= trip.guide.id %>"><div class="nomad_round_thumbnail" style="background-image: url('<%= asset_path url_for(trip.guide.asset) %>'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
                                                     </div>
                                                 </a>
                                               <% end %>
                                         </div>    
-                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-left: 20px; width: 85%; float: right;">
+                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-right: 20px; width: 85%; float: right;">
                                             <span style="color: #777777;">الـقائـد  </span><a style="text-decoration: none;" href="guides/<%= trip.guide.id %>"><%= trip.guide.first_name + " " + trip.guide.last_name %></a></div> 
                                     </div>   
-                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 22px; height: 67px;">
-                                        <div class="float-left mb3"><i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium;"><%= trip.start_date %></span></div>
-                                        <div class=" float-right" style=""><i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i><span style="font-size: 16px !important; font-family: Avenir-Medium !important;"><%= trip.price %> SR</span></div>
+                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 10px; height: 67px;display: flex;justify-content: space-between;flex-direction: row-reverse;flex-wrap: wrap;">
+                                        
+                                        <div class="mb3" style="direction: ltr;">
+                                          <i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 1px;"></i>
+                                          <span style="font-size: 15px !important; font-family: Avenir-Medium;"><%= trip.start_date.strftime("%-d") %> <%= trip.start_date.strftime("%B") %> - <%= trip.end_date.strftime("%-d") %> <%= trip.end_date.strftime("%B") %>, <%= trip.end_date.strftime("%Y") %></span>
+                                           
+                                          
+                                        </div>
+
+                                        <div class=" " style="">
+                                          
+                                          <span style="font-size: 15px !important; font-family: Avenir-Medium !important;"><%= trip.price %> SR</span>
+                                          <i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i>
+                                          
+                                        </div>
+
+                                       
+                                       
                                     </div>    
 
                                 </div>
@@ -240,6 +255,7 @@
                                 <div class="single-destination ">
                                         <a href="guides/<%= guide.id %>" class="box-stander">
                                             <div class="hold-img destination-image" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
+                                            <div class="bg-card"></div>
                                             <% if guide.asset.attached?%>
                                                 <img style="border-radius: 5px 5px 0px 0px !important;" alt="" src="<%= asset_path url_for(guide.asset) %>" class="img-fluid ls-is-cached lazyloaded" src="<%= asset_path url_for(guide.asset) %>">
                                                 
