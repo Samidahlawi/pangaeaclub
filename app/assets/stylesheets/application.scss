@@ -981,6 +981,23 @@ bg-transparent {
 }
 // *********** END Sign-up PAGE *************
 
+// *********** END ALL-TRIPS page *************
+
+.section-trips{
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-trips > .journey{
+  width: 48%;
+  margin: 0 0 40px 0;
+}
+// *********** END ALL-TRIPS page *************
+
 
 /////////////////////////////////////////////////////////////////////
 // Small devices (landscape phones, 576px and up)
@@ -1027,6 +1044,13 @@ bg-transparent {
   //end .sub-nav
 
   //end trip show
+  // *********** SATRT ALL-TRIPS page *************
+
+  .section-trips > .journey{
+    width: 100%;
+    margin: 0 0 40px 0;
+  }
+  // *********** END ALL-TRIPS page *************
 
 }
 
@@ -1067,6 +1091,15 @@ bg-transparent {
 
   //end .sub-nav
   // end trip show page
+  // *********** SATRT ALL-TRIPS page *************
+
+  .section-trips > .journey{
+    width: 48%;
+    margin: 0 0 40px 0;
+  }
+  // *********** END ALL-TRIPS page *************
+
+  
  }
 
 // Large devices (desktops, 992px and up)
@@ -1080,6 +1113,13 @@ bg-transparent {
 
 
   //end .sub-nav
+  // *********** SATRT ALL-TRIPS page *************
+
+  .section-trips > .journey{
+    width: 30%;
+    margin: 0 0 40px 0;
+  }
+  // *********** END ALL-TRIPS page *************
 
 
 

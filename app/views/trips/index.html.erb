@@ -1,61 +1,184 @@
-<p id="notice"><%= notice %></p>
+<div class="header-1" style="background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');background-repeat: no-repeat; background-position: center; background-size: cover !important; height:60vh;box-shadow: 3px 4px 5px #ccc;overflow: hidden;">
+<!-- START NAV -->
+<nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
+                        <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link  js-scroll-trigger" %></li>
+                    <% if current_user.nil? %>
+                        <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link  js-scroll-trigger" %></li>
+                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link  js-scroll-trigger" %></li>
+                    <% else %>
+                        <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link  js-scroll-trigger" %> </li>
+                        <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link  js-scroll-trigger" , method: :delete%> </li>
+                    <%# when the admin sign_in %>
+                            <% if current_user.admin %>
+                                <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link  js-scroll-trigger" %></li>
+                            <% end%>
+                    <% end %>
+                    </ul>
+                </div>
+            </div>
+</nav>
 
-<h1>Trips</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Sub title</th>
-      <th>Trip type</th>
-      <th>Country</th>
-      <th>Destination</th>
-      <th>Deadline</th>
-      <th>Level</th>
-      <th>Bg image</th>
-      <th>Group size start</th>
-      <th>Group size end</th>
-      <th>Duration</th>
-      <th>Image</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Guide</th>
-      <th>Region</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<!-- END NAV -->
+
+
+<header class="masthead" style="padding-top:20px;">
+            <div class="container h-100 header-flex">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-black font-weight-bold" style="color:white"> أكتشف رحلاتنا</h1>
+                        <hr class="divider my-4">
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <h3 class="text-white-75 font-weight-light mb-5" style="color:white">
+                        جميع الرحلات
+                      </h3>
+                        
+                    </div>
+                </div>
+              
+            
+            </div>
+    <!-- END the HEADER -->
+</header>
+</div>
+
+<div class="container">
+ <!-- 
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Sub title</th>
+          <th>Trip type</th>
+          <th>Country</th>
+          <th>Destination</th>
+          <th>Deadline</th>
+          <th>Level</th>
+          <th>Bg image</th>
+          <th>Group size start</th>
+          <th>Group size end</th>
+          <th>Duration</th>
+          <th>Image</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Guide</th>
+          <th>Region</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @trips.each do |trip| %>
+          <tr>
+            <td><%= trip.title %></td>
+            <td><%= trip.sub_title %></td>
+            <td><%= trip.trip_type %></td>
+            <td><%= trip.country %></td>
+            <td><%= trip.destination %></td>
+            <td><%= trip.deadline %></td>
+            <td><%= trip.level %></td>
+            <% if trip.asset.attached?%>
+                <td ><%= image_tag url_for(trip.asset) , :class => "w-50"%></td>
+            <% end %>
+            <td><%= trip.group_size_start %></td>
+            <td><%= trip.group_size_end %></td>
+            <td><%= trip.duration %></td>
+            <% if trip.asset.attached?%>
+                <td ><%= image_tag url_for(trip.asset) , :class => "w-50"%></td>
+            <% end %>
+            <td><%= trip.start_date %></td>
+            <td><%= trip.end_date %></td>
+            <td><%= trip.description %></td>
+            <td><%= trip.price %></td>
+            <td><%= trip.guide_id %></td>
+            <td><%= trip.region_id %></td>
+            <td><%= link_to 'Show', trip %></td>
+              </tr>
+        <% end %>
+      </tbody>
+    </table>
+-->
+
+  <div class="section-trips">
     <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.title %></td>
-        <td><%= trip.sub_title %></td>
-        <td><%= trip.trip_type %></td>
-        <td><%= trip.country %></td>
-        <td><%= trip.destination %></td>
-        <td><%= trip.deadline %></td>
-        <td><%= trip.level %></td>
-        <td><%= trip.bg_image %></td>
-        <td><%= trip.group_size_start %></td>
-        <td><%= trip.group_size_end %></td>
-        <td><%= trip.duration %></td>
-        <td><%= trip.image %></td>
-        <td><%= trip.start_date %></td>
-        <td><%= trip.end_date %></td>
-        <td><%= trip.description %></td>
-        <td><%= trip.price %></td>
-        <td><%= trip.guide_id %></td>
-        <td><%= trip.region_id %></td>
-        <td><%= link_to 'Show', trip %></td>
-        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <div class="journey">
+                    
+                       <div style="background-color: #F7F7F7; border-radius: 5px 5px 0px 0px !important; position: relative;">  
+                                <a href="trips/<%= trip.id %>" class="box-stander">
+                                    <div class="hold-img" style="border-radius: 5px 5px 0px 0px !important; margin-bottom: -10px;">
+                                     <% if trip.asset.attached?%>
+                                        <img style="border-radeius: 5px 5px 0px 0px !important;" alt="" data-src="<%= asset_path url_for(trip.asset) %>" class="img-fluid ls-is-cached lazyloaded" src="<%= asset_path url_for(trip.asset) %>"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="<%= asset_path url_for(trip.asset) %>" alt="" class="img-fluid"></noscript>
+                                     <% else %>
+                                        <img style="border-radius: 5px 5px 0px 0px !important;" alt="" data-src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" class="img-fluid ls-is-cached lazyloaded" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg"><noscript><img style="border-radius: 5px 5px 0px 0px !important;" src="https://d3hfzvc6owi2ym.cloudfront.net/2020/02/rena-cu5QpZmrmc8-unsplash-aspect-ratio-255x281.jpg" alt="" class="img-fluid"></noscript>
+                                     <% end %>
+                                    </div>
+                                     <% if trip.status == false %>
+                                        <div class="trip-status">
+                                            <span>SALE</span>
+                                        </div>
+                                    <% end %>
+                                </a>
+                              
+                                
+                                <div class="ltr" style="text-align: center;position: absolute; bottom: 127px; background-color: rgba(0, 0, 0, 0.3); width: 100%;">         
+                                    <a href="trips/<%= trip.id %>"><h4 class="" style="line-height: 31px; font-size: 20px; font-family: Avenir-Medium; color: #FFFFFF; padding-top: 10px; padding-left: 20px; margin-bottom: 0px;"><%= trip.title %></h4></a>
+                                    <div style="padding-left: 20px; padding-bottom: 15px;"><i class="fas fa-map-marker-alt" style="color: #FE5A59; font-size: 13px; margin-right: 5px;"></i><span style="color: #FFFFFF; font-size: 14px; font-family: Avenir-Medium;"><%= trip.country %></span></div>
+                                </div>
+                        
+                                
 
-<br>
+                                <div class="box-stander-info" style="margin-left: 15px; margin-right: 15px;">                                
+                                    <div class="clearfix" style="text-align: right;margin-left: 0px !important; margin-right: 0px !important; margin-top: 22px;">
+                                        <div style="width: 15%; float: right;">
+                                              <% if trip.guide.asset.attached?%>
+                                                <a href="guides/<%= trip.guide.id %>"><div class="nomad_round_thumbnail" style="background-image: url('<%= asset_path url_for(trip.guide.asset) %>'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; height: 48px;">
+                                                    </div>
+                                                </a>
+                                              <% end %>
+                                        </div>    
+                                        <div style="font-size: 15px; line-height: 45px; border-bottom: solid 1px #E6E6E6; padding-right: 20px; width: 85%; float: right;">
+                                            <span style="color: #777777;">الـقائـد  </span><a style="text-decoration: none;" href="guides/<%= trip.guide.id %>"><%= trip.guide.first_name + " " + trip.guide.last_name %></a></div> 
+                                    </div>   
+                                    <div style="margin-left: 0px !important; margin-right: 0px !important; padding-top: 10px; height: 67px;display: flex;justify-content: space-between;flex-direction: row-reverse;flex-wrap: wrap;">
+                                        
+                                        <div class="mb3" style="direction: ltr;">
+                                          <i class="far fa-calendar-alt" style="color: #FE5A59; font-size: 15px; margin-right: 1px;"></i>
+                                          <span style="font-size: 15px !important; font-family: Avenir-Medium;"><%= trip.start_date.strftime("%-d") %> <%= trip.start_date.strftime("%B") %> - <%= trip.end_date.strftime("%-d") %> <%= trip.end_date.strftime("%B") %>, <%= trip.end_date.strftime("%Y") %></span>
+                                           
+                                          
+                                        </div>
 
-<%= link_to 'New Trip', new_trip_path %>
+                                        <div class=" " style="">
+                                          
+                                          <span style="font-size: 15px !important; font-family: Avenir-Medium !important;"><%= trip.price %> SR</span>
+                                          <i class="fas fa-tag" style="color: #FE5A59; font-size: 15px; margin-right: 5px;"></i>
+                                          
+                                        </div>
+
+                                       
+                                       
+                                    </div>    
+
+                                </div>
+                        </div>
+                  
+                </div>
+
+    <%  end %>
+    <!-- END LOOP OF TRIPS--> 
+    <div style="display: flex;
+    justify-content: center;
+    align-items: center;width:100%">
+      <%=  will_paginate @trips, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, previous_label: "الـسابق" , next_label: "الـتالـي" , inner_windor: 1 , outer_windoe: 1%>
+    </div>
+  </div>
+</div>
+

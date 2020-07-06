@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    @trips = Trip.all.order("start_date DESC").paginate(page: params[:page], per_page: 6)
   end
 
   # GET /trips/1
