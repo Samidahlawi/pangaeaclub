@@ -189,27 +189,45 @@
     <% end%>
 
 
-  
+  <div class="trip-content">
+  <div id="homepage_products">
+  <div class="row">
+  <div class="col">
+  <a href="/generate" class="homepage_products_item">
+  <div>
+  <strong>Description</strong>
+  <div><%= @trip.description %></div>
+  </div>
+  </a>
+  </div>
+  <div class="col">
+  <a href="https://apps.apple.com/app/coolors/id956480678" class="homepage_products_item" target="_blank" rel="noopener noreferrer">
+  <div>
+  <i class="icon icon-large-apple"></i>
+  <strong>Guide</strong>
+  <div><%= @trip.guide.first_name %></div>
+  </div>
+  </a>
+  </div>
+  <div class="col">
+  <a href="https://creative.adobe.com/addons/products/12124#.V6nhWJOLRE4" class="homepage_products_item adobe-btn adobe-btn" target="_blank" rel="noopener noreferrer">
+  <div>
+  <i class="icon icon-large-adobe"></i>
+  <strong>Region</strong>
+  <div> write region </div>
+  </div>
+  </a>
+  </div>
+  </div>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @trip.description %>
+
+
     </p>
-
-    <p>
-      <strong>Guide:</strong>
-      <%= @trip.guide.first_name %>
-    </p>
-
-    <p>
-      <strong>Region:</strong>
-      <%= @trip.region_id %>
-    </p>
-
+</div>
     <%= link_to 'Edit', edit_trip_path(@trip) %> |
     <%= link_to 'Back', trips_path %>
 
-    <h1 class="sami">sdfasd</h1>
+    
 </div>
 <!-- END the section-1 -->
 

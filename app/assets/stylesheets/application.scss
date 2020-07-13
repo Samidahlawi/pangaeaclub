@@ -1001,6 +1001,22 @@ bg-transparent {
 
 // end sub nav
 
+.homepage_products_item {
+  background: #75ccdc;
+  color: #000;
+  border-radius: 14px!important;
+  text-decoration: none;
+  transition: .3s cubic-bezier(.6,.4,0,1);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 15%;
+}
 
 
 
