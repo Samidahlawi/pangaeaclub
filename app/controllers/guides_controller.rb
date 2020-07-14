@@ -12,7 +12,7 @@ class GuidesController < ApplicationController
   # GET /guides
   # GET /guides.json
   def index
-    @guides = Guide.all
+    @guides = Guide.all.order("updated_at DESC").paginate(page: params[:page], per_page: 8)
   end
 
   # GET /guides/1

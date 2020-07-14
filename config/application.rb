@@ -16,4 +16,8 @@ module PangaeaClub
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+
+  Kaminari.configure do |config|
+    config.page_method_name = :per_page_kaminari
+    end
 end

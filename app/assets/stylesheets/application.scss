@@ -581,6 +581,26 @@ svg-icon {
   text-align: center;
 }
 
+
+
+
+// START GUIDE-SHOW
+.guides-show .detalis-shows{
+  display: flex;
+  justify-content: center;
+}
+.guides-show .detalis-shows > h5{
+  font-weight: 100;
+}
+.guides-show .detalis-shows > strong{
+  margin-left: 5px;
+}
+
+
+.guides-show  .guide-description{
+  margin-top: 20px;
+}
+
 // END GUIDE
 
 // START REVIEWS
@@ -988,7 +1008,7 @@ bg-transparent {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -1050,6 +1070,17 @@ bg-transparent {
     width: 100%;
     margin: 0 0 40px 0;
   }
+  .section-guides{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .section-guides > .guide{
+    width: 100%;
+    margin: 0 0 80px 0;
+  }
   // *********** END ALL-TRIPS page *************
 
 }
@@ -1097,6 +1128,11 @@ bg-transparent {
     width: 48%;
     margin: 0 0 40px 0;
   }
+  .section-guides > .guide{
+    width: 48%;
+    margin: 0 0 80px 0;
+  }
+
   // *********** END ALL-TRIPS page *************
 
   
