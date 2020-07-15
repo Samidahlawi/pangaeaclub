@@ -88,30 +88,32 @@
 
           <!-- -->
 <!-- START Grid row -->
-<div class="row">
 <% if @guide.assets.attached?%>
-  <div class="gallery" id="gallery">
+<div class="container gallery-container">
 
-          <%#show the images of guide%>
-          <%  counter = 0 %>
+    <h1>بـعـض مـن رحـلاتـي</h1>
+
+    <p class="page-description text-center">Instagram: <%= @guide.instagram %> </p>
+    
+    <div class="tz-gallery gallery">
+
+        <div class="row">
           <% @guide.assets.each do |image| %>
-          <% counter = counter + 1 %>
-            <% if counter % 3 == 0 %>
-            <div class="mb-3 pics animation all 2">
-                      <%= image_tag image , :class => "img-fluid"%>
-              </div>
-            <% else %>
-              <div class="mb-3 pics animation all 1">
-                      <%= image_tag image , :class => "img-fluid"%>
-              </div>
+            <div class="col-sm-6 col-md-4 mb-3 ">
+                <a class="lightbox" href="<%= url_for(image)%>" class = "img-fluid" target="_blank">
+                    <%= image_tag image , :class => "img-fluid"%>
 
-            <% end %>
-        <% end%>
-  </div>
+                </a>
+            </div>
+           <% end%>
+        </div>
+
+    </div>
+
+</div>
 <!-- Grid row -->
 <!-- -->
 <% end%>
-</div>
 <!-- END Grid row -->
 
 
@@ -172,3 +174,4 @@
       </div>
       </div>
 </footer>
+

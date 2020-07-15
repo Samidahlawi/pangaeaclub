@@ -166,4 +166,15 @@ $(document).ready(function(){
       event.preventDefault();
       $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
   });
+  baguetteBox.run('.tz-gallery');
+
 });
+
+
+var myFunc = function() {
+  baguetteBox.run('.tz-gallery');
+};
+
+$(document).ready(myFunc);
+$(document).on('page:load', myFunc); // Classic Turbolinks
+$(document).on('turbolinks:load', myFunc); // Turbolinks 5
