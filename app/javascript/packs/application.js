@@ -181,89 +181,94 @@ $(document).on('turbolinks:load', myFunc); // Turbolinks 5
 
 
 // tripsCards
-let tripsCards = function() {
-  $('.journey-wrapper').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 2000,
-    nextArrow: $('.next'),
-    prevArrow:$('.prev'),
-    responsive: [
-      {
-        breakpoint: 1201,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
+$(function() {
+  let tripsCards = function() {
+    $('.journey-wrapper').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      nextArrow: $('.next'),
+      prevArrow:$('.prev'),
+      responsive: [
+        {
+          breakpoint: 1201,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
-}
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  }
 
-$(document).ready(tripsCards);
-$(document).on('page:load', tripsCards); // Classic Turbolinks
-$(document).on('turbolinks:load', tripsCards); // Turbolinks 5
+  $(document).ready(tripsCards);
+  $(document).on('page:load', tripsCards); // Classic Turbolinks
+  $(document).on('turbolinks:load', tripsCards); // Turbolinks 5
 
+  
+  
+  let guidesCards =  function() {
+    $('.guide-wrapper').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      nextArrow: $('.next-guide'),
+      prevArrow:$('.prev-guide'),
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 999,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  }
+  // guidesCards
+  $(document).ready(guidesCards);
+  $(document).on('page:load', guidesCards); // Classic Turbolinks
+  $(document).on('turbolinks:load', guidesCards); // Turbolinks 5
 
-let guidesCards =  function() {
-  $('.guide-wrapper').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 2000,
-    nextArrow: $('.next-guide'),
-    prevArrow:$('.prev-guide'),
-    responsive: [
-      {
-        breakpoint: 1000,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 999,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
-}
-// guidesCards
-$(document).ready(guidesCards);
-$(document).on('page:load', guidesCards); // Classic Turbolinks
-$(document).on('turbolinks:load', guidesCards); // Turbolinks 5
+})
+
