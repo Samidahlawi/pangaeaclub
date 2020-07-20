@@ -1018,7 +1018,52 @@ bg-transparent {
   padding: 15%;
 }
 
-
+.trips-show .section {
+  padding: 7em 0;
+  
+}
+.trips-show .align-items-center {
+  -webkit-box-align: center!important;
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+.trips-show .trip-img {
+  vertical-align: middle;
+  border-style: none;
+}
+.trips-show .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.trips-show .container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.trips-show body {
+  background: #fff;
+  font-family: "Mukta Mahee", arial, sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #6c757d;
+}
+.trips-show .post .media-custom a {
+  color: #000;
+}
+.trips-show .post .media-custom .media-body {
+  padding: 10px 30px;
+  background: #fff;
+  font-family: "Mukta Mahee", arial, sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #6c757d;
+}
 
 // *********** END TRIP SHOW *************
 
