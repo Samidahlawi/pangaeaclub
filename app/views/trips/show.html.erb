@@ -1,3 +1,4 @@
+
 <!-- 
 <p id="notice"><%# notice %></p>
 -->
@@ -52,13 +53,8 @@
                 </div>
                 <div class="col-lg-6 pl-lg-5 my-3 my-md-5 my-lg-0 info-trip-header " style="color:white"><a href="#" class="media text-reset text-decoration-none hover-animate mb-2 mb-md-5 icon-header">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
-                        <svg class="svg-icon text-dark w-2rem h-2rem">
-                          <use xlink:href="#airplane-mode-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="airplane-mode-1">
-                          <title>Airplane Mode</title>
-                          <desc>A line styled icon from Orion Icon Library.</desc>
-                          <path data-name="layer1" d="M57.5 7.5a5 5 0 0 0-7.1 0L39.9 18.1l-25.6-3.3s-1.9-.3-2.7.5l-3 3a1.3 1.3 0 0 0-.4 1.4c.2.5 1.6 1.2 2 1.4L28 30l-7.2 7.2-.7.7-9.1-1.3a1.6 1.6 0 0 0-1.5.5l-2.2 2.2c-.3.3-.9 1 .4 1.6l11.6 4.8s4.2 10.3 4.8 11.6 1.3.7 1.6.4l2.2-2.2a1.6 1.6 0 0 0 .5-1.5l-1.3-9.1.7-.7 7.2-7.1 9 17.7c.2.5.9 1.9 1.4 2a1.3 1.3 0 0 0 1.4-.4l3-3c.8-.8.5-2.7.5-2.7l-3.4-25.6 10.6-10.6a5 5 0 0 0 0-7z" fill="none" stroke="#101010" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--layer1, #101010)"></path>
-                        </svg> </use>
-                        </svg>
+                        
+<svg id="Layer_1" enable-background="new 0 0 480 480" height="512" viewBox="0 0 480 480" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m453 236.893v-95.393c0-22.056-17.944-40-40-40h-13.558l3.005-10.441c4.894-16.995-4.901-34.71-21.898-39.604l-90.771-26.13c-4.247-1.222-8.679 1.229-9.9 5.475-1.223 4.246 1.229 8.678 5.475 9.901l57.064 16.427c-7.059 13.752-7.317 30.155-.177 44.372h-167.24v-63c0-4.418-3.582-8-8-8s-8 3.582-8 8v63h-27v-63c0-4.418-3.582-8-8-8s-8 3.582-8 8v63h-35v-69c0-8.822 7.178-16 16-16h135c8.822 0 16 7.178 16 16v44c0 4.418 3.582 8 8 8s8-3.582 8-8v-44c0-17.645-14.355-32-32-32h-135c-17.645 0-32 14.355-32 32v69h-25c-22.056 0-40 17.944-40 40v298c0 22.056 17.944 40 40 40h373c22.056 0 40-17.944 40-40v-58.5c0-4.418-3.582-8-8-8s-8 3.582-8 8v58.5c0 13.233-10.767 24-24 24h-373c-13.233 0-24-10.767-24-24v-298c0-13.233 10.767-24 24-24h373c13.233 0 24 10.767 24 24v95h-66c-17.645 0-32 14.355-32 32v44c0 17.645 14.355 32 32 32h77.021c17.568 0 31.979-14.307 31.979-32v-44c0-15.944-11.722-29.199-27-31.607zm-94.77-175.212 17.893 5.151c8.499 2.447 13.394 11.303 10.949 19.801l-4.28 14.867h-21.384c-10.102-11.236-11.038-27.576-3.178-39.819zm105.77 250.819c0 8.822-7.178 16-16 16h-77c-8.822 0-16-7.178-16-16v-44c0-8.822 7.178-16 16-16h77c8.822 0 16 7.178 16 16zm-63-22c0 4.418-3.582 8-8 8h-12c-4.418 0-8-3.582-8-8s3.582-8 8-8h12c4.418 0 8 3.582 8 8z"/></svg>
                       </div>
                       <div class="media-body">
                         <h5>سعر الرحلة</h5>
@@ -193,27 +189,106 @@
     <% end%>
 
 
-  
+<!--  <div class="trip-content">
+  <div id="homepage_products">
+  <div class="row">
+  <div class="col">
+  <a href="/generate" class="homepage_products_item">
+  <div>
+  <strong>Description</strong>
+  <div><%= @trip.description %></div>
+  </div>
+  </a>
+  </div>
+  <div class="col">
+  <a href="https://apps.apple.com/app/coolors/id956480678" class="homepage_products_item" target="_blank" rel="noopener noreferrer">
+  <div>
+  <i class="icon icon-large-apple"></i>
+  <strong>Guide</strong>
+  <div><%= @trip.guide.first_name %></div>
+  </div>
+  </a>
+  </div>
+  <div class="col">
+  <a href="https://creative.adobe.com/addons/products/12124#.V6nhWJOLRE4" class="homepage_products_item adobe-btn adobe-btn" target="_blank" rel="noopener noreferrer">
+  <div>
+  <i class="icon icon-large-adobe"></i>
+  <strong>Region</strong>
+  <div> write region </div>
+  </div>
+  </a>
+  </div>
+  </div> 
+  -->
 
-    <p>
-      <strong>Description:</strong>
-      <%= @trip.description %>
-    </p>
-
-    <p>
-      <strong>Guide:</strong>
-      <%= @trip.guide.first_name %>
-    </p>
-
-    <p>
-      <strong>Region:</strong>
-      <%= @trip.region_id %>
-    </p>
-
+  <section class="section" id="next-section">
+  <div class="container">
+  <div class="row align-items-center">
+  <div class="col-lg-6 mb-4 aos-init aos-animate" data-aos="fade-up">
+  <p><img src="https://colorlib.com/preview/theme/hepta/images/img_1_long.jpg" alt="Image" class="img-fluid trip-img"></p>
+  </div>
+  <div class="col-lg-6 pl-lg-5 aos-init aos-animate" data-aos="fade-up">
+  <h2 class="mb-4"><%= @trip.title %></h2>
+  <p> <%= @trip.description%></p>
+  <p class="pt-4">
+  <a href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox="" class="btn-play d-flex">
+  <span class="icon align-self-center mr-3"><span class="fa fa-play"></span></span>
+  <span class="text align-self-center">Watch The Video</span>
+  </a>
+  </p>
+  </div>
+  </div>
+  </div>
+  </section>
+</p>
+<section class="section blog-post-entry bg-light slant-top">
+<div class="container">
+<div class="row justify-content-center text-center mb-5">
+<div class="col-md-8 primary-bg-text">
+<h2 class="heading aos-init aos-animate" data-aos="fade-up">Recent Blog Post</h2>
+<p class="lead aos-init aos-animate" data-aos="fade-up">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 col-md-6 col-sm-6 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+<div class="media media-custom d-block mb-4">
+<a href="#" class="mb-4 d-block"><img src="images/img_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+<div class="media-body">
+<span class="meta-post">February 26, 2018</span>
+<h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
+<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-6 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+<div class="media media-custom d-block mb-4">
+<a href="#" class="mb-4 d-block"><img src="images/img_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+<div class="media-body">
+<span class="meta-post">February 26, 2018</span>
+<h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
+<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+<div class="media media-custom d-block mb-4">
+<a href="#" class="mb-4 d-block"><img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid"></a>
+<div class="media-body">
+<span class="meta-post">February 26, 2018</span>
+<h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
+<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</p>
+</div>
     <%= link_to 'Edit', edit_trip_path(@trip) %> |
     <%= link_to 'Back', trips_path %>
 
-    <h1 class="sami">sdfasd</h1>
+    
 </div>
 <!-- END the section-1 -->
 
