@@ -210,41 +210,43 @@
                   <section class="section-includes">
                         <div class="includes-not-includes">
                           <!-- include items -->
-                          <div class="include">
-                              <h3>القيمة متضمنه</h3>
-                              <div class="trip-include">
-                                  <div class="first-col">
-                                  <% @trip.item_includeds.each  do |include|  %>
-                                    <div class="item">
-                                      <div><i class="fas fa-check-circle" style="color: green;"></i></div>
-                                      <div>
-                                      <strong> <%= include.title %></strong>
-                                      <span style="color:gray"> <%= include.description%></span>
-                                      </div>
-                                    </div>
-                                  <% end %>
-                                  </div>
-                              </div>
-                          </div>
-
-                            <!-- not include items -->
-                          <div class="not-include">
-                              <h3>القيمه غير متضمنه</h3>
-                              <div class="trip-include">
-                                  <div class="first-col">
-                                  <% @trip.item_not_includeds.each  do |include|  %>
-                                    <div class="item">
-                                      <div><i class="fas fa-times-circle" style=" color: #ADB5BD;"></i></div>
-                                      <div>
+                          <% if !@trip.item_includeds.empty? %>
+                            <div class="include">
+                                <h3>القيمة متضمنه</h3>
+                                <div class="trip-include">
+                                    <div class="first-col">
+                                    <% @trip.item_includeds.each  do |include|  %>
+                                      <div class="item">
+                                        <div><i class="fas fa-check-circle" style="color: green;"></i></div>
+                                        <div>
                                         <strong> <%= include.title %></strong>
                                         <span style="color:gray"> <%= include.description%></span>
+                                        </div>
                                       </div>
+                                    <% end %>
                                     </div>
-                                  <% end %>
-                                  </div>
-                              </div>
-                          </div>
-
+                                </div>
+                            </div>
+                          <% end %>
+                            <!-- not include items -->
+                          <% if !@trip.item_not_includeds.empty? %>
+                            <div class="not-include">
+                                <h3>القيمه غير متضمنه</h3>
+                                <div class="trip-include">
+                                    <div class="first-col">
+                                    <% @trip.item_not_includeds.each  do |include|  %>
+                                      <div class="item">
+                                        <div><i class="fas fa-times-circle" style=" color: #ADB5BD;"></i></div>
+                                        <div>
+                                          <strong> <%= include.title %></strong>
+                                          <span style="color:gray"> <%= include.description%></span>
+                                        </div>
+                                      </div>
+                                    <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                          <% end %>
                         </div>
                   </section>
               </div>
@@ -302,7 +304,7 @@
         <section>
           <h3 class="trip-title">مـلتـقطـات مـن الـرحـلـة</h3>
           <div>
-
+          <% if @trip.assets.attached?  %>
               <div class="tz-gallery gallery">
                   <div class="row" style="justify-content: center;">     
                     <% @trip.assets.each do |image| %>
@@ -313,8 +315,10 @@
                         </div>
                     <% end%>
                   </div>
-
               </div>
+            <% else %>
+                <h1>لـم يتم ارفاق صور للـرحـلـة</h1>
+            <% end %>
 
 
           </div>
