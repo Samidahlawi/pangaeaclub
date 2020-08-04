@@ -14,6 +14,13 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/new
   def new
+    # Get the user_id
+    @user_id = current_user.id 
+    # Get the trip_id 
+    @trip_id = params[:trip]
+    # Get the total ** NEEED TO UPDATE 
+    @price = Trip.find_by(id:@trip_id)[:price]
+    @booking = Booking.new
     @participant = Participant.new
   end
 
@@ -24,8 +31,12 @@ class ParticipantsController < ApplicationController
   # POST /participants
   # POST /participants.json
   def create
+    # Create a  booking includs user_id, trip_id, total
+    @booking = Booking.create({user_id:@user_id,trip_id:@trip_id,total:@price})
+    # Create a new participant includs user_id, trip_id, total
     @participant = Participant.new(participant_params)
-
+    @participant[:booking_id] = @booking.id
+    
     respond_to do |format|
       if @participant.save
         format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
@@ -69,6 +80,6 @@ class ParticipantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def participant_params
-      params.require(:participant).permit(:first_name, :last_name, :email, :gender, :booking_id)
+      params.require(:participant).permit(:first_name, :last_name, :email, :gender)
     end
 end

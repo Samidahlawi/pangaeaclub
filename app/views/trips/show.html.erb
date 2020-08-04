@@ -9,7 +9,7 @@
 
 <!-- START HEADER -->
 
-<div class="header-1" style="background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('<%= asset_path url_for(@trip.asset) %>');background-repeat: no-repeat; background-position: center; background-size: cover !important; height:60vh;box-shadow: 3px 4px 5px #ccc;overflow: hidden;">
+<div class="header-1 parallax" style="background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('<%= asset_path url_for(@trip.asset) %>');background-repeat: no-repeat; background-position: center; background-size: cover !important; height:60vh;box-shadow: 3px 4px 5px #ccc;overflow: hidden;">
 <!-- START NAV -->
 <nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
             <div class="container">
@@ -74,7 +74,7 @@
                       </div>
                       <div class="media-body">
                         <h5>مدة الرحلة</h5>
-                        <div class="badge badge-light"><%= @trip.duration %> - أيام</div>
+                        <div class="badge badge-light"><%= @trip.duration %> - أيـام </div>
                       </div></a><a href="#" class="media text-reset text-decoration-none hover-animate icon-header">
                       <div class="icon-rounded bg-white opacity-7 mr-4">
                         <svg class="svg-icon text-dark w-2rem h-2rem">
@@ -103,47 +103,229 @@
 <!-- END the HEADER -->
 </div>
 
+
+
+
 <!-- trip session  -->
-  <div class="container">
-    <nav>
+  <div class="container sub-container" style="position:relative">
+    <nav class="main-nav">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-information-tab" data-toggle="tab" href="#nav-information" role="tab" aria-controls="nav-information" aria-selected="true">معلومات</a>
-        <a class="nav-item nav-link" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="false">مسار الرحلة</a>
-        <a class="nav-item nav-link" id="nav-gallery-tab" data-toggle="tab" href="#nav-gallery" role="tab" aria-controls="nav-gallery" aria-selected="false">صور</a>
+        <a class="nav-item nav-link active" id="nav-information-tab" data-toggle="tab" href="#nav-information" role="tab" aria-controls="nav-information" aria-selected="true"><i class="far fa-file-alt"></i>تفاصيل الرحلة</a>
+        <a class="nav-item nav-link" id="nav-itinerary-tab" data-toggle="tab" href="#nav-itinerary" role="tab" aria-controls="nav-itinerary" aria-selected="false"><i class="fas fa-list-ul"></i>مسار الرحلة</a>
+        <a class="nav-item nav-link" id="nav-gallery-tab" data-toggle="tab" href="#nav-gallery" role="tab" aria-controls="nav-gallery" aria-selected="false"><i class="far fa-images"></i>صـور الرحلة</a>
       </div>
     </nav>
 
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
-       <section class="section" id="next-section">
+       
+      
+
+       <section class="section" >
         <div class="containr">
-        <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 aos-init aos-animate" data-aos="fade-up">
-        <p>
-        <img src="https://colorlib.com/preview/theme/hepta/images/img_1_long.jpg" alt="Image" class="img-fluid trip-img">
-        </p>
-        </div>
-        <div class="col-lg-6 pl-lg-5 aos-init aos-animate" data-aos="fade-up">
-        <h2 class="mb-4"><%= @trip.title %></h2>
-        <p> <%= @trip.description%></p>
-        <p class="pt-4">
-        <a href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox="" class="btn-play d-flex">
-        <span class="icon align-self-center mr-3"><span class="fa fa-play"></span></span>
-        <span class="text align-self-center">Watch The Video</span>
-        </a>
-        </p>
-        </div>
-        </div>
+          <div class="row align-items-start trip-description">
+             <div class="col-lg-3 mb-4 aos-init aos-animate" data-aos="fade-up">
+              <div class="info-trip">
+                <div class="">
+                  <a class="details-guide-in-trip" href="/guides/<%= @trip.guide.id %>">
+                    <div class="profile-image-guide" style="background-image: url('<%= asset_path url_for(@trip.guide.asset) %>'); border-radius: 50% !important; background-repeat: no-repeat; background-position: center; background-size: cover !important; ">
+                    </div>
+                    <h6 style="color:black !important;font-weight: 200;">مـع <span style="color: #FE5A59 !important;"><%= @trip.guide.first_name + " " + @trip.guide.last_name %></span> </h6>
+                  </a>
+                </div>
+
+                <div>
+
+                  <div class="detalis-trip">
+                      <div>
+                        <i class="sub-nav-icon fas fa-plane-departure">  </i>
+                        <strong>بداية الرحـلة:</strong>
+                      </div>
+                      <span><%= @trip.start_date %></span>
+                  </div>
+
+                  <div class="detalis-trip"> 
+                      <div>
+                            <i class="sub-nav-icon fas fa-plane-arrival ">  </i>
+                            <strong>نهاية الرحـلة:</strong>
+                      </div>
+                            <span><%= @trip.end_date %></span>
+                  </div>
+
+                  <div class="detalis-trip">
+                    <div>
+                      <i class="sub-nav-icon fas fa-globe-americas">  </i>
+                      <strong>الدولة:</strong>
+                    </div> 
+                      <span><%= @trip.country %></span>
+                  </div>
+
+                  <div class="detalis-trip">
+                    <div>
+                      <i class="sub-nav-icon fas fa-map-marked">  </i>
+                      <strong>المـكـان:</strong>
+                    </div>
+                      <span><%= @trip.destination %> </span>
+                  </div>
+
+                
+                  <div class="detalis-trip">
+                    <div>
+                      <i class="sub-nav-icon  fas fa-dumbbell" >  </i>
+                        <strong>المسـتوى:</strong>
+                    </div>
+                        <span><%= @trip.level %> </span>
+                  </div>
+
+                  <div class="detalis-trip">
+                    <div>
+                      <i class="sub-nav-icon  fas fa-users ">  </i> 
+                      <strong>المجموعة:</strong>
+                    </div>
+                      <span> <%= @trip.group_size_start %>  - <%= @trip.group_size_end %> </span>
+                  </div>
+
+                  <div class="detalis-trip">
+                    <div>
+                      <i style="padding-right: 3px;" class="sub-nav-icon  fas fa-hourglass-end" >  </i>
+                      <strong>انتـهاء الحجز:</strong>
+                    </div>
+                        <span><%= @trip.deadline %>  </span>
+                  </div>                       
+
+                </div>
+
+              </div>
+             </div>
+
+            <div class="col-lg-9 pl-lg-5 aos-init aos-animate" data-aos="fade-up">
+              
+              <div>
+                <h3 class="mb-4" style="text-align: center;"><%= @trip.title %></h3>
+                <p class="paragraph"> <%= @trip.description%></p>
+              </div>  
+
+              <!-- includes & not_includes -->
+              <div>
+                  <section class="section-includes">
+                        <div class="includes-not-includes">
+                          <!-- include items -->
+                          <div class="include">
+                              <h3>القيمة متضمنه</h3>
+                              <div class="trip-include">
+                                  <div class="first-col">
+                                  <% @trip.item_includeds.each  do |include|  %>
+                                    <div class="item">
+                                      <div><i class="fas fa-check-circle" style="color: green;"></i></div>
+                                      <div>
+                                      <strong> <%= include.title %></strong>
+                                      <span style="color:gray"> <%= include.description%></span>
+                                      </div>
+                                    </div>
+                                  <% end %>
+                                  </div>
+                              </div>
+                          </div>
+
+                            <!-- not include items -->
+                          <div class="not-include">
+                              <h3>القيمه غير متضمنه</h3>
+                              <div class="trip-include">
+                                  <div class="first-col">
+                                  <% @trip.item_not_includeds.each  do |include|  %>
+                                    <div class="item">
+                                      <div><i class="fas fa-times-circle" style=" color: #ADB5BD;"></i></div>
+                                      <div>
+                                        <strong> <%= include.title %></strong>
+                                        <span style="color:gray"> <%= include.description%></span>
+                                      </div>
+                                    </div>
+                                  <% end %>
+                                  </div>
+                              </div>
+                          </div>
+
+                        </div>
+                  </section>
+              </div>
+
+
+            </div>
+
+          </div>
         </div>
        </section>
+
+      
+
       </div>
-      <div class="tab-pane fade" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab"
-        <h1> itinerary</h1>
+
+
+      <div class="tab-pane fade" id="nav-itinerary" role="tabpanel" aria-labelledby="nav-itinerary-tab">
+        <section class="section">
+          <h3 class="trip-title">مـسار الـرحـلـة</h3>
+          <div>
+            <% if !@trip.itineraries.empty? %>
+              <% counter = 0%>
+              <% @trip.itineraries.each do |itinerary| %>
+                  <div class="part ">
+                      <div class="part-1">
+                        <div>
+                          <div class="header-itinerary">
+                            <div class="num-itinerary"><%= counter = counter + 1 %></div>
+                            <div class="title-itinerary"><h4 ><%= itinerary.title %>:</h4> <h4><%= itinerary.name %></h4> </div>
+                          </div>
+                          <div class="line-itinerary"><span class="line"></span></div>
+                        </div>
+
+                        <div class="description-itinerary">
+                          <p><%= itinerary.description %></p>
+                        </div>
+                      </div>
+
+                      <div class="part-2">
+                        <%= image_tag url_for(itinerary.asset) %>
+                      </div>
+                  </div>
+              <% end %>
+            <% else %>
+              أرجو اضافة مسار الرحلة
+            <% end %>
+
+              
+
+          </div>
+        </section>
       
       </div>
       <div class="tab-pane fade" id="nav-gallery" role="tabpanel" aria-labelledby="nav-gallery-tab">
-        <h1>gallery</h1>
+        <section>
+          <h3 class="trip-title">مـلتـقطـات مـن الـرحـلـة</h3>
+          <div>
 
+              <div class="tz-gallery gallery">
+                  <div class="row" style="justify-content: center;">     
+                    <% @trip.assets.each do |image| %>
+                        <div class="col-sm-6 col-md-4 mb-3 trip-images">
+                          <a class="lightbox" href="<%= url_for(image)%>" class = "img-fluid" target="_blank">
+                          <%= image_tag image , :class => "img-fluid"%>
+                          </a>
+                        </div>
+                    <% end%>
+                  </div>
+
+              </div>
+
+
+          </div>
+        </section>  
+      <div>
+
+
+
+
+
+        </div>
       </div>
     </div>
 </div>
@@ -153,180 +335,11 @@
 
 <!-- start over view trip -->
 
-  <nav class="sub-nav ">
-   <div class="container">
-        <div class="detalis-trip">
-            <i class="sub-nav-icon fas fa-plane-departure">  </i>
-            <strong>بداية الرحـلة</strong>
-            <span><%= @trip.start_date %></span>
-        </div>
-
-        <div class="detalis-trip"> 
-            <i class="sub-nav-icon fas fa-plane-arrival ">  </i>
-            <strong>نهاية الرحـلة</strong>
-            <span><%= @trip.end_date %></span>
-        </div>
-
-
-        <div class="detalis-trip">
-            <i class="sub-nav-icon fas fa-globe-americas">  </i>
-            <strong>الدولة</strong>
-            <span><%= @trip.country %></span>
-        </div>
-
-        <div class="detalis-trip">
-            <i class="sub-nav-icon fas fa-map-marked">  </i>
-            <strong>المـكـان</strong>
-             <span><%= @trip.destination %> </span>
-        </div>
-
-       
-        <div class="detalis-trip">
-            <i class="sub-nav-icon  fas fa-dumbbell" >  </i>
-              <strong>المسـتوى</strong>
-               <span><%= @trip.level %> </span>
-        </div>
-
-        <div class="detalis-trip">
-            <i class="sub-nav-icon  fas fa-users ">  </i> 
-            <strong>المجموعة</strong>
-            <span> <%= @trip.group_size_start %>  - <%= @trip.group_size_end %> </span>
-        </div>
-
-          <div class="detalis-trip">
-            <i class="sub-nav-icon  fas fa-hourglass-end" >  </i>
-             <strong>انتـهاء الحجز</strong>
-              <span><%= @trip.deadline %>  </span>
-        </div>
-
-
-   </div>
-  </nav>
 
 <!-- end over view trip -->
 
-<!-- start the section-1 -->
-<div class="container">
-  
-
-
-    <%#show the background image of guide%>
-    <% if @trip.asset.attached?%>
-      <p>
-        
-        <%# image_tag url_for(@trip.asset) %>
-      </p>
-    <% end%>
-
-
-
-
-    <hr>
-    <% if @trip.assets.attached?%>
-      
-    <p>
-      <%#show the images of trip%>
-      <% @trip.assets.each do |image| %>
-        <span>
-          <%# image_tag image %>
-        </span>
-      <% end%>
-    </p>
-    <% end%>
-
-
-<!--  <div class="trip-content">
-  <div id="homepage_products">
-  <div class="row">
-  <div class="col">
-  <a href="/generate" class="homepage_products_item">
-  <div>
-  <strong>Description</strong>
-  <div><%= @trip.description %></div>
-  </div>
-  </a>
-  </div>
-  <div class="col">
-  <a href="https://apps.apple.com/app/coolors/id956480678" class="homepage_products_item" target="_blank" rel="noopener noreferrer">
-  <div>
-  <i class="icon icon-large-apple"></i>
-  <strong>Guide</strong>
-  <div><%= @trip.guide.first_name %></div>
-  </div>
-  </a>
-  </div>
-  <div class="col">
-  <a href="https://creative.adobe.com/addons/products/12124#.V6nhWJOLRE4" class="homepage_products_item adobe-btn adobe-btn" target="_blank" rel="noopener noreferrer">
-  <div>
-  <i class="icon icon-large-adobe"></i>
-  <strong>Region</strong>
-  <div> write region </div>
-  </div>
-  </a>
-  </div>
-  </div> 
-  -->
-
-<section class="section blog-post-entry bg-light slant-top">
-<div class="container">
-<div class="row justify-content-center text-center mb-5">
-<div class="col-md-8 primary-bg-text">
-<h2 class="heading aos-init aos-animate" data-aos="fade-up">Recent Blog Post</h2>
-<p class="lead aos-init aos-animate" data-aos="fade-up">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-6 col-sm-6 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-<div class="media media-custom d-block mb-4">
-<a href="#" class="mb-4 d-block"><img src="" alt="Image placeholder" class="img-fluid"></a>
-<div class="media-body">
-<span class="meta-post">February 26, 2018</span>
-<h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
-<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 col-sm-6 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-<div class="media media-custom d-block mb-4">
-<a href="#" class="mb-4 d-block"><img src="" alt="Image placeholder" class="img-fluid"></a>
-<div class="media-body">
-<span class="meta-post">February 26, 2018</span>
-<h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
-<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 col-sm-12 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-<div class="media media-custom d-block mb-4">
-<a href="#" class="mb-4 d-block"><img src="" alt="Image placeholder" class="img-fluid"></a>
-<div class="media-body">
-<span class="meta-post">February 26, 2018</span>
-<h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
-<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</p>
-</div>
-    <%= link_to 'Edit', edit_trip_path(@trip) %> |
-    <%= link_to 'Back', trips_path %>
-
-    
-</div>
-<!-- END the section-1 -->
-
-
-
-
-
-
-
-
-
 <!-- END SHOW TRIP -->
+
 </div>
 
 
@@ -343,7 +356,7 @@
         <h3 class="cfa-text"> مهتـم تنـضم معـنـا بالـرحـلـة !!</h3>
         </div>
           <div class="col-sm-3 btn ">
-            <a href="/participants/new?trip=<%= @trip.id %>" class="btn-trip"><span class="gradient"></span>  أحـجـز الأن</a>
+            <a href="/participants/new?trip=<%= @trip.id %>" class="btn-trip"> أحـجـز الأن</a>
           </div>
         </div>
         </div>
