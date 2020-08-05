@@ -378,7 +378,7 @@ config.model 'Booking' do
 
   list do 
     field :id
-    field :total
+    field :status
     field :user do 
       pretty_value do
         user = User.find(bindings[:object].user_id.to_s)
@@ -391,8 +391,9 @@ config.model 'Booking' do
         user.email
       end
     end
-    field :trip
     field :created_at
+    field :total
+    field :trip
     field :updated_at
     field :participants
     # field :guide_id, :enum do
@@ -417,6 +418,7 @@ config.model 'Booking' do
 
   #update
   update do 
+    field :status
     field :total
     field :user_id, :enum do
       enum do
@@ -438,6 +440,7 @@ config.model 'Booking' do
     end
     field :total
     field :trip
+    field :status
     field :created_at
     field :updated_at
     field :participants
