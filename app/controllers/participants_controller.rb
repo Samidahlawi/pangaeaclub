@@ -14,12 +14,12 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/new
   def new
-    # Get the user_id
-    @user_id = current_user.id 
-    # Get the trip_id 
-    @trip_id = params[:trip]
-    # Get the total ** NEEED TO UPDATE 
-    @price = Trip.find_by(id:@trip_id)[:price]
+
+    @trip_id = params[:trip_id].to_i
+    # GET the trip by @trip_id
+    @trip = Trip.find_by(id:@trip_id)
+    # # Get the total ** NEEED TO UPDATE 
+    # @price = Trip.find_by(id:@trip_id)[:price]
     @booking = Booking.new
     @participant = Participant.new
   end
@@ -31,15 +31,35 @@ class ParticipantsController < ApplicationController
   # POST /participants
   # POST /participants.json
   def create
-    # Create a  booking includs user_id, trip_id, total
-    @booking = Booking.create({user_id:@user_id,trip_id:@trip_id,total:@price})
-    # Create a new participant includs user_id, trip_id, total
-    @participant = Participant.new(participant_params)
-    @participant[:booking_id] = @booking.id
+    
+    # # Get the user_id
+    user_id = current_user.id
+    # # Get the trip_id 
+    trip_id = request[:trip_id].to_i
+    # #  Find the trip by id
+    trip = Trip.find_by(id:trip_id)
+    # cal the total of booking
+    total = trip.price * params[:participant_number].to_i
+    # # Create a  booking includs user_id, trip_id, total
+    @booking = Booking.create({user_id:user_id,trip_id:trip_id,total:total})
+
+  
+    # // the number of form send it
+    length = participant_params["first_name"].length
+    # //make them in separate object
+    length.times  do |index|
+      participant = {}
+      participant_params.each do |key,value|
+        participant[key] = value[index]
+      end
+      @participant = Participant.new(participant)
+      @participant[:booking_id] = @booking.id
+      @participant.save
+    end
     
     respond_to do |format|
       if @participant.save
-        format.html { redirect_to @participant, notice: 'Participant was successfully created.' }
+        format.html { redirect_to booking_path(@booking.id), notice: "تـم الحـجـز بنـجاح, شكراُ لـثـقتكـم" }
         format.json { render :show, status: :created, location: @participant }
       else
         format.html { render :new }
@@ -80,6 +100,6 @@ class ParticipantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def participant_params
-      params.require(:participant).permit(:first_name, :last_name, :email, :gender)
+      params.require(:participant).permit(:first_name => [] , :last_name => [], :email => [], :gender => [])
     end
 end

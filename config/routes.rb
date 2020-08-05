@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :participants
+  
+  # get '/participants/:trip_id/new', to: 'participants#new', as: 'new_participant'
   resources :bookings
   resources :itineraries
-  resources :trips
+  resources :trips do
+    resources :participants
+  end
   resources :item_not_includeds
   resources :item_includeds
   resources :guides
