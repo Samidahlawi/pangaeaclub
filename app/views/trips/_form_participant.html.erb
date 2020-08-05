@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
 <%= form_for([@trip,@participant], local: true) do |form| %>
   <% if participant.errors.any? %>
@@ -128,8 +128,8 @@
 <!-- JS -->
 <script>
     
-  window.onload = function () {
-    let mainParticipantNumber = 1;
+
+    var mainParticipantNumber = 1;
     let participantNumber = function(e){
       // select the option 
       const getNumber = document.getElementById('participant-number').selectedOptions[0].text;
@@ -149,7 +149,7 @@
       
       if (mainParticipantNumber <  Number(getNumber) ){
           //add the last child in the form depends on the option number 
-           for(let num = mainParticipantNumber ; num < Number(getNumber) ; num++){
+           for(var num = mainParticipantNumber ; num < Number(getNumber) ; num++){
           form.innerHTML += `<div class="participant-section">
 
             <div class="form-group">
@@ -203,7 +203,7 @@
       }
       else {
           //remove the last child in the form depends on the option number 
-          for(let num = mainParticipantNumber ; num > Number(getNumber) ; num--){
+          for(var num = mainParticipantNumber ; num > Number(getNumber) ; num--){
             form.removeChild(form.lastChild);
           }
           mainParticipantNumber = Number(getNumber)
@@ -213,7 +213,7 @@
 
     }
 
-  }
+
 </script>
 
 <% end %>

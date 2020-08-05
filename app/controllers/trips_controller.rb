@@ -10,6 +10,13 @@ class TripsController < ApplicationController
   # GET /trips/1
   # GET /trips/1.json
   def show
+    @trip_id = params[:id].to_i
+    # GET the trip by @trip_id
+    @trip = Trip.find_by(id:@trip_id)
+    # # Get the total ** NEEED TO UPDATE 
+    # @price = Trip.find_by(id:@trip_id)[:price]
+    @booking = Booking.new
+    @participant = Participant.new
   end
 
   # GET /trips/new

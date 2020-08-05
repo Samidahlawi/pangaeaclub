@@ -1104,14 +1104,14 @@ bg-transparent {
   line-height: 45px;
   color: #FFF;
 }
-.trips-show a.btn-trip{
+.trips-show .btn-trip{
   color: rgb(34, 34, 34);
   background-color: rgb(255, 255, 255);
   white-space: nowrap;
   // padding: 18px 66px;
 }
 
-.trips-show a.btn-trip:hover{
+.trips-show .btn-trip:hover{
   border-color: #23a9af!important;
   background-color: #23a9af !important;
   color: #FFF !important;
@@ -1527,7 +1527,9 @@ bg-transparent {
   border-bottom: 1px dotted black;
   margin-bottom: 20px;
 }
-
+.hidden{
+  display: none;
+}
 // *********** END Participant page *************
 
 

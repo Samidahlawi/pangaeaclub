@@ -267,6 +267,15 @@ $(function() {
 })
 
 
-
-
+$(function() {
+  let booking = function() {
+    $("#btn-booking").click(function(){
+      $("#booking-section").slideToggle('slow','swing');
+    });
+  }
+  $(document).ready(booking);
+  $(document).on('page:load', booking); // Classic Turbolinks
+  $(document).on('turbolinks:load', booking); // Turbolinks 5
   
+})
+

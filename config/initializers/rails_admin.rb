@@ -393,7 +393,7 @@ config.model 'Booking' do
     end
     field :created_at
     field :total
-    field :trip
+    field :tripå
     field :updated_at
     field :participants
     # field :guide_id, :enum do
