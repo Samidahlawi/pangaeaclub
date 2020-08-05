@@ -59,7 +59,7 @@ class ParticipantsController < ApplicationController
     
     respond_to do |format|
       if @participant.save
-        format.html { redirect_to booking_path(@booking.id), notice: "تـم الحـجـز بنـجاح, شكراُ لـثـقتكـم" }
+        format.html { redirect_to bookings_path(@booking.id), notice: "تـم الحـجـز بنـجاح, شكراُ لـثـقتكـم" }
         format.json { render :show, status: :created, location: @participant }
       else
         format.html { render :new }

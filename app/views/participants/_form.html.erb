@@ -1,4 +1,4 @@
-<div >
+<div class="container">
 
 <%= form_for([@trip,@participant], local: true) do |form| %>
   <% if participant.errors.any? %>
@@ -13,53 +13,120 @@
     </div>
   <% end %>
  
-  <div class="field">
-    <%= form.label "عـدد الأشـخاص" %>
-    <select id="participant-number" name="participant_number" onChange="participantNumber()">
-      <option value="1" id="one-participant" selected="true">1</option>
-      <option value="2" >2</option>
-      <option value="3">3</option>
-    </select>
-  </div>
-  <div id="sibling-form">
-  </div>
-<div>
-
-  <div class="field">
-    <%= form.label "الأسـم الأول" %>
-    <%= form.text_field :first_name , :name => "participant[first_name][]"%>
-  </div>
-
-  <div class="field">
-    <%= form.label "الأسـم الأخـير" %>
-    <%= form.text_field :last_name , :name => "participant[last_name][]"%>
-  </div>
-
-  <div class="field">
-    <%= form.label "الأمـيـل" %>
-    <%= form.text_field :email , :name => "participant[email][]"%>
-  </div>
-
-  <div class="field">
-    <%= form.label "الـجنـس" %>
-    <%= form.text_field :gender , :name => "participant[gender][]"%>
-  </div>
-
-</div>
-
-  
-   <div class="field">
-    <%= form.label "المجموع" %>
-    <h4 id="total"><%= @trip.price %></h4>
-  <div>
   
 
+ 
 
-  <div class="actions">
-    <%= form.submit %>
+<div class="participant-form">
+ <!-- START participant -->
+  <div class="card border-primary rounded-0">
+      <div class="card-header p-0">
+          <div class="bg-info text-white text-center py-2">
+              <h3><i class="fas fa-tasks"></i> الحـجـز</h3>
+              <p class="m-0">أرجـو أدخال بـيـانـات الأعـضـاء</p>
+          </div>
+
+          
+            <div class="mb-2 col">
+
+               <div class="input-group-prepend">
+                  <h4 style="margin-top:10px"> عـدد الأشـخاص </h4>
+               </div>
+
+               <div class="select-form-control">
+                  <select id="participant-number" name="participant_number" onChange="participantNumber()">
+                    <option value="1" id="one-participant" selected="true">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+               </div>
+
+            <div>
+          
+
+      </div>
+      
+      <div class="card-body p-3">
+          <div id="sibling-form"></div>
+          <!--START Body-->
+          <div class="participant-section">
+
+            <div class="form-group">
+              <h4 style="text-align:right">المـشترك</h4>
+            </div>
+
+            <div class="form-group row" style="margin-bottom:0">
+
+                <div class="input-group mb-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user text-info"></i></div>
+                    </div>
+                <%= form.text_field :first_name , :name => "participant[first_name][]", :class => "form-control" ,  :id => "validationServer01" , :placeholder => "الأسـم الأول" , required: true%>
+                </div>
+
+                <div class="input-group  mb-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user text-info"></i></div>
+                    </div>
+                    <%= form.text_field :last_name , :name => "participant[last_name][]", :class => "form-control", :placeholder => "الأسـم الأخـير",required: true%>
+                </div>
+                
+            </div>
+            
+            <div class="form-group row">
+
+                <div class="input-group mb-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-envelope text-info"></i></div>
+                    </div>
+                    <%= form.text_field :email , :name => "participant[email][]", :class => "form-control", :placeholder => "البريد الالكتروني", :type => "email",required: true%>
+                </div>
+
+                <div class="input-group  mb-2  col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend ">
+                        <div class="input-group-text"><i class="fas fa-venus-mars text-info"></i></div>
+                    </div>
+                    <div class="select-form-control">
+                      <select  name="participant[gender][]" class="form-control" required>
+                        <option value="ذكر" selected="true">ذكر</option>
+                        <option value="انثى"  >انثى</option>
+                      </select>
+                    </div>
+                </div>
+
+            </div>
+            
+          </div>
+           <!--END Body-->
+           
+          <div class="form-group ">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text"><%= form.label "المجموع" %></span>
+                    <span class="input-group-text" id="total"><%= @trip.price %><span class='sar'>SAR</span></span>
+                    </div>
+                  </div>
+          </div>
+
+          <div class="text-center actions">
+              <%= form.submit :value => "أكـمـل الـحـجز" , :class => "text-center btn btn-info btn-block rounded-0 py-3" , style:"font-size:1.5em"%>
+          </div>
+          
+      </div>
+
   </div>
+ <!-- END participant -->
+
+
+
+  </div>
+
+<!-- the form end here -->
+ </div>
+
+
 <!-- JS -->
- <script>
+<script>
     
 
     let mainParticipantNumber = 1;
@@ -67,12 +134,11 @@
       // select the option 
       const getNumber = document.getElementById('participant-number').selectedOptions[0].text;
       document.getElementById('participant-number').selectedOptions[0].setAttribute('selected','true')
-      console.log(Number(getNumber) )
+      // console.log(Number(getNumber) )
       // select the element of total
       const updateTotal = document.getElementById('total');
       // update the element of total as UI
-      updateTotal.innerHTML = <%= @trip.price %> * getNumber
-
+      updateTotal.innerHTML = <%= @trip.price %> * getNumber +" <span class='sar'>SAR</span>"
 
       // select the form 
       const form = document.getElementById('sibling-form');
@@ -84,27 +150,53 @@
       if (mainParticipantNumber <  Number(getNumber) ){
           //add the last child in the form depends on the option number 
            for(let num = mainParticipantNumber ; num < Number(getNumber) ; num++){
-          form.innerHTML += `
-          <div>
-          <div class="field">
-          <%= form.label "الأسـم الأول" %>
-          <%= form.text_field :first_name , :name => "participant[first_name][]"%>
-          </div>
+          form.innerHTML += `<div class="participant-section">
 
-          <div class="field">
-          <%= form.label "الأسـم الأخـير" %>
-          <%= form.text_field :last_name , :name => "participant[last_name][]"%>
-          </div>
+            <div class="form-group">
+              <h4 style="text-align:right">المـشترك</h4>
+            </div>
 
-          <div class="field">
-          <%= form.label "الأمـيـل" %>
-          <%= form.text_field :email , :name => "participant[email][]"%>
-          </div>
+            <div class="form-group row" style="margin-bottom:0">
 
-          <div class="field">
-          <%= form.label "الـجنـس" %>
-          <%= form.text_field :gender , :name => "participant[gender][]"%>
-          </div>
+                <div class="input-group mb-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user text-info"></i></div>
+                    </div>
+                <%= form.text_field :first_name , :name => "participant[first_name][]", :class => "form-control" ,  :id => "validationServer01" , :placeholder => "الأسـم الأول" , required: true%>
+                </div>
+
+                <div class="input-group  mb-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user text-info"></i></div>
+                    </div>
+                    <%= form.text_field :last_name , :name => "participant[last_name][]", :class => "form-control", :placeholder => "الأسـم الأخـير",required: true%>
+                </div>
+                
+            </div>
+            
+            <div class="form-group row">
+
+                <div class="input-group mb-2 col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-envelope text-info"></i></div>
+                    </div>
+                    <%= form.text_field :email , :name => "participant[email][]", :class => "form-control", :placeholder => "البريد الالكتروني", :type => "email",required: true%>
+                </div>
+
+                <div class="input-group  mb-2  col-lg-6 col-md-6 col-sm-12">
+                    <div class="input-group-prepend ">
+                        <div class="input-group-text"><i class="fas fa-venus-mars text-info"></i></div>
+                    </div>
+                    <div class="select-form-control">
+                      <select  name="participant[gender][]" class="form-control" required>
+                        <option value="ذكر" selected="true">ذكر</option>
+                        <option value="انثى"  >انثى</option>
+                      </select>
+                    </div>
+                </div>
+
+            </div>
+            
           </div>`
           }
           mainParticipantNumber = Number(getNumber) 
@@ -113,8 +205,6 @@
           //remove the last child in the form depends on the option number 
           for(let num = mainParticipantNumber ; num > Number(getNumber) ; num--){
             form.removeChild(form.lastChild);
-            form.removeChild(form.lastChild);
-            console.log(num)
           }
           mainParticipantNumber = Number(getNumber)
       }
@@ -124,7 +214,7 @@
     }
 
 
-   </script>
+</script>
 
 <% end %>
 

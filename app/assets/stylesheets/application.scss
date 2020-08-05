@@ -1514,6 +1514,23 @@ bg-transparent {
 }
 // *********** END ALL-TRIPS page *************
 
+// *********** START Participant page *************
+//_form
+
+.participant-form  input {
+  text-align: right;
+}
+
+
+
+.participant-section {
+  border-bottom: 1px dotted black;
+  margin-bottom: 20px;
+}
+
+// *********** END Participant page *************
+
+
 
 /////////////////////////////////////////////////////////////////////
 // Small devices (landscape phones, 576px and up)
