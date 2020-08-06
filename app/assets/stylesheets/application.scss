@@ -212,10 +212,10 @@ a:hover, a:focus {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -30px;
+  bottom: -40px;
   overflow: visible;
   width: 50%;
-  height: 70px;
+  height: 80px;
   z-index: 1;
   -webkit-transform: skewY(4deg);
   -moz-transform: skewY(4deg);
@@ -229,10 +229,10 @@ a:hover, a:focus {
   content: '';
   position: absolute;
   right: 0;
-  bottom: -30px;
+  bottom: -40px;
   overflow: visible;
   width: 50%;
-  height: 70px;
+  height: 80px;
   z-index: 1;
   -webkit-transform: skewY(-4deg);
   -moz-transform: skewY(-4deg);
@@ -1942,10 +1942,92 @@ section#contact form#contactForm :-ms-input-placeholder {
   .header-1{
     background-attachment: scroll !important;
   }
+
+  .ftco-degree-bg:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -130px;
+    overflow: visible;
+    width: 50%;
+    height: 170px;
+    z-index: 1;
+    -webkit-transform: skewY(4deg);
+    -moz-transform: skewY(4deg);
+    -ms-transform: skewY(4deg);
+    -o-transform: skewY(4deg);
+    transform: skewY(4deg);
+    background-color: #fff;
+  }
+
+
+  .ftco-degree-bg:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -130px;
+    overflow: visible;
+    width: 50%;
+    height: 170px;
+    z-index: 1;
+    -webkit-transform: skewY(-4deg);
+    -moz-transform: skewY(-4deg);
+    -ms-transform: skewY(-4deg);
+    -o-transform: skewY(-4deg);
+    transform: skewY(-4deg);
+    background-color: #fff;
+  }
+  header.masthead.ftco-degree-bg.header-1{
+    margin-bottom: 30px;
+  }
+  section#sec-3 {
+    background-attachment: scroll;
+  }
+  section#contact {
+    background-attachment: scroll;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
+    section#contact {
+      background-attachment: fixed;
+    }
+      section#sec-3 {
+        background-attachment: fixed;
+    }
+    .ftco-degree-bg:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -40px;
+      overflow: visible;
+      width: 50%;
+      height: 80px;
+      z-index: 1;
+      -webkit-transform: skewY(4deg);
+      -moz-transform: skewY(4deg);
+      -ms-transform: skewY(4deg);
+      -o-transform: skewY(4deg);
+      transform: skewY(4deg);
+      background-color: #fff;
+    }
+    .ftco-degree-bg:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: -40px;
+      overflow: visible;
+      width: 50%;
+      height: 80px;
+      z-index: 1;
+      -webkit-transform: skewY(-4deg);
+      -moz-transform: skewY(-4deg);
+      -ms-transform: skewY(-4deg);
+      -o-transform: skewY(-4deg);
+      transform: skewY(-4deg);
+      background-color: #fff;
+    }
     .header-1{
       background-attachment: fixed !important;
     }
