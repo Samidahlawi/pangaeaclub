@@ -1181,6 +1181,8 @@ bg-transparent {
 	}
 }
 
+
+  
 // END PART OF BOOKING
 .parallax{
   background-attachment: fixed !important;
@@ -1672,6 +1674,14 @@ header.masthead.ftco-degree-bg{
   }
   // *********** END ALL-TRIPS page *************
 
+
+  // Booking START
+  .fn-booking {
+    font-size: 0.6em;
+  }
+
+  // Booking END
+
 }
 
 // Medium devices (tablets, 768px and up)
@@ -1789,7 +1799,12 @@ header.masthead.ftco-degree-bg{
   }
 
   // *********** END ALL-TRIPS page *************
+  // Booking START
+  .fn-booking {
+    font-size: 1em;
+  }
 
+  // Booking END
   
  }
 
