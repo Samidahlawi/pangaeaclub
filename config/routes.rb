@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   # get '/participants/:trip_id/new', to: 'participants#new', as: 'new_participant'
+  get '/about', to: 'home#show', as: 'show_home'
   resources :bookings
   resources :itineraries
   resources :trips do

@@ -12,6 +12,7 @@
                 <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
                         <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
+                        <li class="nav-item"><%= link_to "تواصل معنا", '/about'		, :class => "nav-link js-scroll-trigger" %> </li>
                     <% if current_user.nil? %>
                         <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
                         <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>

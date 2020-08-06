@@ -18,5 +18,11 @@ class HomeController < ApplicationController
     #Country
     #guide.asset => profile_photo
   end
+
+  #  /about
+  def show 
+
+  end
+
 end
 
