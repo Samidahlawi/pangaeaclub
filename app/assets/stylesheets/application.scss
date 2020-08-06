@@ -1939,11 +1939,16 @@ section#contact form#contactForm :-ms-input-placeholder {
   }
 
   // Booking END
-
+  .header-1{
+    background-attachment: scroll !important;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { 
+    .header-1{
+      background-attachment: fixed !important;
+    }
     .review{
       justify-content: center;
       // justify-content: space-between;
