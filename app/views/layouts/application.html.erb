@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html dir="rtl">
+
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous" />
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
     />
+
     <title>PangaeaClub</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha512-NVt7pmp5f+3eWRPO1h4A1gCf4opn4r5z2wS1mi7AaVcTzE9wDJ6RzMqSygjDzYHLp+mAJ2/qzXXDHar6IQwddQ==" crossorigin="anonymous" />
+    <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- bootstrap -->
     <%# stylesheet_link_tag  controller.controller_name , media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- import owl-carousel css -->
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400&family=Lalezar&family=Lemonada:wght@300&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Cairo:wght@700;900&family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400&family=Lalezar&family=Lemonada:wght@300&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Cairo:wght@700;900&family=Tajawal:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Tajawal:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha512-NVt7pmp5f+3eWRPO1h4A1gCf4opn4r5z2wS1mi7AaVcTzE9wDJ6RzMqSygjDzYHLp+mAJ2/qzXXDHar6IQwddQ==" crossorigin="anonymous" />
+
   </head>
 
   <body class="<%= controller.controller_name %>-<%= controller.action_name %>">
@@ -31,84 +38,17 @@
           <% end %>
           </script>
       <% end %>
-    <!--   
-    <nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
-                        <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
-                    <% if current_user.nil? %>
-                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
-                        <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
-                    <% else %>
-                        <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
-                        <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
-                    <%# when the admin sign_in %>
-                            <% if current_user.admin %>
-                                <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link js-scroll-trigger" %></li>
-                            <% end%>
-                    <% end %>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        -->
+
         
     <%= yield %>
-   <!--  <footer class="site-footer" role="contentinfo">
-      <div class="container">
-      <div class="row mb-5">
-      <div class="col-md-4 mb-5">
-      <h3>About The Hexa Template</h3>
-      <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et dolor blanditiis consequuntur ex voluptates perspiciatis omnis unde minima expedita.</p>
-      <ul class="list-unstyled footer-link d-flex footer-social">
-      <li><a href="#" class="p-2"><span class="fab fa-twitter"></span></a></li>
-      <li><a href="#" class="p-2"><span class="fab fa-facebook"></span></a></li>
-      <li><a href="#" class="p-2"><span class="fab fa-linkedin"></span></a></li>
-      <li><a href="https://www.instagram.com/pangaeaclub/?hl=en" class="p-2"><span class="fab fa-instagram"></span></a></li>
-      </ul>
-      </div>
-      <div class="col-md-5 mb-5 pl-md-5">
-      <h3>Contact Info</h3>
-      <ul class="list-unstyled footer-link">
-      <li class="d-block">
-      <span class="b-block">Address:</span>
-      <span class="text-white">34 Street, Riyadh, Saudi Arabia</span></li>
-      <li class="d-block"><span class="b-block">Telephone:</span><span class="text-white">00966552713769</span></li>
-      <li class="d-block"><span class="b-block">Email:</span><span class="text-white">info@pangaeaclub.com</span></li>
-      </ul>
-      </div>
-      <div class="col-md-3 mb-5">
-      <h3>Quick Links</h3>
-      <ul class="list-unstyled footer-link">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Terms of Use</a></li>
-      <li><a href="#">Disclaimers</a></li>
-      <li><a href="#">Contact</a></li>
-      </ul>
-      </div>
-      <div class="col-md-3">
-      </div>
-      </div>
-      <div class="row">
-      <div class="col-12 text-md-center text-left">
-      <p>
-      Copyright ©
-      
-                 All rights reserved |  made with <i class="fas fa-heart" aria-hidden="true"></i> by <a href="https://flexmethods.com/" target="_blank">FlexMethods</a>
-      </p>
-      </div>
-      </div>
-      </div>
-     </footer>
-    -->
+  
  
  
  
  
  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" integrity="sha512-7KzSt4AJ9bLchXCRllnyYUDjfhO2IFEWSa+a5/3kPGQbr+swRTorHQfyADAhSlVHCs1bpFdB1447ZRzFyiiXsg==" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js" integrity="sha512-7KzSt4AJ9bLchXCRllnyYUDjfhO2IFEWSa+a5/3kPGQbr+swRTorHQfyADAhSlVHCs1bpFdB1447ZRzFyiiXsg==" crossorigin="anonymous"></script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
 
 </body>
 </html>

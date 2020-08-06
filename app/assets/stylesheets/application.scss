@@ -1,3 +1,8 @@
+
+@import "bootstrap/scss/bootstrap";
+
+
+//= require toastr
 // MAIN Colorssssss
 // Define all variables of font, colors, backgrounds
 $main-font : 'Cairo', sans-serif;
@@ -9,7 +14,6 @@ $btn-font:  'Lalezar', cursive;
 // pangaeaclub color -> light-blue = #75ccdc
 // Arrow,TEXT, others -> the other color is closed to red = #fe5a59
 // #FE5A59
-@import "bootstrap/scss/bootstrap";
 
  .simple-form {
     display: flex;

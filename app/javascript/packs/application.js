@@ -4,6 +4,8 @@
 // that code so it'll be compiled.
 //= require cloudinary
 //= require rails-ujs 
+//= require toastr
+
 import "bootstrap"
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -18,6 +20,7 @@ import "../stylesheets/application"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
 
 
 
@@ -123,9 +126,9 @@ var TxtRotate = function(el, toRotate, period) {
     $(document).ready(words);
     $(document).on('page:load', words); // Classic Turbolinks
     $(document).on('turbolinks:load', words); // Turbolinks 5
-    
+   
   })
-  
+ 
   window.onload = function() {
     // var elements = document.getElementsByClassName('txt-rotate');
     // for (var i=0; i<elements.length; i++) {
@@ -341,5 +344,18 @@ $(function() {
   $(document).on('page:load', booking); // Classic Turbolinks
   $(document).on('turbolinks:load', booking); // Turbolinks 5
   
+})
+
+document.addEventListener('load', (event) => {
+  AOS.init();
+});
+let aos = function(){ AOS.init();}
+$(function() {
+  let AOS = function() {
+    aos()
+  }
+  $(document).ready(AOS);
+  $(document).on('page:load', AOS); // Classic Turbolinks
+  $(document).on('turbolinks:load', AOS); // Turbolinks 5
 })
 
