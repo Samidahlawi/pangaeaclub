@@ -1,19 +1,105 @@
-<p id="notice"><%= notice %></p>
+<!-- HEADER-->
+<!-- <div class="header-bg"> </div> -->
+<div class="header-1" style="background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');background-repeat: no-repeat; background-position: center;    background-attachment: fixed; background-size: cover !important; height:60vh;box-shadow: 3px 4px 5px #ccc;overflow: hidden;">
+<!-- START NAV -->
+<nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
+                                              <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
+                    <% if current_user.nil? %>
+                        <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
+                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
+                    <% else %>
+                        <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                        <li class="nav-item"><%= link_to "رحـلاتـي", bookings_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                        <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
+                    <%# when the admin sign_in %>
+                            <% if current_user.admin %>
+                                <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link js-scroll-trigger" %></li>
+                            <% end%>
+                    <% end %>    
+                    </ul>
+                </div>
+            </div>
+</nav>
 
-<p>
-  <strong>Total:</strong>
-  <%= @booking.total %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @booking.user_id %>
-</p>
 
-<p>
-  <strong>Trip:</strong>
-  <%= @booking.trip_id %>
-</p>
+<!-- END NAV -->
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+
+<header class="masthead" style="padding-top:20px;">
+            <div class="container h-100 header-flex">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-black font-weight-bold" style="color:white"> رحـلاتـك مـع pangaeaclub</h1>
+                        <hr class="divider my-4">
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <h3 class="text-white-75 font-weight-light mb-5" style="color:white">
+                        تصـفح جميع حجوزاتـك
+                      </h3>
+                        
+                    </div>
+                </div>
+              
+            
+            </div>
+    <!-- END the HEADER -->
+</header>
+</div>
+<!--  END the HEADER PART -->
+
+
+<div class="container" style="min-height:400px;">
+  <div style="margin:30px 0;text-align:right">
+
+      <div class="card text-center ">
+          <div class="card-header">
+            <div> 
+                  <strong>رقم الحجز : </strong><span><%= @booking.id %></span>
+            </div>
+            <div>
+                  <strong>الرحـلـة :  </strong><span><%= @booking.trip.title %></span>
+            </div>
+             <div>
+                  <strong>المـبـلغ :  </strong><span><%= @booking.total %> SAR</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">المـشتركـين</h5>
+            <table class="table" style="text-align:center;margin:20px 0;">
+                <thead>
+                  <tr>
+                    <th scope="col">رقم المشترك</th>
+                    <th scope="col">الأسم كـامل</th>
+                    <th scope="col">الأيميل</th>
+                    <th scope="col">الجـنس</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% @booking.participants.each do |participant| %>
+                  <tr>
+                    <tr>
+                      <th scope="row"><%= participant.id %></th>
+                      <td><%= participant.first_name %>  <%= participant.last_name%></td>
+                      <td><%= participant.email %></td>
+                      <td><%= participant.gender %></td>
+                    </tr>
+                <% end %>
+                
+                
+                </tbody>
+              </table>
+            <a href="/bookings" class="btn btn-primary btn-show">الرجـوع لرحـلاتـي</a>
+          </div>
+          <div class="card-footer text-muted">
+            <strong>تـاريـخ الـحـجز  </strong><span><%= @booking.created_at %></span>
+          </div>
+    </div>
+
+
+  </div>
+<div>

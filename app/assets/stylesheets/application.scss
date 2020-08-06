@@ -1530,10 +1530,17 @@ bg-transparent {
 .hidden{
   display: none;
 }
+.bg-info{
+  background-color: #3fd0d4!important;
+}
 // *********** END Participant page *************
 
-
-
+header.masthead.ftco-degree-bg{
+  padding-top: 0 !important;
+}
+.btn-show:visited{
+  color: #FFF;
+}
 /////////////////////////////////////////////////////////////////////
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 300px) { 

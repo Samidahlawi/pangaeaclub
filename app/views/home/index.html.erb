@@ -17,6 +17,7 @@
                         <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
                     <% else %>
                         <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                        <li class="nav-item"><%= link_to "رحـلاتـي", bookings_path		, :class => "nav-link js-scroll-trigger" %> </li>
                         <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
                     <%# when the admin sign_in %>
                             <% if current_user.admin %>

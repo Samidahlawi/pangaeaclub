@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    user_id = current_user.id
+    @bookings = User.find_by(id:user_id).bookings
   end
 
   # GET /bookings/1
@@ -56,7 +57,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to bookings_url, notice: 'تم حذف الحجز بنجاح' }
       format.json { head :no_content }
     end
   end
