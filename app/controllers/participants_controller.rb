@@ -26,6 +26,10 @@ class ParticipantsController < ApplicationController
 
   # GET /participants/1/edit
   def edit
+    @trip_id = params[:trip_id].to_i
+    # GET the trip by @trip_id
+    @trip = Trip.find_by(id:@trip_id)
+    @participant = Participant.find_by(id:params[:id])
   end
 
   # POST /participants
@@ -71,9 +75,20 @@ class ParticipantsController < ApplicationController
   # PATCH/PUT /participants/1
   # PATCH/PUT /participants/1.json
   def update
+     # // the number of form send it
+     
+     # //make them in separate object
+     
+       participant = {}
+       participant_params.each do |key,value|
+         participant[key] = value[0]
+       end
+
+   
+
     respond_to do |format|
-      if @participant.update(participant_params)
-        format.html { redirect_to @participant, notice: 'Participant was successfully updated.' }
+      if @participant.update(participant)
+        format.html { redirect_to booking_path(@participant.booking_id), notice: 'تم تحديث بيانات العضو بنجاح' }
         format.json { render :show, status: :ok, location: @participant }
       else
         format.html { render :edit }

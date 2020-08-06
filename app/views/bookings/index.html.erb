@@ -60,7 +60,7 @@
   <div style="margin:30px 0;text-align:right">
     <h4>حـجوزاتـك</h4>
   </div>
-  <table class="table" style="text-align:center;margin:20px 0;">
+  <table class="table fn-booking" style="text-align:center;margin:20px 0;">
     <thead>
       <tr>
         <th scope="col">رقم الحجز</th>
@@ -86,8 +86,8 @@
             
             </td>
             <td> 
-                  <%= link_to 'عـرض', booking_path(booking.id) , :class => "btn btn-info btn-show" %>
-                 <%= link_to 'حـــذف', booking_path(booking.id), method: :delete , :class => "btn btn-danger btn-show" %>
+                  <%= link_to 'عـرض', booking_path(booking.id) , :class => "btn btn-info btn-sm btn-show" %>
+                 <%= link_to 'حـــذف', booking_path(booking.id), method: :delete , :class => "btn btn-danger btn-sm btn-show" %>
             </td>
 
         </tr>
