@@ -8,17 +8,18 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
     />
     <title>PangaeaClub</title>
-    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha512-NVt7pmp5f+3eWRPO1h4A1gCf4opn4r5z2wS1mi7AaVcTzE9wDJ6RzMqSygjDzYHLp+mAJ2/qzXXDHar6IQwddQ==" crossorigin="anonymous" />
     <%= csp_meta_tag %>
 
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', async: true %>
 
     <!-- bootstrap -->
     <%# stylesheet_link_tag  controller.controller_name , media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- import owl-carousel css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css" integrity="sha512-NVt7pmp5f+3eWRPO1h4A1gCf4opn4r5z2wS1mi7AaVcTzE9wDJ6RzMqSygjDzYHLp+mAJ2/qzXXDHar6IQwddQ==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400&family=Lalezar&family=Lemonada:wght@300&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Cairo:wght@700;900&family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&family=Tajawal:wght@500&display=swap" rel="stylesheet">
   </head>
 
   <body class="<%= controller.controller_name %>-<%= controller.action_name %>">

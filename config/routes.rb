@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   # get '/participants/:trip_id/new', to: 'participants#new', as: 'new_participant'
-  get '/about', to: 'home#show', as: 'show_home'
   resources :bookings
   resources :itineraries
   resources :trips do
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  get '/about', to: 'home#show', as: 'show_home'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

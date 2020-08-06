@@ -5,18 +5,20 @@
                 <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
-                        <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link  js-scroll-trigger" %></li>
-                    <% if current_user.nil? %>
-                        <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link  js-scroll-trigger" %></li>
-                        <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link  js-scroll-trigger" %></li>
-                    <% else %>
-                        <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link  js-scroll-trigger" %> </li>
-                        <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link  js-scroll-trigger" , method: :delete%> </li>
-                    <%# when the admin sign_in %>
-                            <% if current_user.admin %>
-                                <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link  js-scroll-trigger" %></li>
-                            <% end%>
-                    <% end %>
+                            <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
+                            <li class="nav-item"><%= link_to "تواصل معنا", '/about'		, :class => "nav-link js-scroll-trigger" %> </li>
+                        <% if current_user.nil? %>
+                            <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
+                            <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
+                        <% else %>
+                            <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                            <li class="nav-item"><%= link_to "رحـلاتـي", bookings_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                            <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
+                        <%# when the admin sign_in %>
+                                <% if current_user.admin %>
+                                    <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link js-scroll-trigger" %></li>
+                                <% end%>
+                        <% end %>  
                     </ul>
                 </div>
             </div>
@@ -28,8 +30,8 @@
 
 
 <header class="masthead" style="padding-top:20px;">
-            <div class="container h-100 header-flex">
-                <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="container h-100 header-flex" >
+                <div class="row h-100 align-items-center justify-content-center text-center" style=" height: 40vh !important;align-content: center !important;">
                     <div class="col-lg-10 align-self-end">
                         <h1 class="text-uppercase text-black font-weight-bold" style="color:white"> أكتشف رحلاتنا</h1>
                         <hr class="divider my-4">
