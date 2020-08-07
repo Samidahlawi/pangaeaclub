@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  # default from: "info@pangaeaclub.com"
+  default from: "info@pangaeaclub.com"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def welcome_mailer(user)
     @greeting = "Hi"
     @user = user 
-    mail to: user.email , subject: "مرحبا بك في PangaeaClub", from: "info@pangaeaclub.com"
+    mail to: user.email , subject: "مرحبا بك في PangaeaClub"
   end
 end

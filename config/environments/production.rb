@@ -73,15 +73,24 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'sleepy-inlet-57257.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['info.pangaeaclub@gmail.com'],
-    :password       => ENV['pangaeaclub2020'],
-    :domain         => 'gmail.com',
-    :enable_starttls_auto => true
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    domain: "heroku.com",
+    port: 587,
+    user_name: "info.pangaeaclub@gmail.com",
+    password: "pangaeaclub2020",
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address        => 'smtp.sendgrid.net',
+  #   :port           => '587',
+  #   :authentication => :plain,
+  #   :user_name      => ENV['info.pangaeaclub@gmail.com'],
+  #   :password       => ENV['pangaeaclub2020'],
+  #   :domain         => 'heroku.com',
+  #   :enable_starttls_auto => true
+  # }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
