@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
-    @trips = Trip.all
+    # @trips = Trip.all
+    @trips = Trip.all.order("start_date DESC").paginate(page: params[:page], per_page: 6)
+
     # title*
     # country*
     # asset* => image of cards in trip and background of single trip
