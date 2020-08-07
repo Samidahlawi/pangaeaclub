@@ -32,7 +32,7 @@ class User < ApplicationRecord
   after_create :welcome_mailer
 
   def welcome_mailer
-    UserMailer.welcome_mailer(self).deliver_now
+    UserMailer.welcome_mailer(self).deliver_later
   end
 
 end
