@@ -79,7 +79,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name      => ENV['info.pangaeaclub@gmail.com'],
     :password       => ENV['pangaeaclub2020'],
-    :domain         => 'heroku.com',
+    :domain         => 'gmail.com',
     :enable_starttls_auto => true
   }
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
