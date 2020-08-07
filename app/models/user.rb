@@ -24,4 +24,14 @@ class User < ApplicationRecord
   # validates :password, presence: true
   # validates :PW_confirmation, presence: true
   validates :country, presence: true
+
+  # def after_confirmation
+  #   welcome_mailer
+  # end
+  after_create :welcome_mailer
+
+  def welcome_mailer
+    UserMailer.welcome_mailer(self).deliver
+  end
+
 end
