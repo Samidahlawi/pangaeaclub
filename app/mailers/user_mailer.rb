@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome_mailer.subject
   #
-  # def welcome_mailer(user)
-  #   @greeting = "Hi"
-  #   @user = user 
-  #   mail to: user.email , subject: "مرحبا بك في PangaeaClub", from: "info@pangaeaclub.com"
-  # end
+  def welcome_mailer(user)
+    @greeting = "Hi"
+    @user = user 
+    mail to: user.email , subject: "مرحبا بك في PangaeaClub", from: "info@pangaeaclub.com"
+  end
 end
