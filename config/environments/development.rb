@@ -35,7 +35,17 @@ Rails.application.configure do
   end
   # you'll need to set up the default URL options for the Devise mailer in each environment
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    domain: "gmail.com",
+    port: 587,
+    user_name: "info.pangaeaclub@gmail.com",
+    password: "pangaeaclub2020",
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   # config.active_storage.service = :local
   config.active_storage.service = :cloudinary
