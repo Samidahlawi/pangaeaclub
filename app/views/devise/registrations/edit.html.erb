@@ -1,65 +1,124 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-<%# first_name %>
-  <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name , autofocus: true , required: true%>
+<div class="header-1" style="background:linear-gradient(to bottom, rgba(0,1,2,0.4) 0%, rgba(92, 77, 66, 0.8) 100%),  url('https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);background-repeat: no-repeat; background-position: center; background-size: cover !important; height:60vh;box-shadow: 3px 4px 5px #ccc;overflow: hidden;">
+<!-- START NAV -->
+<nav class="navbar navbar-expand-lg navbar-light  py-3 " id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger bg_pangaeaclub " href="/"></a><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="navbar-collapse collapse flex-grow-zero" id="navbarResponsive" style="">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0 full-ul">
+                            <li class="nav-item"> <%= link_to "الرئسية", root_path, :class => "nav-link js-scroll-trigger" %></li>
+                            <li class="nav-item"><%= link_to "تواصل معنا", '/about'		, :class => "nav-link js-scroll-trigger" %> </li>
+                        <% if current_user.nil? %>
+                            <li class="nav-item"><%= link_to "تسجيل", new_user_registration_path, :class => "nav-link js-scroll-trigger" %></li>
+                            <li class="nav-item"><%= link_to "تسجيل الدخول", new_user_session_path, :class => "nav-link js-scroll-trigger" %></li>
+                        <% else %>
+                            <li class="nav-item"><%= link_to "تعديل الحساب", edit_user_registration_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                            <li class="nav-item"><%= link_to "رحـلاتـي", bookings_path		, :class => "nav-link js-scroll-trigger" %> </li>
+                            <li class="nav-item"><%= link_to "خروج", destroy_user_session_path, :class => "nav-link js-scroll-trigger" , method: :delete%> </li>
+                        <%# when the admin sign_in %>
+                                <% if current_user.admin %>
+                                    <li class="nav-item"><%= link_to "Dashboard", '/admin' , :class => "nav-link js-scroll-trigger" %></li>
+                                <% end%>
+                        <% end %>  
+                    </ul>
+                </div>
+            </div>
+</nav>
+
+
+
+<!-- END NAV -->
+
+
+<header class="masthead" style="padding-top:20px;">
+            <div class="container h-100 header-flex" >
+                <div class="row h-100 align-items-center justify-content-center text-center" style=" height: 40vh !important;align-content: center !important;">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-black font-weight-bold" style="color:white"> تعديل معلومات الحساب</h1>
+                        <hr class="divider my-4">
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <h3 class="text-white-75 font-weight-light mb-5" style="color:white">
+                        ارجو التأكد من المعلومات أدنى
+                      </h3>
+                        
+                    </div>
+                </div>
+              
+            
+            </div>
+    <!-- END the HEADER -->
+</header>
+</div>
+
+
+<div class="container" style="text-align:right;margin-top:30px">
+  <h2> معلومات الحساب</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputFisrtName">الأسـم الأول</label>
+          <%= f.text_field :first_name , autofocus: true ,:class => "form-control text-right text-right", :id => "inputFisrtName",required: true%>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputLasttName">الأسـم الثاني</label>
+          <%= f.text_field :last_name , autofocus: true ,:class => "form-control text-right", :id => "inputLasttName",required: true%>
+        </div>
     </div>
+
     
-  <%# last_name %>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true , required: true%>
-  </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail">Email</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control text-right", :id => "inputEmail"%>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+          <% end %>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPhone">الـجوال</label>
+              <%= f.text_field :phone, autofocus: true , :class => "form-control text-right", :id => "inputPhone",required: true%>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputPassword">Password</label>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password" , :class => "form-control text-right", :id => "inputPassword"%>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+          <% end %>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPasswordConfirmation">Password confirmation</label>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control text-right", :id => "inputPasswordConfirmation"%>
+        </div>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCurrentPassword">Current Password</label><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control text-right", :id => "inputCurrentPassword",required: true%>
+        </div>
+        <div class="form-group col-md-6 select-form-control">
+          <label for="exampleFormControlSelect1">الدولة</label>
+          <%= f.select :country,["Saudi Arabia","Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"],:class => "form-control text-right", :id => "exampleFormControlSelect1",required: true%>
+        </div>
+      </div>
+
+
+    <div class="actions" style="text-align:center">
+      <%= f.submit t('.update'), :class => "btn btn-primary" %>
+    </div>
+     <hr>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
- <%# phone %>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true , required: true %>
-  </div>
+  <p><h3>هـل تريد حذف حسابك؟</h3> <%= button_to t('.cancel_my_account'),  registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete , :class => "btn btn-danger" %>  </p>
 
-  <%# country %>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autofocus: true , required: true %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
-<%= link_to t('devise.shared.links.back'), :back %>
+</div>
