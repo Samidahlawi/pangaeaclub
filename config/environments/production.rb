@@ -10,6 +10,22 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  #mailer 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'sleepy-inlet-57257.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    domain: "heroku.com",
+    port: 587,
+    user_name: "info.pangaeaclub@gmail.com",
+    password: "pangaeaclub2020",
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
