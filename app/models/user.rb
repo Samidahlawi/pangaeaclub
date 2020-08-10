@@ -28,10 +28,11 @@ class User < ApplicationRecord
   # def after_confirmation
   #   welcome_mailer
   # end
+  
   after_create :welcome_mailer
 
   def welcome_mailer
-    UserMailer.welcome_mailer(self).deliver
+    UserMailer.welcome_mailer(self).deliver_later
   end
 
 end
