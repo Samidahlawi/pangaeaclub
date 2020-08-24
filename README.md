@@ -15,7 +15,7 @@ The Pangaea Application is a website application which helps the user to look or
 ``` Rails s ```
 
 ## Entity Relation Diagram (ERD)
-![ERB](https://ibb.co/VmQ0gjv)
+![ERB](https://i.ibb.co/sH6pKmF/Screen-Shot-2020-08-24-at-5-50-34-PM.jpg)
 
 ## You can try the demo here 
 - https://sleepy-inlet-57257.herokuapp.com/
