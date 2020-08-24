@@ -38,7 +38,7 @@ The Pangaea Application is a website application which helps the user to look or
 - Some gem libraries 
   * toastr-rails
   * devise-i18n And I made a i18n for Arabic as open source 
-  ![arabic-i19n](https://www.udrop.com/Asq/Screen_Shot_2020-08-24_at_6.06.41_PM.jpg)
+  !(arabic-i19n)[https://www.udrop.com/Asq/Screen_Shot_2020-08-24_at_6.06.41_PM.jpg]
   [(for devise v4) by @samidahlawi](https://gist.github.com/9fb0066418e10f0b10a7995fedc5a582) 
   * cloudinary
   * image_processing
